@@ -1,0 +1,609 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>User Ranks</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c8a666a6-614e-42f8-b564-9e284361453d" class="page sans"><header><img class="page-cover-image" src="User Ranks/learning_creators_(1).jpg" style="object-position:center 54.69%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔰</span></div><h1 class="page-title">User Ranks</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th>Created</th><td><time>@Jul 23, 2019 4:34 PM</time></td></tr><tr class="property-row property-row-text"><th>Property</th><td></td></tr><tr class="property-row property-row-text"><th>Property 1</th><td></td></tr><tr class="property-row property-row-multi_select"><th>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="06dc0df5-7c06-4d59-96a0-0170a80ff604" class="">/join for old members. Automatic registration for new members.</p><p id="2d788368-75c4-4f37-9cab-c92b9395b78b" class="">/LCcareer (shows all ranks and conditions to progress)</p><p id="77f70bc2-be5b-444b-84f8-c42003fd0261" class="">/LCprogress (shows user actual rank and status of tasks for next rank)</p><p id="a5311013-924c-4924-9836-f8a8608d0bf1" class="">/list[rank]: admin command (shown the list of users with a certain rank)</p><p id="a71d027f-537b-4a1a-9696-31b162ab11b9" class="">
+</p><p id="043b3fa0-3c74-4a2b-812f-088d2eac0be3" class="">🎖Congratulations❗️ </p><p id="fe007d42-d90a-4b77-abeb-8a530d6c31a5" class="">🎖You have just become a [rank]❗️ </p><p id="3a6f048d-d7fe-434e-afb6-fccc520890b3" class="">🎖Here is your LC rank badge!❗️</p><p id="5e1eb440-dfc9-46e7-8b5f-5463ae2232e2" class="">🎖Next rank is [ ]</p><p id="755f5e46-dace-4d32-bbfe-4ab8d1111738" class="">🎖Requirements: </p><ul id="1b7dd59e-b399-4e84-8196-a876ab063714" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="5199fa23-cad3-4286-8dc0-a33272208d85" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="999bb3e5-283e-41ee-b7d0-33018d3f1453" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="f265d5c6-4035-48ae-bb59-ec9b96639200" class=""><mark class="highlight-orange"><strong>Student</strong></mark>
+*40 messages sent on groups
+*10 LC credit points (bot points) 
+*positive rating/review left to any on the following groups</p><figure id="89cea18f-bcdb-46e9-820b-6e2d2ee282b9"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakgerman-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakgerman-review">https://t.me/tlgrmcbot?start=lcspeakgerman-review</a></div></figure><figure id="d918318f-7dd0-4faf-9576-c967ef440c93"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakarabic-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakarabic-review">https://t.me/tlgrmcbot?start=lcspeakarabic-review</a></div></figure><figure id="4bcabcc9-2b6f-4622-b54f-cee723df83df"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakenglish-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakenglish-review">https://t.me/tlgrmcbot?start=lcspeakenglish-review</a></div></figure><figure id="700e39b8-31bb-4179-8fdf-2587700ab9ff"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakfrench-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakfrench-review">https://t.me/tlgrmcbot?start=lcspeakfrench-review</a></div></figure><figure id="53f6e881-20dd-4daa-8963-729b276e8d16"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakspanish-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakspanish-review">https://t.me/tlgrmcbot?start=lcspeakspanish-review</a></div></figure><figure id="557e62c1-b168-4fcc-83a4-457bf0132064"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakportuguese-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakportuguese-review">https://t.me/tlgrmcbot?start=lcspeakportuguese-review</a></div></figure><figure id="8bd9e0f1-1b19-4183-b0a7-bf91b125ae85"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=learningcreators-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=learningcreators-review">https://t.me/tlgrmcbot?start=learningcreators-review</a></div></figure><figure id="8ae4d049-8d5b-4082-b20b-bcc71fcab6c6"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakbahasa-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakbahasa-review">https://t.me/tlgrmcbot?start=lcspeakbahasa-review</a></div></figure><figure id="6bbf5182-57e3-4d46-ab12-2513bc28845b"><div class="bookmark source"><a href="https://t.me/tlgrmcbot?start=lcspeakchinese-review">Telegramic Bot</a><br/><a class="bookmark-href" href="https://t.me/tlgrmcbot?start=lcspeakchinese-review">https://t.me/tlgrmcbot?start=lcspeakchinese-review</a></div></figure><figure id="b0fa74cb-4d5f-4ef0-975f-08cd2998ae7e" class="image"><a href="User Ranks/Student_logo.jpg"><img style="width:2100px" src="User Ranks/Student_logo.jpg"/></a></figure><p id="af94f4c3-d559-45a6-9f15-d8a6cf4b5755" class="">🎖Congratulations❗️ </p><p id="79e7309d-c28d-4b8b-96f0-e29db6262a7b" class="">🎖You have just become a [rank]❗️ </p><p id="cedfc8d5-ac45-49d9-a1b3-425887841de0" class="">🎖Here is your LC rank badge!❗️</p><p id="ec5f8897-dc83-4ad7-9adb-50ed41af8da1" class="">🎖Next rank is [ ]</p><p id="e90c9dff-7bc7-459f-9d8c-e0964c7afc55" class="">🎖Requirements: </p><ul id="f4d77e3d-3234-4596-85f2-f081dae33471" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="d2933f09-7a5d-43ec-baa3-91e615c7a30b" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="c114177b-2c43-4d80-bfe4-abcff5a6c20a" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="0e37603c-03a3-48cd-94ea-5173dd864d2c" class="">
+</p><p id="52248aa1-8b11-499c-8048-8e0f9564e1c0" class=""><mark class="highlight-orange"><strong>Follower</strong></mark>
+*100 messages
+*20 bot points</p><figure id="87d08407-ede5-466f-b4ec-dbf59d9c11aa" class="image"><a href="User Ranks/Follower_logo.jpg"><img style="width:2100px" src="User Ranks/Follower_logo.jpg"/></a></figure><p id="69835389-47e2-4207-a52d-0e78cb9f451f" class="">
+</p><p id="1a8260f8-ec8c-49a8-ba99-4ec75bc013a7" class="">🎖Congratulations❗️ </p><p id="cf4c6374-7096-48d3-b3ca-7544b88b091d" class="">🎖You have just become a [rank]❗️ </p><p id="654fbc5e-6710-43f8-ad82-65f550b8c2fc" class="">🎖Here is your LC rank badge!❗️</p><p id="e16acae0-f627-4509-8b2d-f1c1f6701035" class="">🎖Next rank is [ ]</p><p id="ed789a94-e9a5-4390-bbc7-a7bf0d164136" class="">🎖Requirements: </p><ul id="88db85a2-4377-4d62-b8de-ec071b89b0fc" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="540a53c4-bfb0-4548-84a6-a08bf1267e03" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="9d93e6ba-b0e0-4903-b5cc-144a66b73ec8" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="9870b9c5-b411-4fb2-98b8-c0ab78db628b" class="">
+</p><p id="3fba5e54-cbfe-4fa8-9b1e-65f931b00439" class=""><mark class="highlight-orange"><strong>Apprentice</strong></mark>
+*300 messages
+*30 bot points
+*5 users invited</p><figure id="6df14490-c6c4-4ef0-98cd-2d691970ffb7" class="image"><a href="User Ranks/Apprentice_logo.jpg"><img style="width:2100px" src="User Ranks/Apprentice_logo.jpg"/></a></figure><p id="f6ac0395-d281-484b-8796-d1ad2cae5254" class="">
+</p><p id="e20de623-9bcf-4872-bf8c-dfece257578b" class="">🎖Congratulations❗️ </p><p id="3178a9b1-5802-44a1-a9f0-3a3d76cef2ac" class="">🎖You have just become a [rank]❗️ </p><p id="6fb8e875-c68c-40fd-b63a-71295f6622eb" class="">🎖Here is your LC rank badge!❗️</p><p id="8f48bdc7-8207-498b-b1f7-f992c3cf9eb7" class="">🎖Next rank is [ ]</p><p id="9f95be3b-9456-4c15-a1fa-9acf14c5a8c9" class="">🎖Requirements: </p><ul id="343e7be0-1686-4b3f-94d0-b156c635ba54" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="a97a9fac-1d07-4e3f-afe6-a9076fe62f00" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="4c4e0f14-6947-4d98-960d-5b2c99993d21" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="2ef1864c-ae3e-46db-998d-33d490a311a0" class="">
+</p><p id="63809d69-65a1-409b-bb4e-51d1934db377" class=""><mark class="highlight-orange"><strong>Instructor</strong></mark>
+*1000 messages
+*250 bot points
+*15 users invited</p><figure id="44619ffd-90d8-4fd4-b8c3-4fefb50ca619" class="image"><a href="User Ranks/Instructor_logo.jpg"><img style="width:2100px" src="User Ranks/Instructor_logo.jpg"/></a></figure><p id="ddee2d2f-6602-49b1-9c69-ad87f0668090" class="">🎖Congratulations❗️ </p><p id="249e1442-a92e-4ee2-a839-f6ae92acffdf" class="">🎖You have just become a [rank]❗️ </p><p id="ba5ee6ce-fbf6-4b5e-8264-2695eb915633" class="">🎖Here is your LC rank badge!❗️</p><p id="ed6ffcf2-fc22-4c77-8cf3-24c721e19055" class="">🎖Next rank is [ ]</p><p id="a86d2d49-6823-4b7f-ba57-634e6a06836f" class="">🎖Requirements: </p><ul id="e9497461-e810-46ac-b6fe-e0ff70725755" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="ffefe4ba-21bc-4f13-b752-b3b44389177b" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="8eaee793-7337-43ab-a093-5291b1f79aee" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="1b2cffa2-1ee1-4431-9995-65a7d016357a" class="">
+</p><p id="23875f25-7da7-4617-9687-7e68a81b8fda" class=""><mark class="highlight-orange"><strong>Teacher</strong></mark>
+*2000 messages
+*1000 bot points
+*15 users invited</p><figure id="c67b9dd6-6feb-4010-ac70-8631dd2cc98c" class="image"><a href="User Ranks/Teacher_logo.jpg"><img style="width:2100px" src="User Ranks/Teacher_logo.jpg"/></a></figure><p id="65ae0fdb-d4e8-4b28-accd-c6eabad01860" class="">🎖Congratulations❗️ </p><p id="c129e9d6-994e-4c09-a64b-7e11626415c0" class="">🎖You have just become a [rank]❗️ </p><p id="8e547a58-c3f9-426e-9b15-0a5708b54cf4" class="">🎖Here is your LC rank badge!❗️</p><p id="7167ff81-9dee-4d29-941b-b5706e38e41a" class="">🎖Next rank is [ ]</p><p id="f327fe3a-89e7-40e3-8ba3-c6bd17990ef8" class="">🎖Requirements: </p><ul id="78818b36-30cf-42e4-8226-a5c750f8d30b" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="9be8f2c2-3193-43e8-a30f-9fa9c5453269" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="bdf06b78-e853-43dd-be34-4179f8dd3729" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="4885bd13-652a-42a2-b844-49e787ad5201" class="">
+</p><p id="3d451753-3716-425e-bc30-3c690e590be8" class=""><mark class="highlight-orange"><strong>Mentor</strong></mark>
+*3000 messages
+*2000 bot points
+*20 users invited</p><figure id="55b49c77-395a-4fbb-b284-70068d97f131" class="image"><a href="User Ranks/Mentor_logo.jpg"><img style="width:2100px" src="User Ranks/Mentor_logo.jpg"/></a></figure><p id="77eb017e-c4cb-4603-acc6-69ca905ab3b2" class="">🎖Congratulations❗️ </p><p id="1295e58d-28c9-4562-8106-ff650f2bd50e" class="">🎖You have just become a [rank]❗️ </p><p id="b0fbf221-d953-466d-941a-3652b81fbe06" class="">🎖Here is your LC rank badge!❗️</p><p id="8629d611-08cd-43b8-91a1-67b1a9192388" class="">🎖Next rank is [ ]</p><p id="d6e991e6-227e-46e6-8387-5a2dfd4f4d2e" class="">🎖Requirements: </p><ul id="3d32950d-6d8d-4414-b79a-6461a0fd3635" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="fa4e5bf5-b77d-4b30-ac9a-5177fe0a5f9d" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="97ad5b85-472a-46b2-a896-2173984e0dab" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="f580faa2-2ea9-4760-9017-5197d3eae8db" class="">
+</p><p id="b953db54-cbbd-48fd-afda-ccc8cd3ba070" class=""><mark class="highlight-orange"><strong>Master</strong></mark>
+*4000 messages
+*3000 bot points
+*25 users invited</p><figure id="bd086a5a-8103-4ce6-bd05-4c55a4e8c883" class="image"><a href="User Ranks/Master_logo.jpg"><img style="width:2100px" src="User Ranks/Master_logo.jpg"/></a></figure><p id="81d88f1c-0b65-4557-91bc-0adbc65e10d1" class="">Reward: </p><p id="3f95baa1-709c-40c1-99d7-c7a2f14617ac" class="">
+</p><p id="8778aade-4b8a-4ea8-8b8a-848ad0517240" class=""><mark class="highlight-orange"><strong>Scholar</strong></mark>
+*6000 messages
+*6000 bot points</p><figure id="75dbd642-0dd5-48cb-8868-689a2ccb898d" class="image"><a href="User Ranks/Scholar_logo_(1).jpg"><img style="width:2100px" src="User Ranks/Scholar_logo_(1).jpg"/></a></figure><p id="3a153719-a8ba-42bb-9867-8b6ce40c1016" class="">🎖Congratulations❗️ </p><p id="b35a1748-75e2-4d9c-87ce-70b856d1820f" class="">🎖You have just become a [rank]❗️ </p><p id="99fa5dbc-002c-43cc-91b9-2251df5d4349" class="">🎖Here is your LC rank badge!❗️</p><p id="392dd515-63c4-4f65-86d5-9a8a26dae110" class="">🎖Next rank is [ ]</p><p id="85f9da1a-c334-4a1a-b069-7fa518242247" class="">🎖Requirements: </p><ul id="dba55aa5-5187-4be2-a310-39dcdd87530c" class="bulleted-list"><li>reach [......] messages</li></ul><ul id="8666d9cf-ca59-4116-ae2a-b3e8d7a208af" class="bulleted-list"><li>reach [......] LC credit points</li></ul><ul id="e7f84178-1ea9-422f-b63c-750e446fae4b" class="bulleted-list"><li>reach [......] invited to join LC groups</li></ul><p id="1d8f9569-a421-4d5e-9d3a-be9de2c7e45d" class="">
+</p><p id="b1d8a157-d829-4bb6-8752-951df544bc96" class=""><mark class="highlight-orange"><strong>Eminence</strong></mark>
+*8000 messages
+*8000 bot points</p><figure id="da383657-4eea-45d9-b3ba-081b32c9d41a" class="image"><a href="User Ranks/Eminence_logo_(1).jpg"><img style="width:2100px" src="User Ranks/Eminence_logo_(1).jpg"/></a></figure><p id="7526e9d3-e28a-42e7-8709-9034a501b5f4" class="">Reward:</p><p id="4416f3de-618c-4031-9fe0-4c7d2c3a108b" class="">
+</p><p id="3545deee-0d0a-4ff8-9338-3b180505d282" class=""><mark class="highlight-orange"><strong>Guru</strong></mark>
+*10000 messages
+*10000 bot points
+*50 users invited</p><figure id="9c3da985-0546-4545-b0bd-f26493eb8ec4" class="image"><a href="User Ranks/Guru_logo.jpg"><img style="width:2100px" src="User Ranks/Guru_logo.jpg"/></a></figure><p id="3239743d-b114-401d-b576-cd54f2c8fb65" class="">Reward:</p><p id="3181d27b-36a2-4c9a-96c0-f571d49e9a41" class="">
+</p><p id="271847b1-7738-43e7-b3f7-47b5aa0cc056" class=""><mark class="highlight-orange"><strong>Titan</strong></mark>
+*20000 messages
+*20000 bot points
+*100 users invited</p><figure id="f9ce3ad4-f6b7-4af7-a3a5-b3ca9c6891fe" class="image"><a href="User Ranks/Titan_logo_(1)_(1).jpg"><img style="width:2100px" src="User Ranks/Titan_logo_(1)_(1).jpg"/></a></figure><p id="d4aad609-5205-4af8-89be-0366603cb8d4" class="">Reward:</p><figure id="c2d21822-2519-4fb9-a0ad-c8f7de1a6a51"><div class="source"><a href="User Ranks/source_files_RANKS.zip">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/041c95d9-e767-4637-80c9-b4d083cf2807/source_files_RANKS.zip</a></div></figure><p id="3e0dc11d-ecbb-4861-af05-39c1e9e457c9" class=""><mark class="highlight-blue"><strong>Bot proceedings:</strong></mark></p><ul id="67455f58-0871-4151-93fb-fe0ecd64dbd4" class="bulleted-list"><li>User will be notified in the chat group about having achieved a higher rank (visible to all)</li></ul><ul id="4bcbe7e2-492b-4d6a-bdff-58e2c7bbd02f" class="bulleted-list"><li>The notifying post should include a like button (Like and share bot may be integrated)</li></ul><ul id="2dcf5101-4953-483d-9375-4c07b849b29f" class="bulleted-list"><li>Bot will sent a file with instructions on how to claim the respective reward of the new rank in a private message to the user</li></ul><ul id="56f67ed2-bd4c-448c-9691-3fa435067f2e" class="bulleted-list"><li>Bot will also explain the conditions for reaching the next rank</li></ul><ul id="d15990bc-767c-487f-8d4e-4b59cc076d64" class="bulleted-list"><li>Bot will display the status of a user upon request (ex: my stats: 546 messages out of 1000 required for the next rank)</li></ul><ul id="68aede74-88fe-424b-a8fa-f33793c224f2" class="bulleted-list"><li>Bot will display the list of users per rank if requested</li></ul><ul id="6dbc3419-3131-447c-a024-987a83f0dba0" class="bulleted-list"><li>Bot will display and monitor the referral link for the ranks requiring the invitation of other users</li></ul><ul id="22d95cf4-43e9-46f1-bc4c-dcea3fa59b5e" class="bulleted-list"><li>Invited users must be active for 2 days so that the invitation will be considered as completed</li></ul><p id="ee25af38-459f-4a95-b2a9-8a539e850026" class="">
+</p></div></article></body></html>
