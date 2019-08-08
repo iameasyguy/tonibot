@@ -26,7 +26,7 @@ def save_apolo_question(update,context):
             if len(add_det)>0:
                 Apolo(question=qstn, answer=answer, username=user.username,user_id=user.id).save()
 
-                update.message.reply_text('Please select the group you want to post the Apolo trivia')
+                update.message.reply_text('Please select the group you want to post the Apollo trivia')
                 for data in add_det:
                     key_main = [[InlineKeyboardButton(f"{data.group_language} Group", callback_data=f'apolq+{data.group_id}')]]
                     main_markup = InlineKeyboardMarkup(key_main)

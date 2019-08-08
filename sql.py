@@ -22,7 +22,7 @@ class Users(Document):
     @queryset_manager
     def get_all_admins(self,queryset):
 
-        return queryset.filter(role=2)[0]
+        return queryset.filter(role=2)
 
     @queryset_manager
     def delete_admin(self,queryset,user_id):
