@@ -142,3 +142,56 @@ class Apolo(Document):
     @queryset_manager
     def get_apolo_question_type(self,queryset,msg_id):
         return queryset.filter(message_id=msg_id)[0].question_type
+
+
+
+class Seshat(Document):
+    user_id = IntField(required=True)
+    file_id= StringField(null=True)
+    question = StringField(null=True)
+    answer = StringField(null=True)
+    group_id = IntField(null=True)
+    message_id = IntField(null=True)
+    question_type = StringField(null=True)
+    status = IntField(default=0)
+
+    @queryset_manager
+    def get_last_seshat_id(self, queryset, user_id):
+        return queryset.filter(user_id=user_id).order_by('-id').first().id
+
+    @queryset_manager
+    def change_seshat_qstn(self,queryset, question, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(question=question)
+
+    @queryset_manager
+    def change_seshat_answer(self,queryset, answer, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(answer=answer)
+
+    @queryset_manager
+    def change_seshat_group_id(self, queryset,group_id, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(group_id=group_id)
+
+    @queryset_manager
+    def get_seshat_question(self, queryset, qid,user_id):
+        return queryset.filter(id=qid,user_id=user_id)[0].question,queryset.filter(id=qid,user_id=user_id)[0].file_id
+
+    @queryset_manager
+    def change_seshat_message_id(self,queryset, message_id, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(message_id=message_id)
+
+    @queryset_manager
+    def get_seshat_question_type(self,queryset,msg_id):
+        return queryset.filter(message_id=msg_id)[0].question_type
+
+    @queryset_manager
+    def get_seshat_answer_by_msg_id(self, queryset,msg_id):
+        return queryset.filter(message_id=msg_id)[0].answer
+
+    @queryset_manager
+    def get_seshat_qstn_status(self, queryset, msg_id):
+        return queryset.filter(message_id=msg_id)[0].status
+
+    @queryset_manager
+    def change_seshat_qstn_status(self,queryset, status, msg_id):
+        return queryset.filter(message_id=msg_id)[0].update(status=status)
+

@@ -10,7 +10,7 @@ sql= db.DBHelper()
 @util.send_typing_action
 def manage_admin(update,context):
 
-    admins = sql.get_all_admins()
+    # admins = sql.get_all_admins()
     user = update.message.from_user
     chat_type = update.message.chat.type
     admin = sql.check_admin(user.id)

@@ -51,7 +51,6 @@ def activity_select(update, context):
 def jarvis(update,context):
     query = update.callback_query
     text = str(query.data)
-    chat_id = update.callback_query.message.chat.id
     user = query.from_user
     # print(text)
     user_id = user.id
@@ -92,11 +91,14 @@ def jarvis(update,context):
         return SESHAT
     elif text.startswith("qseshat"):
         print(text)
-        last_id = sqls.get_last_seshat_id(user_id)
+        # last_id = sqls.get_last_seshat_id(user_id)
+        last_id =Seshat.get_last_seshat_id(user_id=user_id)
         group_id = text.split('+')[1]
-        sqls.change_seshat_group_id(group_id=group_id, tbl_id=last_id, user_id=user_id)
+        # sqls.change_seshat_group_id(group_id=group_id, tbl_id=last_id, user_id=user_id)
+        Seshat.change_seshat_group_id(group_id=group_id, tbl_id=last_id, user_id=user_id)
         # sqls.change_qstn_status(status=2, tbl_id=tbl_id, user_id=user_id)
-        msg = sqls.get_seshat_question(last_id, user_id)
+        # msg = sqls.get_seshat_question(last_id, user_id)
+        msg = Seshat.get_seshat_question(qid=last_id,user_id=user_id)
         swali, file_id = msg
         try:
             payload = context.bot.send_photo(chat_id=group_id, photo=file_id,
@@ -109,7 +111,8 @@ def jarvis(update,context):
 
         message_id = payload.message_id
         print(message_id)
-        sqls.change_seshat_message_id(message_id=message_id, tbl_id=last_id, user_id=user_id)
+        # sqls.change_seshat_message_id(message_id=message_id, tbl_id=last_id, user_id=user_id)
+        Seshat.change_seshat_message_id(message_id=message_id, tbl_id=last_id, user_id=user_id)
         context.bot.edit_message_text(
             text="The Message was successfully posted in the group\nTo post another message click the POST key",
             chat_id=update.callback_query.message.chat_id,
@@ -125,7 +128,8 @@ def jarvis(update,context):
             message_id=update.callback_query.message.message_id, )
     elif text.startswith('usr'):
         admin_id = text.split('+')[1]
-        sqls.delete_admin(admin_id=admin_id)
+        # sqls.delete_admin(admin_id=admin_id)
+        Users.delete_admin(user_id=admin_id)
         context.bot.edit_message_text(
             text="The Teacher was successfully deleted",
             chat_id=update.callback_query.message.chat_id,

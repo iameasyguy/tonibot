@@ -7,7 +7,7 @@ from sql import *
 # -*- coding: utf-8 -*-
 import db
 import util
-import ro
+import ra
 
 # sqls = db.DBHelper()
 
@@ -18,7 +18,7 @@ def save_apolo_question(update,context):
     user = update.message.from_user
     answer = update.message.text
     qstn = util.randomize(answer)
-    validate =Apolo.get_apolo_answer(user_id=user.id,answer=qstn)
+    validate =Apolo.get_apolo_answer(user_id=user.id,answer=answer)
 
     # id, group_id, group_title
     if chat_type == "private":
@@ -31,10 +31,10 @@ def save_apolo_question(update,context):
                     key_main = [[InlineKeyboardButton(f"{data.group_language} Group", callback_data=f'apolq+{data.group_id}')]]
                     main_markup = InlineKeyboardMarkup(key_main)
                     update.message.reply_text('<-------👇---------->', reply_markup=main_markup)
-                return ro.GROUP
+                return ra.GROUP
             else:
                 update.message.reply_text('No Groups Available please add the bot to a group and make it admin')
                 return ConversationHandler.END
         else:
             update.message.reply_text('This question already exists!!! Share another one')
-            return ro.APOLO
+            return ra.APOLO
