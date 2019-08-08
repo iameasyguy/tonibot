@@ -247,3 +247,49 @@ class Zamol(Document):
 
 
 
+class Gaia(Document):
+    user_id = IntField(required=True)
+    file_id = StringField(null=True)
+    question = StringField(null=True)
+    group_id = IntField(null=True)
+    message_id = IntField(null=True)
+    question_type = StringField(null=True)
+    status = IntField(default=0)
+    lang = StringField(null=True)
+
+    @queryset_manager
+    def get_last_gaia_id(self, queryset, user_id):
+        return queryset.filter(user_id=user_id).order_by('-id').first().id
+    @queryset_manager
+    def get_gaia_qstn_lang(self,queryset, tbl_id, user_id):
+        return queryset.filter(id=tbl_id, user_id=user_id)[0].lang
+
+    @queryset_manager
+    def change_gaia_fileid(self, queryset,file_id, question,  user_id,tbl_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(file_id=file_id, question=question)
+    @queryset_manager
+    def get_gaia_question(self,queryset, tbl_id, user_id):
+        query = queryset.filter(id=tbl_id,user_id=user_id)[0]
+        return query.lang, query.question, query.file_id, query.group_id
+    @queryset_manager
+    def change_gaia_qstn_message_id(self,queryset, message_id, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(message_id=message_id)
+
+    @queryset_manager
+    def update_gaia_clip_qstn(self,queryset, question, tbl_id, user_id):
+        return queryset.filter(id=tbl_id, user_id=user_id)[0].update(question=question)
+
+    @queryset_manager
+    def get_gaia_question_type(self,queryset, msg_id):
+        return queryset.filter(message_id=msg_id)[0].question_type
+
+    @queryset_manager
+    def get_gaia_qstnsby_msgid(self,queryset, msg_id, group_id):
+        query= queryset.filter(message_id=msg_id,group_id=group_id)[0]
+        return query.query.lang,query.question
+    @queryset_manager
+    def get_gaia_qstn_status(self,queryset, msg_id):
+        return queryset.filter(message_id=msg_id)[0].status
+    @queryset_manager
+    def change_gaia_qstn_status(self,queryset, status, msg_id):
+        return queryset.filter(message_id=msg_id)[0].update(status=status)

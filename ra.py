@@ -159,7 +159,7 @@ def jarvis(update,context):
         group_id = text.split('+')[1]
         language = text.split('+')[2]
         # sqls.add_zamol_question(user_id=user_id,group_id=group_id,language=language,questiontype='zamol')
-        Zamol(user_id=user_id,group_id=group_id,language=language,questiontype='zamol').save()
+        Zamol(user_id=user_id,group_id=group_id,lang=language,question_type='zamol').save()
         context.bot.edit_message_text(
             text=f"Please record your message in {language}",
             chat_id=update.callback_query.message.chat_id,
@@ -192,11 +192,12 @@ def jarvis(update,context):
             message_id=update.callback_query.message.message_id)
         return LANG
     elif text.startswith('gaia'):
-        group = sqls.get_all_group_details()
+        # group = sqls.get_all_group_details()
+        group = Groups.objects
         if len(group) > 0:
 
             for data in group:
-                key_main = [[InlineKeyboardButton(f"{data[2]} Group", callback_data=f'cgaia+{data[1]}+{data[2]}')]]
+                key_main = [[InlineKeyboardButton(f"{data.group_language} Group", callback_data=f'cgaia+{data.group_id}+{data.group_language}')]]
                 main_markup = InlineKeyboardMarkup(key_main)
                 context.bot.edit_message_text(
                     text="Please select the group you want to post the Gaia trivia",
@@ -216,6 +217,7 @@ def jarvis(update,context):
         language = text.split('+')[2]
 
         sqls.add_gaia_question(user_id=user_id,group_id=group_id,language=language,questiontype='gaia')
+        Gaia(user_id=user_id,group_id=group_id,lang=language,question_type='gaia').save()
         context.bot.edit_message_text(
             text=f"Please record your message in {language}",
             chat_id=update.callback_query.message.chat_id,
@@ -223,12 +225,14 @@ def jarvis(update,context):
         return GAIA
     elif text.startswith('yesg'):
         tbl_id = text.split('+')[1]
-        lang, qstn,file_id,g_id = sqls.get_gaia_question(tbl_id=tbl_id,user_id=user_id)
+        # lang, qstn,file_id,g_id = sqls.get_gaia_question(tbl_id=tbl_id,user_id=user_id)
+        lang, qstn,file_id,g_id = Gaia.get_gaia_question(tbl_id=tbl_id,user_id=user_id)
         payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
                                  caption="🗣Please listen to Ro’s recording, then long-press, click reply and record what you heard!")
         message_id = payload.message_id
         print(message_id)
-        sqls.change_gaia_qstn_message_id(message_id=message_id,tbl_id=tbl_id,user_id=user_id)
+        # sqls.change_gaia_qstn_message_id(message_id=message_id,tbl_id=tbl_id,user_id=user_id)
+        Gaia.change_gaia_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
         context.bot.edit_message_text(
             text="The Message was successfully posted in the group\nTo post another message click the POST button",
             chat_id=update.callback_query.message.chat_id,
