@@ -13,7 +13,7 @@ def manage_admin(update,context):
     # admins = sql.get_all_admins()
     user = update.message.from_user
     chat_type = update.message.chat.type
-    admin = sql.check_admin(user.id)
+    # admin = sql.check_admin(user.id)
     print(admin)
     if chat_type == "private":
         if admin == 2:
