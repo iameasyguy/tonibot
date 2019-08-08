@@ -6,7 +6,7 @@ from sql import *
 from util import Speech,convert_ogg_to_wav, clear_teacher,clear_student,validate,language_select
 import util
 import db
-import ro
+import ra
 sqls =db.DBHelper()
 speech = Speech()
 
@@ -37,11 +37,11 @@ def clip(update,context):
             if text==401:
                 update.message.reply_text("Hi {}, I did not understand this, please try again".format(user.first_name))
                 clear_teacher(user_id=user.id)
-                return ro.ZAMOL
+                return ra.ZAMOL
             elif text==500:
                 update.message.reply_text("Sorry {}, I got a little light headed, please try again".format(user.first_name))
                 clear_teacher(user_id=user.id)
-                return ro.ZAMOL
+                return ra.ZAMOL
             else:
                 # sqls.change_zamol_fileid(file_id=file_id,question=text,user_id=user.id,tbl_id=tbl_id)
                 Zamol.change_zamol_fileid(file_id=file_id,question=text,user_id=user.id,tbl_id=tbl_id)
@@ -58,11 +58,11 @@ def clip(update,context):
                     chat_id=chat_id,
                     message_id=messageid,parse_mode=ParseMode.MARKDOWN,reply_markup=main_markup)
 
-            return ro.LANG
+            return ra.LANG
         else:
             context.bot.send_message(chat_id=update.message.chat_id, text="Your recording should be only 10 seconds or less, Please try again!")
             clear_teacher(user_id=user.id)
-            return ro.ZAMOL
+            return ra.ZAMOL
 
 
 @util.send_typing_action

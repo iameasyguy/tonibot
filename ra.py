@@ -135,11 +135,12 @@ def jarvis(update,context):
             chat_id=update.callback_query.message.chat_id,
             message_id=update.callback_query.message.message_id)
     elif text.startswith('zamol'):
-        group = sqls.get_all_group_details()
+        # group = sqls.get_all_group_details()
+        group =Groups.objects
         if len(group) > 0:
 
             for data in group:
-                key_main = [[InlineKeyboardButton(f"{data[2]} Group", callback_data=f'gzamol+{data[1]}+{data[2]}')]]
+                key_main = [[InlineKeyboardButton(f"{data.group_language} Group", callback_data=f'gzamol+{data.group_id}+{data.group_language}')]]
                 main_markup = InlineKeyboardMarkup(key_main)
                 context.bot.edit_message_text(
                     text="Please select the group you want to post the Zamolxis trivia",
@@ -157,7 +158,8 @@ def jarvis(update,context):
         print(text)
         group_id = text.split('+')[1]
         language = text.split('+')[2]
-        sqls.add_zamol_question(user_id=user_id,group_id=group_id,language=language,questiontype='zamol')
+        # sqls.add_zamol_question(user_id=user_id,group_id=group_id,language=language,questiontype='zamol')
+        Zamol(user_id=user_id,group_id=group_id,language=language,questiontype='zamol').save()
         context.bot.edit_message_text(
             text=f"Please record your message in {language}",
             chat_id=update.callback_query.message.chat_id,
@@ -165,7 +167,8 @@ def jarvis(update,context):
         return ZAMOL
     elif text.startswith('yesz'):
         tbl_id = text.split('+')[1]
-        lang, qstn,file_id,g_id = sqls.get_zamol_question(tbl_id=tbl_id,user_id=user_id)
+        # lang, qstn,file_id,g_id = sqls.get_zamol_question(tbl_id=tbl_id,user_id=user_id)
+        lang, qstn, file_id, g_id = Zamol.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
         payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
                                  caption="🗣Please listen to Ro’s recording, then long-press, click reply and write what you heard!")
         message_id = payload.message_id
