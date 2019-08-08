@@ -3,11 +3,11 @@
 from functools import wraps
 
 from telegram import ReplyKeyboardMarkup
-
+from sql import *
 import util
 import db
 import config
-sql = db.DBHelper()
+sqls = db.DBHelper()
 
 
 
@@ -30,7 +30,8 @@ def start(update, context):
     chat_id = msg.chat.id
     user = update.message.from_user
     chat_type = update.message.chat.type
-    admins = sql.check_admin(user.id)
+    # admins = sqls.check_admin(user.id)
+    admins=Users.check_admin(user_id=user.id)
     if int(admins)==2:
         admin_keyboard = [['POST', 'MANAGE GROUPS'],
                           ['ADD ADMIN', 'REMOVE ADMINS'],
