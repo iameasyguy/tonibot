@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ChatAction, ParseMode
 from telegram.ext import ConversationHandler
-
+from sql import *
 from util import Speech,convert_ogg_to_wav, clear_teacher,clear_student,validate,language_select
 import util
 import db
 import ro
-sql =db.DBHelper()
+sqls =db.DBHelper()
 speech = Speech()
 
 @util.send_typing_action
@@ -16,7 +16,8 @@ def clip(update,context):
     chat_id = msg.chat.id
     user = update.message.from_user
     chat_type = update.message.chat.type
-    tbl_id =sql.get_last_zamol_id(user_id=user.id)
+    # tbl_id =sqls.get_last_zamol_id(user_id=user.id)
+    tbl_id =Zamol.get_last_zamol_id(user_id=user.id)
     # user_id,language,file_id
     if chat_type=="private":
         file_id = update.message.voice.file_id
@@ -27,7 +28,8 @@ def clip(update,context):
             new = convert_ogg_to_wav("clip_{}.ogg".format(user.id), "voi_{}.wav".format(user.id))
             speech.file = new
 
-            get_lang = sql.get_zamol_qstn_lang(tbl_id=tbl_id,user_id=user.id)
+            # get_lang = sqls.get_zamol_qstn_lang(tbl_id=tbl_id,user_id=user.id)
+            get_lang =Zamol.get_zamol_qstn_lang(tbl_id=tbl_id,user_id=user.id)
             print(get_lang)
             lan = language_select(language=get_lang)
             text = speech.to_text(lang=lan)
@@ -41,7 +43,8 @@ def clip(update,context):
                 clear_teacher(user_id=user.id)
                 return ro.ZAMOL
             else:
-                sql.change_zamol_fileid(file_id=file_id,question=text,user_id=user.id,tbl_id=tbl_id)
+                # sqls.change_zamol_fileid(file_id=file_id,question=text,user_id=user.id,tbl_id=tbl_id)
+                Zamol.change_zamol_fileid(file_id=file_id,question=text,user_id=user.id,tbl_id=tbl_id)
                 clear_teacher(user_id=user.id)
                 key_main = [[InlineKeyboardButton("Correct👌", callback_data=f'yesz+{tbl_id}'),
                              InlineKeyboardButton("Repeat❌", callback_data="noz")],
@@ -68,17 +71,21 @@ def edit_clip(update,context):
     chat_id = msg.chat.id
     text = update.message.text
     user = update.message.from_user
-    tbl_id = sql.get_last_zamol_id(user_id=user.id)
-    sql.update_zamol_clip_qstn(question=text,tbl_id=tbl_id,user_id=user.id)
+    # tbl_id = sqls.get_last_zamol_id(user_id=user.id)
+    tbl_id = Zamol.get_last_zamol_id(user_id=user.id)
+    # sqls.update_zamol_clip_qstn(question=text,tbl_id=tbl_id,user_id=user.id)
+    Zamol.update_zamol_clip_qstn(question=text,tbl_id=tbl_id,user_id=user.id)
     loadpay =context.bot.send_message(chat_id=update.message.chat_id, text="Processing ...")
     messageid =loadpay.message_id
     context.bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
-    lang, qstn, file_id, g_id = sql.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
+    # lang, qstn, file_id, g_id = sqls.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
+    lang, qstn, file_id, g_id =Zamol.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
     payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
                                      caption="🗣Please listen to Ro’s recording, then long-press, click reply and record what you heard!")
     message_id = payload.message_id
     print(message_id)
-    sql.change_zamol_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user.id)
+    # sqls.change_zamol_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user.id)
+    Zamol.change_zamol_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user.id)
     context.bot.edit_message_text(
         text="The Message was successfully posted in the group\nTo post another message click the POST button",
         chat_id=chat_id,
