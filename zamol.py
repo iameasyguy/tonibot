@@ -73,6 +73,7 @@ def edit_clip(update,context):
     user = update.message.from_user
     # tbl_id = sqls.get_last_zamol_id(user_id=user.id)
     tbl_id = Zamol.get_last_zamol_id(user_id=user.id)
+    print("tbl_id",tbl_id)
     # sqls.update_zamol_clip_qstn(question=text,tbl_id=tbl_id,user_id=user.id)
     Zamol.update_zamol_clip_qstn(question=text,tbl_id=tbl_id,user_id=user.id)
     loadpay =context.bot.send_message(chat_id=update.message.chat_id, text="Processing ...")

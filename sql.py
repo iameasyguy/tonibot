@@ -8,6 +8,13 @@ class Users(Document):
     role = IntField(required=True,default=0)
 
     @queryset_manager
+    def check_user(self, queryset, user_id):
+        try:
+            if queryset.filter(user_id=user_id)[0]:
+                return True
+        except:
+            return False
+    @queryset_manager
     def check_admin(self,checkadmin,user_id):
         if checkadmin.filter(user_id=user_id,role=1):
             return 1
@@ -68,7 +75,7 @@ class Groups(Document):
 
 
 class Answers(Document):
-    user_id =IntField(required=True,unique=True)
+    user_id =IntField(required=True)
     correct = IntField(required=True,default=0)
     incorrect = IntField(required=True,default=0)
     answertype = StringField(null=True)
@@ -89,13 +96,13 @@ class Answers(Document):
 
     @queryset_manager
     def update_correct(self,queryset,correct,answertype,user_id):
-        queryset.filter(user_id=user_id)[0].update(answertype=answertype,correct=correct)
-        return f"answertype updated to {answertype} & {correct}"
+
+        return queryset.filter(user_id=user_id)[0].update(answertype=answertype,correct=correct)
 
     @queryset_manager
     def update_incorrect(self, queryset, incorrect, answertype, user_id):
-        queryset.filter(user_id=user_id)[0].update(answertype=answertype, incorrect=incorrect)
-        return f"answertype updated to {answertype} & {incorrect}"
+
+        return queryset.filter(user_id=user_id)[0].update(answertype=answertype, incorrect=incorrect)
 
 class Apolo(Document):
     user_id = IntField(required=True)
@@ -132,6 +139,10 @@ class Apolo(Document):
         return queryset.filter(id =qid)[0].question
 
     @queryset_manager
+    def get_apolo_qstn_status(self, queryset, msg_id):
+        return queryset.filter(message_id=msg_id)[0].status
+
+    @queryset_manager
     def change_apolo_qstn_group_id(self, queryset, group_id,qid,user_id):
         return queryset.filter(id=qid,user_id=user_id)[0].update(group_id=group_id)
 
@@ -141,7 +152,12 @@ class Apolo(Document):
 
     @queryset_manager
     def get_apolo_question_type(self,queryset,msg_id):
-        return queryset.filter(message_id=msg_id)[0].question_type
+        try:
+            if queryset.filter(message_id=msg_id)[0].question_type is not None:
+                return queryset.filter(message_id=msg_id)[0].question_type
+        except IndexError:
+            return False
+
 
 
 
@@ -181,7 +197,12 @@ class Seshat(Document):
 
     @queryset_manager
     def get_seshat_question_type(self,queryset,msg_id):
-        return queryset.filter(message_id=msg_id)[0].question_type
+        try:
+            if queryset.filter(message_id=msg_id)[0].question_type is not None:
+                return queryset.filter(message_id=msg_id)[0].question_type
+        except IndexError:
+            return False
+
 
     @queryset_manager
     def get_seshat_answer_by_msg_id(self, queryset,msg_id):
@@ -233,7 +254,15 @@ class Zamol(Document):
         return queryset.filter(id=tbl_id,user_id=user_id)[0].update(question=question)
     @queryset_manager
     def get_zamol_question_type(self, queryset,msg_id):
-        return queryset.filter(message_id=msg_id)[0].question_type
+        try:
+            if queryset.filter(message_id=msg_id)[0].question_type is not None:
+                return queryset.filter(message_id=msg_id)[0].question_type
+        except IndexError:
+            return False
+
+
+
+
     @queryset_manager
     def get_zamol_qstnsby_msgid(self,queryset, msg_id, group_id):
         return queryset.filter(message_id=msg_id,group_id=group_id)[0]
@@ -281,12 +310,17 @@ class Gaia(Document):
 
     @queryset_manager
     def get_gaia_question_type(self,queryset, msg_id):
-        return queryset.filter(message_id=msg_id)[0].question_type
+        try:
+            if queryset.filter(message_id=msg_id)[0].question_type is not None:
+                return queryset.filter(message_id=msg_id)[0].question_type
+        except IndexError:
+            return False
+
 
     @queryset_manager
     def get_gaia_qstnsby_msgid(self,queryset, msg_id, group_id):
         query= queryset.filter(message_id=msg_id,group_id=group_id)[0]
-        return query.query.lang,query.question
+        return query.lang,query.question
     @queryset_manager
     def get_gaia_qstn_status(self,queryset, msg_id):
         return queryset.filter(message_id=msg_id)[0].status

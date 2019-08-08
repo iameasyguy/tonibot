@@ -9,13 +9,13 @@ import os
 import subprocess
 # Enable logging
 import db
-
+from sql import *
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
-sql =db.DBHelper()
+sqls =db.DBHelper()
 
 def send_typing_action(func):
     """Sends typing action while processing func command."""
@@ -52,22 +52,27 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def question_type(message_id):
-    apolo_qstn_type = sql.get_apolo_question_type(msg_id=message_id)
-    seshat_qstn_type = sql.get_seshat_question_type(msg_id=message_id)
-    zamol_qstn_type = sql.get_zamol_question_type(msg_id=message_id)
-    gaia_qstn_type = sql.get_gaia_question_type(msg_id=message_id)
+    # apolo_qstn_type = sqls.get_apolo_question_type(msg_id=message_id)
+    try:
+        apolo_qstn_type = Apolo.get_apolo_question_type(msg_id=message_id)
+        seshat_qstn_type = Seshat.get_seshat_question_type(msg_id=message_id)
+        zamol_qstn_type = Zamol.get_zamol_question_type(msg_id=message_id)
+        gaia_qstn_type = Gaia.get_gaia_question_type(msg_id=message_id)
+    except IndexError:
+        pass
     if apolo_qstn_type != False:
         qstn_type = apolo_qstn_type
         return qstn_type
     elif seshat_qstn_type != False:
         qstn_type = seshat_qstn_type
         return qstn_type
-    elif zamol_qstn_type!=False:
+    elif zamol_qstn_type != False:
         qstn_type = zamol_qstn_type
         return qstn_type
-    elif gaia_qstn_type!=False:
-        qstn_type=gaia_qstn_type
+    elif gaia_qstn_type != False:
+        qstn_type = gaia_qstn_type
         return qstn_type
+
 
 
 def validate(s):

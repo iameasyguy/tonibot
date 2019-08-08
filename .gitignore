@@ -126,3 +126,4 @@ dmypy.json
 config.py
 k.py
 .idea/inspectionProfiles/
+main.sqlite

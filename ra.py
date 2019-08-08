@@ -173,7 +173,7 @@ def jarvis(update,context):
                                  caption="🗣Please listen to Ro’s recording, then long-press, click reply and write what you heard!")
         message_id = payload.message_id
         print(message_id)
-        sqls.change_zamol_qstn_message_id(message_id=message_id,tbl_id=tbl_id,user_id=user_id)
+        Zamol.change_zamol_qstn_message_id(message_id=message_id,tbl_id=tbl_id,user_id=user_id)
         context.bot.edit_message_text(
             text="The Message was successfully posted in the group\nTo post another message click the POST button",
             chat_id=update.callback_query.message.chat_id,
@@ -216,7 +216,7 @@ def jarvis(update,context):
         group_id = text.split('+')[1]
         language = text.split('+')[2]
 
-        sqls.add_gaia_question(user_id=user_id,group_id=group_id,language=language,questiontype='gaia')
+        # sqls.add_gaia_question(user_id=user_id,group_id=group_id,language=language,questiontype='gaia')
         Gaia(user_id=user_id,group_id=group_id,lang=language,question_type='gaia').save()
         context.bot.edit_message_text(
             text=f"Please record your message in {language}",
@@ -255,22 +255,36 @@ def observer(update,context):
     print(user_answer)
     if bot_username==config.BOT_USERNAME and (chat_type=="group" or chat_type=="supergroup"):
 
-        sqls.set_user(user_id=user.id,username=user.username,role=0)
+        # sqls.set_user(user_id=user.id,username=user.username,role=0)
+        print(Users.check_user(user_id=user.id))
+        if Users.check_user(user_id=user.id)==False:
+            Users(user_id=user.id,username=user.username,role=0).save()
         message_id = update.message.reply_to_message.message_id
         qstn_type = util.question_type(message_id=message_id)
         print(qstn_type)
         if qstn_type=='apolo':
-            sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
-            answer = sqls.get_apolo_answer_by_msg_id(msg_id=message_id)
-            correct, incorrect = sqls.get_correct_incorrect(user_id=user.id,answertype=qstn_type)
-            if user_answer.lower()==answer.lower():
-                status = sqls.get_apolo_qstn_status(msg_id=message_id)
-                if status == 0:
-                    sqls.change_apolo_qstn_status(status=1,msg_id=message_id)
+            answ = Answers.check_user_answer(user_id=user.id,answertype=qstn_type)
+            print(answ)
+            if answ==False:
+                Answers(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type).save()
 
+
+            # answer = sqls.get_apolo_answer_by_msg_id(msg_id=message_id)
+            answer = Apolo.get_apolo_answer_by_msg_id(msg_id=message_id)
+            # correct, incorrect = sqls.get_correct_incorrect(user_id=user.id,answertype=qstn_type
+            correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype=qstn_type)
+            if user_answer.lower()==answer.lower():
+                print(message_id)
+                print(correct, incorrect)
+                # status = sqls.get_apolo_qstn_status(msg_id=message_id)
+                status = Apolo.get_apolo_qstn_status(msg_id=message_id)
+                print(status)
+                if status == 0:
+                    # sqls.change_apolo_qstn_status(status=1,msg_id=message_id)
+                    Apolo.change_apolo_qstn_status(status=1,msg_id=message_id)
                     # print(correct, incorrect)
-                    correct =+1
-                    sqls.update_correct(correct=correct,answertype=qstn_type,user_id=user.id)
+                    correct +=1
+                    Answers.update_correct(correct=correct,answertype=qstn_type,user_id=user.id)
                     update.message.reply_text("🏆Your answer is correct!!! You earn 1 point.")
                 else:
                     # print(correct, incorrect)
@@ -278,19 +292,27 @@ def observer(update,context):
             else:
                 print(correct, incorrect)
                 incorrect +=1
-                sqls.update_incorrect(incorrect=incorrect,answertype=qstn_type,user_id=user.id)
+                Answers.update_incorrect(incorrect=incorrect,answertype=qstn_type,user_id=user.id)
                 update.message.reply_text("🐔Sorry, your answer is wrong. Please try again!")
         elif qstn_type=='seshat':
-            sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
-            answer = sqls.get_seshat_answer_by_msg_id(msg_id=message_id)
-            correct, incorrect = sqls.get_correct_incorrect(user_id=user.id,answertype=qstn_type)
+            answ = Answers.check_user_answer(user_id=user.id, answertype=qstn_type)
+            print("Answer",answ)
+            if answ == False:
+                Answers(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type).save()
+            # sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
+            # answer = sqls.get_seshat_answer_by_msg_id(msg_id=message_id)
+            answer =Seshat.get_seshat_answer_by_msg_id(msg_id=message_id)
+            correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype=qstn_type)
             if user_answer.lower() == answer.lower():
-                status = sqls.get_seshat_qstn_status(msg_id=message_id)
+                # status = sqls.get_seshat_qstn_status(msg_id=message_id)
+                status =Seshat.get_seshat_qstn_status(msg_id=message_id)
                 if status == 0:
-                    sqls.change_seshat_qstn_status(status=1, msg_id=message_id)
+                    # sqls.change_seshat_qstn_status(status=1, msg_id=message_id)
+                    Seshat.change_seshat_qstn_status(status=1, msg_id=message_id)
                     # print(correct, incorrect)
-                    correct = +1
-                    sqls.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
+                    correct +=1
+                    # sqls.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
+                    Answers.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
                     update.message.reply_text("🏆Your answer is correct!!! You earn 1 point.")
                 else:
                     print(correct, incorrect)
@@ -299,20 +321,25 @@ def observer(update,context):
             else:
                 # print(correct, incorrect)
                 incorrect += 1
-                sqls.update_incorrect(incorrect=incorrect, answertype=qstn_type, user_id=user.id)
+                Answers.update_incorrect(incorrect=incorrect, answertype=qstn_type, user_id=user.id)
                 update.message.reply_text("🐔Sorry, your answer is wrong. Please try again!")
         elif qstn_type=='zamol':
             group_id = update.message.chat.id
-            sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
-            correct, incorrect = sqls.get_correct_incorrect(user_id=user.id,answertype=qstn_type)
-            data = sqls.get_zamol_qstnsby_msgid(msg_id=message_id,group_id=group_id)
-            if user_answer.lower()==data[3].lower():
-                status = sqls.get_zamol_qstn_status(msg_id=message_id)
+            answ = Answers.check_user_answer(user_id=user.id, answertype=qstn_type)
+            print("Answer", answ)
+            if answ == False:
+                Answers(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type).save()
+            # sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
+            correct, incorrect = Answers.get_correct_incorrect(user_id=user.id,answertype=qstn_type)
+            data = Zamol.get_zamol_qstnsby_msgid(msg_id=message_id,group_id=group_id)
+
+            if user_answer.lower()==data.question.lower():
+                status = Zamol.get_zamol_qstn_status(msg_id=message_id)
                 if status == 0:
-                    sqls.change_zamol_qstn_status(status=1,msg_id=message_id)
+                    Zamol.change_zamol_qstn_status(status=1,msg_id=message_id)
                     print(correct, incorrect)
-                    correct = +1
-                    sqls.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
+                    correct +=1
+                    Answers.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
                     update.message.reply_text("🏆Your answer is correct!!! You earn 1 point.")
                 else:
                     print(correct, incorrect)
@@ -320,14 +347,18 @@ def observer(update,context):
             else:
                 print(correct, incorrect)
                 incorrect += 1
-                sqls.update_incorrect(incorrect=incorrect, answertype=qstn_type, user_id=user.id)
+                Answers.update_incorrect(incorrect=incorrect, answertype=qstn_type, user_id=user.id)
                 update.message.reply_text("🐔Sorry, your answer is wrong. Please try again!")
         elif qstn_type=='gaia':
             try:
                 group_id = update.message.chat.id
-                sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
-                print(sqls.get_correct_incorrect(user_id=user.id, answertype=qstn_type))
-                correct, incorrect = sqls.get_correct_incorrect(user_id=user.id, answertype=qstn_type)
+                answ = Answers.check_user_answer(user_id=user.id, answertype=qstn_type)
+                print("Answer", answ)
+                if answ == False:
+                    Answers(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type).save()
+                # sqls.add_user_answer(user_id=user.id, correct=0, incorrect=0, answertype=qstn_type)
+                # print(sqls.get_correct_incorrect(user_id=user.id, answertype=qstn_type))
+                correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype=qstn_type)
                 file_id = update.message.voice.file_id
                 newFile = context.bot.get_file(file_id)
                 newFile.download('answ_{}.ogg'.format(user.id))
@@ -335,8 +366,8 @@ def observer(update,context):
                 if length < 10:
                     new = util.convert_ogg_to_wav("answ_{}.ogg".format(user.id), "stud_{}.wav".format(user.id))
                     speech.file = new
-                    data = sqls.get_gaia_qstnsby_msgid(msg_id=message_id, group_id=group_id)
-                    langue = util.language_select(language=data[7])
+                    lang,quiz = Gaia.get_gaia_qstnsby_msgid(msg_id=message_id, group_id=group_id)
+                    langue = util.language_select(language=lang)
                     text = speech.to_text(lang=langue)
                     print(text)
                     if text == 401:
@@ -345,20 +376,20 @@ def observer(update,context):
                     elif text == 500:
                         update.message.reply_text(
                             "Sorry {}, I got a little light headed, please try again".format(user.first_name))
-                    elif text.lower() == data[3].lower():
-                        status = sqls.get_gaia_qstn_status(msg_id=message_id)
+                    elif text.lower() == quiz.lower():
+                        status = Gaia.get_gaia_qstn_status(msg_id=message_id)
                         print(status)
                         if status == 0:
-                            sqls.change_gaia_qstn_status(status=1, msg_id=message_id)
+                            Gaia.change_gaia_qstn_status(status=1, msg_id=message_id)
                             print(correct, incorrect)
-                            correct = +1
-                            sqls.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
+                            correct  +=1
+                            Answers.update_correct(correct=correct, answertype=qstn_type, user_id=user.id)
                             update.message.reply_text("🏆Your answer is correct!!! You earn 1 point.")
                         else:
                             print(correct, incorrect)
                             update.message.reply_text("🐢Your answer is correct! But unfortunately someone has already answered this question correctly; stay tuned for the next question.")
 
-                    elif text.lower() != data[3].lower():
+                    elif text.lower() != quiz.lower():
                         print(correct, incorrect)
                         incorrect += 1
                         sqls.update_incorrect(incorrect=incorrect, answertype=qstn_type, user_id=user.id)
