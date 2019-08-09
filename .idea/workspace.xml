@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="updated zamol file to mongodb">
+    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="updated everything on Ra file to mongodb">
+      <change afterPath="$PROJECT_DIR$/sherlock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gaia.py" beforeDir="false" afterPath="$PROJECT_DIR$/gaia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/main.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k.py" beforeDir="false" afterPath="$PROJECT_DIR$/k.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ra.py" beforeDir="false" afterPath="$PROJECT_DIR$/ra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
     </list>
@@ -41,99 +43,25 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="main" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="users: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
     </expand>
     <select />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/sql.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="164">
-                    <caret line="252" column="37" selection-start-line="252" selection-start-column="37" selection-end-line="252" selection-end-column="37" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db.py">
+        <entry file="file://$PROJECT_DIR$/sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7370">
-              <caret line="345" column="52" selection-start-line="345" selection-start-column="4" selection-end-line="345" selection-end-column="52" />
-              <folding>
-                <element signature="e#2984#3186#0" />
-                <element signature="e#3455#3651#0" />
-                <element signature="e#3880#3971#0" />
-                <element signature="e#4860#5060#0" />
-                <element signature="e#5114#5314#0" />
-                <element signature="e#5378#5486#0" />
-                <element signature="e#5812#5934#0" />
-                <element signature="e#6038#6196#0" />
-                <element signature="e#6261#6468#0" />
-                <element signature="e#9281#9439#0" />
-                <element signature="e#9501#9645#0" />
-                <element signature="e#9705#9878#0" />
-                <element signature="e#11909#12066#0" />
-                <element signature="e#12126#12269#0" />
-                <element signature="e#14210#14317#0" />
-                <element signature="e#14471#14671#0" />
-                <element signature="e#14738#15023#0" />
-                <element signature="e#15297#15499#0" />
-                <element signature="e#15553#15762#0" />
-                <element signature="e#15807#15958#0" />
-                <element signature="e#16947#17182#0" />
-                <element signature="e#17249#17380#0" />
-                <element signature="e#17460#17595#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://c7c165bf-dad2-4a70-9337-e10f6d97008d/schema/main/table/gaia">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="a8b07bab-92f2-48d4-95de-c0cb953f961c">
-              <filtering>
-                <filter text="" />
-              </filtering>
+            <state relative-caret-position="197">
+              <caret line="371" column="12" selection-start-line="371" selection-start-column="4" selection-end-line="371" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zamol.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="82" column="65" lean-forward="true" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
-              <folding>
-                <element signature="e#46#132#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="219" column="70" selection-start-line="219" selection-start-column="70" selection-end-line="219" selection-end-column="70" />
+            <state relative-caret-position="480">
+              <caret line="360" column="38" lean-forward="true" selection-start-line="360" selection-start-column="38" selection-end-line="360" selection-end-column="38" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -142,12 +70,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gaia.py">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-130">
-              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+            <state relative-caret-position="367">
+              <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sherlock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
               <folding>
-                <element signature="e#46#132#0" expanded="true" />
+                <element signature="e#0#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,8 +102,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+            <state relative-caret-position="140">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,14 +141,20 @@
       <find>get_apolo_answer</find>
       <find>lang</find>
       <find>get_all_a</find>
-      <find>sql</find>
       <find>ro.</find>
       <find>data[</find>
       <find>get_gaia_qstnsby_msgid</find>
+      <find>sql</find>
+      <find>change_zamol_qstn_message_id</find>
+      <find>.update</find>
+      <find>update_correct</find>
+      <find>change_sherlock_fileid</find>
+      <find>cancel</find>
+      <find>get_sherlock_question</find>
     </findStrings>
     <replaceStrings>
-      <replace>sqls</replace>
       <replace>ra.</replace>
+      <replace>sqls</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -218,23 +173,27 @@
         <option value="$PROJECT_DIR$/init.py" />
         <option value="$PROJECT_DIR$/groups.py" />
         <option value="$PROJECT_DIR$/seshat.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/apolo.py" />
-        <option value="$PROJECT_DIR$/k.py" />
         <option value="$PROJECT_DIR$/admins.py" />
         <option value="$PROJECT_DIR$/commands.py" />
-        <option value="$PROJECT_DIR$/zamol.py" />
         <option value="$PROJECT_DIR$/gaia.py" />
-        <option value="$PROJECT_DIR$/ra.py" />
+        <option value="$PROJECT_DIR$/util.py" />
+        <option value="$PROJECT_DIR$/zamol.py" />
+        <option value="$PROJECT_DIR$/crime.py" />
+        <option value="$PROJECT_DIR$/k.py" />
         <option value="$PROJECT_DIR$/sql.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/sherlock.py" />
+        <option value="$PROJECT_DIR$/ra.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1377" />
-    <option name="y" value="39" />
-    <option name="width" value="1616" />
-    <option name="height" value="916" />
+    <option name="x" value="1592" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -242,6 +201,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,7 +213,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -273,7 +232,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HERMES\PycharmProjects\tonibot" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -330,7 +294,9 @@
       <workItem from="1565086996623" duration="16717000" />
       <workItem from="1565158472061" duration="31417000" />
       <workItem from="1565244999033" duration="5633000" />
-      <workItem from="1565251575841" duration="9744000" />
+      <workItem from="1565251575841" duration="18501000" />
+      <workItem from="1565346822690" duration="14691000" />
+      <workItem from="1565371446263" duration="5202000" />
     </task>
     <task id="LOCAL-00001" summary="Added seshat">
       <created>1565253247374</created>
@@ -367,11 +333,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565259029002</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated Gaia file to mongodb">
+      <created>1565261365893</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565261365893</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated everything on Ra file to mongodb">
+      <created>1565271659871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565271659871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65125000" />
+    <option name="totallyTimeSpent" value="93775000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -383,32 +363,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16944024" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.122068234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32876712" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21366595" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3286334" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.44178084" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.44034708" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030257" side_tool="true" weight="0.32569557" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.4977307" weight="0.3289689" />
-      <window_info anchor="right" id="Json Parser" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.20121029" />
+      <window_info anchor="right" id="Database" order="4" weight="0.20121029" />
+      <window_info anchor="right" id="Json Parser" order="5" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16944024" />
@@ -444,7 +424,9 @@
     <MESSAGE value="Added admin management" />
     <MESSAGE value="updated the command file to mongodb" />
     <MESSAGE value="updated zamol file to mongodb" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated zamol file to mongodb" />
+    <MESSAGE value="updated Gaia file to mongodb" />
+    <MESSAGE value="updated everything on Ra file to mongodb" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated everything on Ra file to mongodb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -473,7 +455,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1565261272789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1565376528746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9989c3c-7202-4240-970e-f39427a82d85/console.sql" />
@@ -551,29 +533,12 @@
     <entry file="file://$PROJECT_DIR$/.git/info/exclude">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-31">
           <caret line="59" column="68" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seshat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
-          <folding>
-            <element signature="e#46#109#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -588,23 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apolo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="30" column="76" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="76" />
-          <folding>
-            <element signature="e#46#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/k.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://c7c165bf-dad2-4a70-9337-e10f6d97008d/schema/main/table/gaia">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="a8b07bab-92f2-48d4-95de-c0cb953f961c">
@@ -614,37 +562,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gaia.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-          <folding>
-            <element signature="e#46#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="219" column="70" selection-start-line="219" selection-start-column="70" selection-end-line="219" selection-end-column="70" />
-          <folding>
-            <element signature="e#46#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="252" column="37" selection-start-line="252" selection-start-column="37" selection-end-line="252" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7370">
-          <caret line="345" column="52" selection-start-line="345" selection-start-column="4" selection-end-line="345" selection-end-column="52" />
+        <state relative-caret-position="8840">
+          <caret line="428" column="22" selection-start-line="428" selection-start-column="8" selection-end-line="428" selection-end-column="22" />
           <folding>
             <element signature="e#2984#3186#0" />
             <element signature="e#3455#3651#0" />
@@ -667,7 +588,6 @@
             <element signature="e#15553#15762#0" />
             <element signature="e#15807#15958#0" />
             <element signature="e#16947#17182#0" />
-            <element signature="e#17249#17380#0" />
             <element signature="e#17460#17595#0" />
           </folding>
         </state>
@@ -675,10 +595,108 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zamol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="82" column="65" lean-forward="true" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
+        <state relative-caret-position="1794">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
           <folding>
             <element signature="e#46#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c7c165bf-dad2-4a70-9337-e10f6d97008d/schema/main/table/zamol">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d9a9d321-3e41-46be-ac6b-86c5db757ace">
+          <filtering />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="57" column="58" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="58" />
+          <folding>
+            <element signature="e#46#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <element signature="e#46#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seshat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+          <folding>
+            <element signature="e#46#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apolo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="30" column="76" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="76" />
+          <folding>
+            <element signature="e#46#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/k.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="371" column="12" selection-start-line="371" selection-start-column="4" selection-end-line="371" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sherlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="360" column="38" lean-forward="true" selection-start-line="360" selection-start-column="38" selection-end-line="360" selection-end-column="38" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

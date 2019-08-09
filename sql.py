@@ -327,3 +327,117 @@ class Gaia(Document):
     @queryset_manager
     def change_gaia_qstn_status(self,queryset, status, msg_id):
         return queryset.filter(message_id=msg_id)[0].update(status=status)
+
+class Sherlock(Document):
+    user_id = IntField(required=True)
+    file_id = StringField(default="0")
+    question = StringField(null=True)
+    group_id = IntField(null=True)
+    message_id = IntField(null=True)
+    question_type = StringField(null=True)
+    status = IntField(default=0)
+    lang = StringField(null=True)
+
+    @queryset_manager
+    def get_last_sherlock_id(self, queryset, user_id):
+        return queryset.filter(user_id=user_id).order_by('-id').first().id
+
+    @queryset_manager
+    def change_sherlock_fileid(self, queryset, file_id,question,tbl_id,user_id):
+        return queryset.filter(id=tbl_id, user_id=user_id)[0].update(file_id=file_id, question=question)
+
+    @queryset_manager
+    def change_sherlock_group_id(self, queryset, group_id, tbl_id, user_id):
+        return queryset.filter(id=tbl_id, user_id=user_id)[0].update(group_id=group_id)
+
+    @queryset_manager
+    def change_sherlock_qstn_status(self, queryset, status,tbl_id,user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].update(status=status)
+
+    @queryset_manager
+    def change_sherlock_qstn_message_id(self, queryset, message_id,tbl_id,user_id):
+        return queryset.filter(id=tbl_id, user_id=user_id)[0].update(message_id=message_id)
+
+    @queryset_manager
+    def get_sherlock_question(self, queryset, tbl_id, user_id):
+        query = queryset.filter(id=tbl_id, user_id=user_id)[0]
+        return query.question, query.file_id
+
+    @queryset_manager
+    def get_sherlock_qstn_file_id(self,queryset, tbl_id, user_id):
+        return queryset.filter(id=tbl_id,user_id=user_id)[0].file_id
+
+
+class Games(Document):
+    admin_id =IntField(required=True)
+    game_no = IntField(null=True)
+    joined = IntField(null=True)
+    status = IntField(null=True)
+    group_id = IntField(null=True)
+
+    @queryset_manager
+    def get_game_no(self, queryset, game_no):
+        try:
+            if queryset.filter(game_no=game_no)[0].game_no is not None:
+                return queryset.filter(game_no=game_no)[0].game_no
+        except IndexError:
+            return False
+
+    @queryset_manager
+    def get_game_admin(self, queryset, game_no):
+        query = queryset.filter(game_no=game_no)[0]
+        return query.admin_id
+
+    @queryset_manager
+    def get_last_game_id(self, queryset, group_id):
+        return queryset.filter(group_id=group_id).order_by('-id').first().id
+
+    @queryset_manager
+    def get_game_no_from_id(self, queryset, tid):
+        query = queryset.filter(id=tid)[0]
+        return query.game_no
+
+    @queryset_manager
+    def update_joined(self, queryset, joined, game_no):
+        return queryset.filter(game_no=game_no)[0].update(joined=joined)
+
+    @queryset_manager
+    def update_game_status(self, queryset, status, game_no):
+        return queryset.filter(game_no=game_no)[0].update(status=status)
+
+    @queryset_manager
+    def get_game_status(self, queryset, game_no):
+        query = queryset.filter(game_no=game_no)[0]
+        return query.status
+
+    @queryset_manager
+    def get_game_joined(self, queryset, game_no):
+        query = queryset.filter(game_no=game_no)[0]
+        return query.joined
+
+class Players(Document):
+    game_no= IntField(required=True)
+    user_id = IntField(null=True)
+    chances = IntField(default=0)
+
+    @queryset_manager
+    def check_player(self, queryset, user_id,game_no):
+        try:
+            if queryset.filter(user_id=user_id,game_no=game_no)[0].user_id is not None:
+                return True
+        except IndexError:
+            return False
+
+    @queryset_manager
+    def get_count(self,queryset,game_no):
+        return queryset.filter(game_no=game_no).count()
+
+    @queryset_manager
+    def set_chance(self, queryset, chance,user_id,game_no):
+        return queryset.filter(user_id=user_id,game_no=game_no)[0].update(chances=chance)
+
+    @queryset_manager
+    def get_count(self, queryset, user_id,game_no):
+        return queryset.filter(user_id=user_id,game_no=game_no)[0].chances
+
+

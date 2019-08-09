@@ -11,15 +11,16 @@ import apolo
 import admins
 import seshat
 import zamol
+import sherlock
 from sql import *
-from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
-                      ChatAction)
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,
+from telegram import (ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,)
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler, CallbackQueryHandler)
+from pyrogram import Client,InputPhoneContact
 
 speech = util.Speech()
 sqls =db.DBHelper()
-APOLO,GROUP,SESHAT,SESHATQSTN,SESHATANSW,ADMIN,ZAMOL,LANG,GAIA=range(9)
+APOLO,GROUP,SESHAT,SESHATQSTN,SESHATANSW,ADMIN,ZAMOL,LANG,GAIA,SHERLOCK,SHERPIC,HINT=range(12)
 
 @util.send_typing_action
 def activity_select(update, context):
@@ -52,7 +53,7 @@ def jarvis(update,context):
     query = update.callback_query
     text = str(query.data)
     user = query.from_user
-    # print(text)
+    print(text)
     user_id = user.id
     if text.startswith('apolo'):
         context.bot.edit_message_text(
@@ -244,6 +245,124 @@ def jarvis(update,context):
             chat_id=update.callback_query.message.chat_id,
             message_id=update.callback_query.message.message_id)
         return GAIA
+    elif text.startswith('sherlock'):
+        key_main = [[InlineKeyboardButton("Post new", callback_data='post')],
+                    [InlineKeyboardButton("Post hint", callback_data='hint')]]
+        main_markup = InlineKeyboardMarkup(key_main)
+        context.bot.edit_message_text(
+            text="Please select an option to proceed",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id,reply_markup=main_markup)
+    elif text.startswith('post'):
+        key_main = [[InlineKeyboardButton("Only text📜", callback_data='words')]
+            , [InlineKeyboardButton("Image 📷 & Text📜️", callback_data='image')]]
+        main_markup = InlineKeyboardMarkup(key_main)
+        context.bot.edit_message_text(
+            text=f"Hi Admin {user.first_name}, please select the type of scenario(plot) you want to post",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id, reply_markup=main_markup)
+
+    elif text.startswith('hint'):
+        context.bot.edit_message_text(
+            text=f"Hi Admin {user.first_name}, please send the hint you want to post",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id, parse_mode=ParseMode.MARKDOWN)
+        return HINT
+
+    elif text.startswith('words'):
+        Sherlock(user_id=user_id,question_type='sherlock').save()
+        context.bot.edit_message_text(
+            text="Please enter the rules and scenario(plot) you want to post - _Text only!_",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id, parse_mode=ParseMode.MARKDOWN)
+        return SHERLOCK
+    elif text.startswith('image'):
+        Sherlock(user_id=user_id, question_type='sherlock').save()
+        context.bot.edit_message_text(
+            text="Please send the image for the scenario(plot)",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id)
+        return SHERPIC
+    elif text.startswith('confirm'):
+        group = Groups.objects
+        if len(group) > 0:
+
+            for data in group:
+                key_main = [[InlineKeyboardButton(f"{data.group_language} Group",
+                                                  callback_data=f'psher+{data.group_id}+{data.group_language}')]]
+                main_markup = InlineKeyboardMarkup(key_main)
+                context.bot.edit_message_text(
+                    text="Please select the group you want to post the Crime trivia",
+                    chat_id=update.callback_query.message.chat_id,
+                    message_id=update.callback_query.message.message_id, reply_markup=main_markup)
+            # return ConversationHandler.END
+        else:
+            context.bot.edit_message_text(
+                text="No Groups Available please add the bot to a group and make it admin",
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id)
+
+            return ConversationHandler.END
+    elif text.startswith('psher'):
+        g_id = text.split('+')[1]
+        tbl_id =Sherlock.get_last_sherlock_id(user_id=user.id)
+        # sql.change_qstn_group_id(group_id=g_id, tbl_id=tbl_id, user_id=user_id)
+        Sherlock.change_sherlock_group_id(group_id=g_id,tbl_id=tbl_id,user_id=user_id)
+        # sql.change_qstn_status(status=2, tbl_id=tbl_id, user_id=user_id)
+        # msg = sql.get_question(tbl_id, user_id)
+        msg =Sherlock.get_sherlock_question(tbl_id=tbl_id,user_id=user_id)
+        swali,file_id = msg
+        if file_id =="0":
+            config.CHANCE.clear()
+            payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, config.RULES),
+                                       parse_mode=ParseMode.MARKDOWN)
+            message_id = payload.message_id
+            print(message_id)
+            # sql.change_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
+            Sherlock.change_sherlock_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
+            # add game
+            # sql.add_game(admin=user_id,game_no=message_id,group_id=g_id)#
+            Games(admin_id=user_id,game_no=message_id,group_id=g_id).save()
+            context.bot.edit_message_text(
+                text="The Message was successfully posted in the group\nTo post another message click the POST key",
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id)
+            return ConversationHandler.END
+        else:
+            context.bot.send_photo(chat_id=g_id,photo=file_id)
+            payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, config.RULES),parse_mode=ParseMode.MARKDOWN)
+            message_id = payload.message_id
+            print(message_id)
+            # sql.change_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
+            Sherlock.change_sherlock_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
+            Games(admin=user_id, game_no=message_id, group_id=g_id).save()
+            # sql.add_game(admin=user_id, game_no=message_id,group_id=g_id)#
+            config.CHANCE.clear()
+            context.bot.edit_message_text(
+                text="The Message was successfully posted in the group\nTo post another message click the POST key",
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id)
+
+    elif text.startswith('cancel'):
+        context.bot.edit_message_text(
+            text="Your Canceled our conversation! You can always start again.",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id)
+        return ConversationHandler.END
+    elif text.startswith('phint'):
+        print(text)
+        print(text.split(' '))
+        grp_id = text.split(' ')[1]
+        message = config.LIST.get(user_id)
+        app = Client("my_account",api_id=config.api_id,api_hash=config.api_hash)
+        with app as app:
+
+            app.send_message(chat_id=grp_id, text=message)
+        context.bot.edit_message_text(
+            text="The hint was posted successfully!",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id, )
+
 
 
 @util.send_typing_action
@@ -459,6 +578,9 @@ def main():
                 ZAMOL:[MessageHandler(Filters.voice,zamol.clip)],
                 LANG:[MessageHandler(Filters.text,zamol.edit_clip)],
                 GAIA: [MessageHandler(Filters.voice, gaia.clip)],
+                SHERLOCK: [MessageHandler(Filters.text, sherlock.confirm)],
+                SHERPIC: [MessageHandler(Filters.photo, sherlock.picture)],
+                HINT: [MessageHandler(Filters.all, sherlock.poster)],
                 },
         fallbacks=[CommandHandler('start',commands.start)],
         allow_reentry=True)
