@@ -11,7 +11,11 @@ CHANCE ={}
 HUNTERS=2
 MAX = 3
 CRIME =887959931
-
+NOCHANCE="⛔ *You already exhausted your chances. Wait for the next hunt!*"
+CONGRATS = "🥇 *Congratulations {}, you won this hunt* ❗"
+JOINED = "👣 *Hi {}, you have joined this hunt! Watch out for the hints!*"
+FOUND = "🔵 **Yes I am, bastard! You got me. I must go to jail now but I'll be back one day** ❗"
+HUNTON="👣👣👣 *The hunt is on* ‼️👣👣👣"
 RULES="🔫 The Police Station will not provide any further information.\n" \
       "⚠️To join this manhunt, long-press on SherlockLCbot's sentence, click reply and type: '/join'.\n" \
       "🔫 The game starts once a minimum of 20 hunters have been registered.\n" \

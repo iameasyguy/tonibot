@@ -1,4 +1,5 @@
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.ext import ConversationHandler
 
 import util
@@ -76,3 +77,169 @@ def poster(update, context):
             return ConversationHandler.END
     else:
         return ra.cancel(update, context)
+
+
+
+#########JARVIS################
+@util.send_typing_action
+def travis(update,context):
+    bot_username = update.message.reply_to_message.from_user.username
+    chat_type = update.message.chat.type
+    user = update.message.from_user
+    msg = update.message
+    chat_id = msg.chat.id
+    text = update.message.text
+    game_no = update.message.reply_to_message.message_id
+    # game_stat = sql.get_game_status(game_no)
+    game_stat =Games.get_game_status(game_no=game_no)
+    # t_joined = sql.get_game_joined(game_no=game_no)
+    t_joined = Games.get_game_joined(game_no=game_no)
+    print(type(t_joined))
+    # check_player = sql.check_player(user_id=user.id, game_no=game_no)
+    check_player = Players.check_player(user_id=user.id, game_no=game_no)
+    # game_avail = sql.get_game_no(game_no)
+    game_avail =Games.get_game_no(game_no=game_no)
+    # game_admin = sql.get_game_admin(game_no=game_no)
+    game_admin =Games.get_game_admin(game_no=game_no)
+    print(game_no)
+    print(text)
+    #check game status
+    #check if user already joined the game
+    #check if the number of users are enough to start the game
+    #check if the user used 'join'
+    #check if game id is available in db
+    if bot_username == config.BOT_USERNAME and (chat_type == "group" or chat_type == "supergroup"):
+        # check if the user used 'join'
+        if text=="/join":
+            print("text = join")
+            #check if game id is available in db
+            if game_avail !=False:
+                print("game_avail = true")
+                # check game status is on or won
+                # game_stat
+                if game_stat ==0:
+                    print("game_stat = 0")
+                    #check if the user has been wrong more than twice
+                    if user.id in config.CHANCE:
+                        print("user in chance")
+                        chances = config.CHANCE[user.id]
+                        if int(chances)>=2:
+                            print("user chances >2")
+                            update.message.reply_text(config.NOCHANCE,parse_mode=ParseMode.MARKDOWN)
+                    else:
+                    # # check if user already joined the game
+                        if check_player != True:
+                            print("player not in the game")
+                            # check if the number of users are enough to start the game
+                            if int(t_joined)<config.HUNTERS:
+                                print("those joined are less")
+                                # sql.add_player(game_no=game_no,user_id=user.id)
+                                Players(game_no=game_no,user_id=user.id).save()
+                                # count =sql.get_count(game_no)
+                                count = Players.get_count(game_no=game_no)
+                                # sql.update_joined(joined=count,game_no=game_no)
+                                Games.update_joined(joined=count,game_no=game_no)
+                                # c_joined = sql.get_game_joined(game_no=game_no)
+                                c_joined =Games.get_game_joined(game_no=game_no)
+                                update.message.reply_text(config.JOINED.format(user.first_name),parse_mode=ParseMode.MARKDOWN)
+                                togo = config.HUNTERS - int(c_joined)
+                                print(togo)
+                                if togo==0:
+                                    context.bot.send_message(chat_id,config.HUNTON,parse_mode=ParseMode.MARKDOWN)
+                                        #notify admin
+                                    context.bot.send_message(chat_id=game_admin,text="Enough users have joined the game, start sending hints")
+                                else:
+                                    context.bot.send_message(chat_id, "{} user(s) to go".format(togo))
+                            elif t_joined>=config.HUNTERS and t_joined<=config.MAX:
+                                # sql.add_player(game_no=game_no, user_id=user.id)
+                                Players(game_no=game_no, user_id=user.id).save()
+                                count = Players.get_count(game_no=game_no)
+                                Games.update_joined(joined=count,game_no=game_no)
+                                c_joined =Games.get_game_joined(game_no=game_no)
+                                cogo = config.MAX - int(c_joined)
+                                update.message.reply_text(config.JOINED.format(user.first_name))
+                                if cogo==0:
+                                    context.bot.send_message(chat_id, "Maximum number of hunters achieved! ")
+                                else:
+                                    context.bot.send_message(chat_id, "{} user(s) to reach the maximum number of hunters allowed".format(cogo))
+
+
+                            elif t_joined>=config.MAX:
+                                update.message.reply_text("Hi {}, enough hunters have joined this hunt! Wait for the next hunt!".format(user.first_name))
+
+                        else:
+                                update.message.reply_text("Hi {}, you already joined this hunt.".format(user.first_name))
+
+                else:
+                    update.message.reply_text("Hi {}, this hunt is over, please wait for the next one".format(user.first_name))
+
+            else:
+                update.message.reply_text("Hi {} please reply with '/join' on the correct message".format(user.first_name))
+        else:
+            update.message.reply_text("Hi {} please use '/join' to join the hunt".format(user.first_name))
+
+
+@util.send_typing_action
+def criminal(bot,update):
+    user = update.message.from_user
+    msg = update.message
+    chat_id = msg.chat.id
+    text = update.message.text
+    group_id = update.message.chat.id
+    # last_game_id = sql.get_last_game_id(group_id=group_id)
+    last_game_id = Games.get_last_game_id(group_id=group_id)
+    # game_no = sql.get_game_no_from_id(tid=last_game_id)
+    game_no= Games.get_game_no_from_id(tid=last_game_id)
+    # game_stat = sql.get_game_status(game_no)
+    game_stat =Games.get_game_status(game_no=game_no)
+    chat_type = update.message.chat.type
+    criminal_id = update.message.reply_to_message.from_user.id
+    if criminal_id==config.CRIME and (chat_type == "group" or chat_type == "supergroup"):
+        print(text)
+        if text.endswith('you are the criminal!') or text.endswith('you are the criminal !') or text.endswith('You are the criminal!') or text.endswith('you are the criminal !') or text.endswith('you are the criminal') or text.endswith('You are the criminal'):
+            if game_stat ==0:
+                if user.id in config.CHANCE:
+                    chances = config.CHANCE[user.id]
+                    if int(chances) >= 2:
+                        update.message.reply_text(config.NOCHANCE,parse_mode=ParseMode.MARKDOWN)
+                    else:
+                        app = Client("my_account", api_id=config.api_id, api_hash=config.api_hash)
+                        with app as app:
+                            app.send_message(chat_id=chat_id, text=config.FOUND,parse_mode="markdown")
+                            #update game status
+                        # sql.update_game_status(status=1,game_no=game_no)
+                        Games.update_game_status(status=1,game_no=game_no)
+                        update.message.reply_text(config.CONGRATS.format(user.first_name))
+                else:
+                    app = Client("my_account", api_id=config.api_id, api_hash=config.api_hash)
+                    with app as app:
+                        app.send_message(chat_id=chat_id, text=config.FOUND,parse_mode="markdown")
+                        # update game status
+                    # sql.update_game_status(status=1, game_no=game_no)
+                    Games.update_game_status(status=1, game_no=game_no)
+                    update.message.reply_text(config.CONGRATS.format(user.first_name),parse_mode=ParseMode.MARKDOWN)
+            else:
+                update.message.reply_text("*Opps too late for that!, the hunt is over, wait for the next one*",parse_mode=ParseMode.MARKDOWN)
+
+            # update.message.reply_text("yes I am")
+    elif criminal_id!=config.CRIME and (chat_type == "group" or chat_type == "supergroup"):
+        print(text+"NO CRIME")
+        if text.endswith('you are the criminal!') or text.endswith('you are the criminal !') or text.endswith(
+                'You are the criminal!') or text.endswith('you are the criminal !') or text.endswith(
+                'you are the criminal') or text.endswith('You are the criminal'):
+            if game_stat == 0:
+                if user.id in config.CHANCE:
+                    chances = config.CHANCE[user.id]
+                    if int(chances) >= 2:
+                        update.message.reply_text(config.NOCHANCE,parse_mode=ParseMode.MARKDOWN)
+                    # elif int(chances)==0:
+                    #     config.CHANCE[user.id] =1
+                    #     update.message.reply_text("Please don't accuse people,You have one last shot!")
+                    elif int(chances)==1:
+                        config.CHANCE[user.id] =2
+                        update.message.reply_text("⛔ *Please don't accuse people without clear evidence! You have exhausted your chances, wait for the next hunt!*",parse_mode=ParseMode.MARKDOWN)
+                else:
+                    config.CHANCE[user.id] = 1
+                    update.message.reply_text("⛔*Please don't accuse people without clear evidence! You have one last chance.*",parse_mode=ParseMode.MARKDOWN)
+            else:
+                update.message.reply_text("*Opps too late for that!, the hunt is over, wait for the next one*", parse_mode=ParseMode.MARKDOWN)

@@ -371,8 +371,8 @@ class Sherlock(Document):
 class Games(Document):
     admin_id =IntField(required=True)
     game_no = IntField(null=True)
-    joined = IntField(null=True)
-    status = IntField(null=True)
+    joined = IntField(default=0)
+    status = IntField(default=0)
     group_id = IntField(null=True)
 
     @queryset_manager
@@ -412,8 +412,8 @@ class Games(Document):
 
     @queryset_manager
     def get_game_joined(self, queryset, game_no):
-        query = queryset.filter(game_no=game_no)[0]
-        return query.joined
+        return queryset.filter(game_no=game_no)[0].joined
+
 
 class Players(Document):
     game_no= IntField(required=True)
@@ -437,7 +437,7 @@ class Players(Document):
         return queryset.filter(user_id=user_id,game_no=game_no)[0].update(chances=chance)
 
     @queryset_manager
-    def get_count(self, queryset, user_id,game_no):
+    def get_chance(self, queryset, user_id,game_no):
         return queryset.filter(user_id=user_id,game_no=game_no)[0].chances
 
 

@@ -293,6 +293,8 @@ def main():
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, groups.add_group))
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, groups.remove_from_group))
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer))
+    dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
+    dp.add_handler(MessageHandler(Filters.text & Filters.reply, sherlock.criminal))
     # log all errors
     dp.add_error_handler(util.error)
 
