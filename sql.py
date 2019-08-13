@@ -76,6 +76,7 @@ class Groups(Document):
 
 class Answers(Document):
     user_id =IntField(required=True)
+    username =StringField(null=True)
     correct = IntField(required=True,default=0)
     incorrect = IntField(required=True,default=0)
     answertype = StringField(null=True)
@@ -103,6 +104,10 @@ class Answers(Document):
     def update_incorrect(self, queryset, incorrect, answertype, user_id):
 
         return queryset.filter(user_id=user_id)[0].update(answertype=answertype, incorrect=incorrect)
+
+    @queryset_manager
+    def get_all_point(self,queryset):
+        return queryset.filter()[0].username,queryset.filter()[0].correct
 
 class Apolo(Document):
     user_id = IntField(required=True)
