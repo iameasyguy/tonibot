@@ -20,20 +20,33 @@ def add_group(update,context):
     if (chat_type == "group" or chat_type=="supergroup"):
         group_id = update.message.chat.id
         user_id = user.id
+        admins = Users.check_admin(user_id=user.id)
         group_title = update.message.chat.title
-        for i in update.message.new_chat_members:
-            if i.username == config.BOT_USERNAME:
-                if Groups.check_group_id(group_id) == False:
-                    Groups(group_id=group_id, group_title=group_title, user_id=user_id).save()
-                    languages = config.LANGUAGES
-                    buttons = []
-                    for x in languages:
-                        buttons.append(InlineKeyboardButton(x, callback_data="lang+{}+{}".format(x,group_id)))
+        if admins==2:
+            for i in update.message.new_chat_members:
+                if i.username == config.BOT_USERNAME:
+                    if Groups.check_group_id(group_id) == False:
+                        Groups(group_id=group_id, group_title=group_title, user_id=user_id).save()
+                        languages = config.LANGUAGES
+                        buttons = []
+                        for x in languages:
+                            buttons.append(InlineKeyboardButton(x, callback_data="lang+{}+{}".format(x, group_id)))
 
-                    reply_markup = InlineKeyboardMarkup(util.build_menu(buttons, n_cols=3))
-                    context.bot.send_message(user_id,"I was added successfully to {}, please make me an admin in the group and select the default language".format(update.message.chat.title),reply_markup=reply_markup)
-                else:
-                    context.bot.send_message(user_id,"I am already a member of {},just make me and admin if you haven't yet".format(update.message.chat.title))
+                        reply_markup = InlineKeyboardMarkup(util.build_menu(buttons, n_cols=3))
+                        context.bot.send_message(user_id,
+                                                 "I was added successfully to {}, please make me an admin in the group and select the default language".format(
+                                                     update.message.chat.title), reply_markup=reply_markup)
+                    else:
+                        context.bot.send_message(user_id,
+                                                 "I am already a member of {},just make me and admin if you haven't yet".format(
+                                                     update.message.chat.title))
+        else:
+            context.bot.leave_chat(chat_id=group_id)
+            context.bot.send_message(chat_id=214196949, text=f"@{user.username} tried to add me to {group_title} but I left ASAP.")
+
+
+
+
 
 
 @util.send_typing_action

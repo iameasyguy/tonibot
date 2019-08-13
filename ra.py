@@ -273,14 +273,10 @@ def main():
                 },
         fallbacks=[CommandHandler('start',commands.start)],
         allow_reentry=True)
-    admin_conv = ConversationHandler(entry_points=[MessageHandler(Filters.regex('^ADD ADMIN$'), admins.admin)],
-                                     states={
-                                         ADMIN: [MessageHandler(Filters.text, admins.save_admin)],
 
-                                     }, fallbacks=[CommandHandler('start', commands.start)], allow_reentry=True)
     dp.add_handler(apolo_convo)
     # dp.add_handler(seshat_convo)
-    dp.add_handler(admin_conv)
+    dp.add_handler(MessageHandler(Filters.regex('^ADD ADMIN$'), admins.admin))
     dp.add_handler(CommandHandler('start', commands.start))
     dp.add_handler(MessageHandler(Filters.regex('^POST$'), activity_select))
     dp.add_handler(CommandHandler('gid', commands.get_id))
@@ -295,6 +291,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer))
     dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
     dp.add_handler(MessageHandler(Filters.text & Filters.reply, sherlock.criminal))
+    dp.add_handler(CommandHandler('admin',admins.request_add))
     # log all errors
     dp.add_error_handler(util.error)
 

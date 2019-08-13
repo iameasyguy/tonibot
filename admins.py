@@ -5,7 +5,7 @@ import util
 import db
 import ra
 from sql import *
-
+import config
 
 sqls= db.DBHelper()
 
@@ -38,13 +38,12 @@ def manage_admin(update,context):
 def admin(update,context):
     chat_type = update.message.chat.type
     user = update.message.from_user
-    # admins = sqls.check_admin(user.id)
     admins=Users.check_admin(user_id=user.id)
     if chat_type=="private":
         if admins == 2:
-            update.message.reply_text(
-                "Hi Super Admin, please send the user ID of the person you wish to add as an admin")
-            return ra.ADMIN
+            update.message.reply_text(f"Hi Super Admin, ask the user you want to add as a teacher to open @{context.bot.username} and send /admin\n"
+                f"you will receive a request to approve or decline")
+
         else:
             update.message.reply_text("You are not cleared to run this command")
             return ConversationHandler.END
@@ -52,22 +51,6 @@ def admin(update,context):
 
 
 
-@util.send_typing_action
-def save_admin(update,context):
-    admin_user = update.message.text
-    if util.validate(admin_user):
-        # sqls.set_user(user_id=admin_user, username=None, role=1)
-        Users(user_id=int(admin_user),username="None",role=1).save()
-        # sqls.set_role(int(1),int(admin_user))
-        Users.set_role(role=1,user_id=int(admin_user))
-        update.message.reply_text("The user was added successfully as an admin\nSelect the REMOVE ADMIN menu to view and delete teachers")
-        return ConversationHandler.END
-    elif admin_user=="CANCEL":
-        update.message.reply_text("Your cancelled our conversation!.")
-        return ConversationHandler.END
-    else:
-        update.message.reply_text("Invalid data entered")
-        return ra.ADMIN
 
 
 
@@ -80,4 +63,15 @@ def profile(update,context):
     if chat_type =="private":
         update.message.reply_text("First Name: {}\nUsername: {}\nUser ID: {}".format(user.first_name,user.username,user.id))
 
+
+@util.send_typing_action
+def request_add(update,context):
+    user = update.message.from_user
+    chat_type = update.message.chat.type
+    if chat_type == "private":
+        update.message.reply_text(f"Hi {user.first_name} you request was sent to the admin for approval")
+        key_main = [[InlineKeyboardButton("Approve", callback_data=f'approve+{user.id}+{user.username}')],
+                    [InlineKeyboardButton("Decline", callback_data=f'deny+{user.id}')]]
+        main_markup = InlineKeyboardMarkup(key_main)
+        context.bot.send_message(chat_id=865996339,text=f"The following user has requested to be a teacher\n*Name:* _{user.first_name}_\n*Username:* _{user.username}_",reply_markup=main_markup,parse_mode="Markdown")
 

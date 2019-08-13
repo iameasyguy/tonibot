@@ -318,3 +318,29 @@ def jarvis(update,context):
             chat_id=update.callback_query.message.chat_id,
             message_id=update.callback_query.message.message_id, )
         return ConversationHandler.END
+
+    elif text.startswith('approve'):
+        user_id = text.split('+')[1]
+        user_name = text.split('+')[2]
+        admin =Users.check_admin(user_id=user_id)
+        print(admin)
+        if admin is not None:
+            context.bot.edit_message_text(
+                text=f"{user_name} is already an admin!",
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id, )
+            context.bot.send_message(chat_id=user_id,text=f"Hi {user_name} you are already an admin")
+
+        else:
+            Users(user_id=int(user_id), username=user_name, role=1).save()
+            context.bot.edit_message_text(
+                text=f"{user_name} was added as an admin!",
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id,)
+    elif text.startswith('deny'):
+        user_id = text.split('+')[1]
+        context.bot.edit_message_text(
+            text="The request was declined!",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id, )
+        context.bot.send_message(chat_id=user_id, text=f"Hi, your request was declined!")
