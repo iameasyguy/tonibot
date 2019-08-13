@@ -367,6 +367,13 @@ class Sherlock(Document):
     def get_sherlock_qstn_file_id(self,queryset, tbl_id, user_id):
         return queryset.filter(id=tbl_id,user_id=user_id)[0].file_id
 
+    @queryset_manager
+    def get_sherlock_question_type(self, queryset, msg_id):
+        try:
+            if queryset.filter(message_id=msg_id)[0].question_type is not None:
+                return queryset.filter(message_id=msg_id)[0].question_type
+        except IndexError:
+            return False
 
 class Games(Document):
     admin_id =IntField(required=True)

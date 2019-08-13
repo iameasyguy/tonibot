@@ -58,6 +58,7 @@ def question_type(message_id):
         seshat_qstn_type = Seshat.get_seshat_question_type(msg_id=message_id)
         zamol_qstn_type = Zamol.get_zamol_question_type(msg_id=message_id)
         gaia_qstn_type = Gaia.get_gaia_question_type(msg_id=message_id)
+        sherlock_qstn_type = Sherlock.get_sherlock_question_type(msg_id=message_id)
     except IndexError:
         pass
     if apolo_qstn_type != False:
@@ -71,6 +72,9 @@ def question_type(message_id):
         return qstn_type
     elif gaia_qstn_type != False:
         qstn_type = gaia_qstn_type
+        return qstn_type
+    elif sherlock_qstn_type != False:
+        qstn_type = sherlock_qstn_type
         return qstn_type
 
 

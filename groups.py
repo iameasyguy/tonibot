@@ -22,9 +22,9 @@ def add_group(update,context):
         user_id = user.id
         admins = Users.check_admin(user_id=user.id)
         group_title = update.message.chat.title
-        if admins==2:
-            for i in update.message.new_chat_members:
-                if i.username == config.BOT_USERNAME:
+        for i in update.message.new_chat_members:
+            if i.username == config.BOT_USERNAME:
+                if admins == 2:
                     if Groups.check_group_id(group_id) == False:
                         Groups(group_id=group_id, group_title=group_title, user_id=user_id).save()
                         languages = config.LANGUAGES
@@ -40,9 +40,9 @@ def add_group(update,context):
                         context.bot.send_message(user_id,
                                                  "I am already a member of {},just make me and admin if you haven't yet".format(
                                                      update.message.chat.title))
-        else:
-            context.bot.leave_chat(chat_id=group_id)
-            context.bot.send_message(chat_id=214196949, text=f"@{user.username} tried to add me to {group_title} but I left ASAP.")
+                else:
+                    context.bot.leave_chat(chat_id=group_id)
+                    context.bot.send_message(chat_id=214196949, text=f"@{user.username} tried to add me to {group_title} but I left ASAP.")
 
 
 
