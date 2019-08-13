@@ -57,3 +57,8 @@ def start(update, context):
     else:
         update.message.reply_text("Please get yourself registered as a teacher by @UnuaLibro.")
 
+
+
+@util.send_typing_action
+def user_rank(update, context):
+    pass

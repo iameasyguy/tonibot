@@ -81,6 +81,7 @@ class Answers(Document):
     incorrect = IntField(required=True,default=0)
     answertype = StringField(null=True)
 
+
     @queryset_manager
     def check_user_answer(self,queryset , user_id,answertype):
         try:
@@ -106,8 +107,10 @@ class Answers(Document):
         return queryset.filter(user_id=user_id)[0].update(answertype=answertype, incorrect=incorrect)
 
     @queryset_manager
-    def get_all_point(self,queryset):
-        return queryset.filter()[0].username,queryset.filter()[0].correct
+    def points(self,queryset,answertype):
+        return queryset.filter(answertype=answertype)
+
+
 
 class Apolo(Document):
     user_id = IntField(required=True)
