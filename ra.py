@@ -7,6 +7,7 @@ import util
 import observer
 import config
 import texts
+import liker
 import apolo
 import admins
 import seshat
@@ -126,6 +127,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.regex('^PROFILE$'), admins.profile))
     dp.add_handler(MessageHandler(Filters.regex('^HELP$'), commands.start))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, groups.add_group))
+    dp.add_handler(MessageHandler(Filters.all,liker.message_counter))
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, groups.remove_from_group))
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
     dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))

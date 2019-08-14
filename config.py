@@ -10,6 +10,7 @@ LIST ={}
 CHANCE ={}
 HUNTERS=2
 MAX = 3
+RANK1=10
 CRIME =887959931
 NOCHANCE="⛔ *You already exhausted your chances. Wait for the next hunt!*"
 CONGRATS = "🥇 *Congratulations {}, you won this hunt* ❗"

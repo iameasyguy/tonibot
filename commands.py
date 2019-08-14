@@ -32,7 +32,7 @@ def start(update, context):
     chat_type = update.message.chat.type
     # admins = sqls.check_admin(user.id)
     admins=Users.check_admin(user_id=user.id)
-    if int(admins)==2:
+    if admins==2:
         admin_keyboard = [['POST', 'MANAGE GROUPS'],
                           ['ADD ADMIN', 'REMOVE ADMINS'],
                           ['HELP','PROFILE'],
@@ -46,7 +46,7 @@ def start(update, context):
                               "REMOVE ADMINS - View and delete teachers.\n"
                               "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                              user.first_name), reply_markup=admin_markup)
-    elif int(admins)==1:
+    elif admins==1:
         teacher_keyboard = [['POST', 'HELP'],['PROFILE','CANCEL']]
         teacher_markup = ReplyKeyboardMarkup(teacher_keyboard, True, False)
         if chat_type == "private":

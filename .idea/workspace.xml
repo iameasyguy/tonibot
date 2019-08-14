@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="removed the criminal handler and merged it with the observer handler">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tonibot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tonibot.iml" afterDir="false" />
+    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="Added likes model to the db">
+      <change afterPath="$PROJECT_DIR$/liker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k.py" beforeDir="false" afterPath="$PROJECT_DIR$/k.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/observer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ra.py" beforeDir="false" afterPath="$PROJECT_DIR$/ra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,44 +55,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>add_group</find>
-      <find>get_group_adder</find>
-      <find>del_group</find>
-      <find>get_apolo_answer</find>
-      <find>lang</find>
-      <find>get_all_a</find>
-      <find>ro.</find>
-      <find>data[</find>
-      <find>get_gaia_qstnsby_msgid</find>
-      <find>change_zamol_qstn_message_id</find>
-      <find>.update</find>
-      <find>update_correct</find>
-      <find>change_sherlock_fileid</find>
-      <find>cancel</find>
-      <find>get_sherlock_question</find>
-      <find>Players(game_no=game_no, user_id=user.id)</find>
-      <find>get_game_joined</find>
-      <find>get_count</find>
-      <find>Sherloc</find>
-      <find>check_user_answer</find>
-      <find>get_gaia_question_type</find>
-      <find>Sher</find>
-      <find>Sherlock(</find>
-      <find>Sherl</find>
-      <find>Answer</find>
-      <find>Ans</find>
-      <find>Answer(</find>
-      <find>Answers(</find>
-      <find>sqls</find>
-      <find>sql</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>ra.</replace>
-      <replace>sqls</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -273,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565699106618</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added likes model to the db">
+      <created>1565804794889</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565804794889</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -316,7 +289,8 @@
     <MESSAGE value="added crime bot" />
     <MESSAGE value="updated adding an admin to request mode, removed admin conversation" />
     <MESSAGE value="removed the criminal handler and merged it with the observer handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed the criminal handler and merged it with the observer handler" />
+    <MESSAGE value="Added likes model to the db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added likes model to the db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

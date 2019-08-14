@@ -461,3 +461,27 @@ class Likes(Document):
     username =StringField(required=True)
     message =StringField(required=True)
     likes = IntField(default=0)
+
+
+class Messages(Document):
+    user_id = IntField(required=True)
+    username = StringField(required=True)
+    messages = IntField(default=0)
+    group_id = IntField(required=True)
+
+
+    @queryset_manager
+    def update_messages(self,queryset,user_id,messages,group_id):
+        return queryset.filter(user_id=user_id)[0].update(messages=messages,group_id=group_id)
+
+    @queryset_manager
+    def get_messages_count(self,queryset,user_id,group_id):
+        return queryset.filter(user_id=user_id,group_id=group_id)[0].messages
+
+    @queryset_manager
+    def check_messages(self, queryset, user_id,group_id):
+        try:
+            if queryset.filter(user_id=user_id,group_id=group_id)[0].user_id is not None:
+                return True
+        except IndexError:
+            return False

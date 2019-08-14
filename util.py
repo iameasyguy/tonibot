@@ -170,3 +170,11 @@ class Speech():
             return 500
         except sr.UnknownValueError:
             return 401
+
+
+def get_username(update,context):
+    user = update.message.from_user
+    if user.username ==None:
+        return user.first_name
+    else:
+        return user.username
