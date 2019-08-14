@@ -456,3 +456,8 @@ class Players(Document):
         return queryset.filter(user_id=user_id,game_no=game_no)[0].chances
 
 
+class Likes(Document):
+    user_id =IntField(required=True)
+    username =StringField(required=True)
+    message =StringField(required=True)
+    likes = IntField(default=0)
