@@ -344,3 +344,10 @@ def jarvis(update,context):
             chat_id=update.callback_query.message.chat_id,
             message_id=update.callback_query.message.message_id, )
         context.bot.send_message(chat_id=user_id, text=f"Hi, your request was declined!")
+
+    elif text.startswith('done'):
+        context.bot.edit_message_text(
+            text=f"Thanks {user.first_name},Open this [link](https://telegra.ph/User-Ranks-08-15) to see all ranks and conditions to progress or send /career",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id,parse_mode="Markdown")
+

@@ -1,6 +1,6 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ConversationHandler
-
+import emoji
 import util
 import db
 import ra
@@ -18,17 +18,16 @@ def manage_admin(update,context):
     chat_type = update.message.chat.type
     # admin = sqls.check_admin(user.id)
     admin = Users.check_admin(user_id=user.id)
-    print(admin)
     if chat_type == "private":
         if admin == 2:
-            if len(admins) > 0:
+            if admins[0].username != 'None':
                 update.message.reply_text("Hi Super admin click on the admin you want to delete")
                 for data in admins:
 
-                    key_main = [[InlineKeyboardButton("{}".format(data.user_id), callback_data='usr+{}'.format(data.user_id))]]
+                    key_main = [[InlineKeyboardButton("Delete", callback_data='usr+{}'.format(data.user_id))]]
                     main_markup = InlineKeyboardMarkup(key_main)
                     context.bot.send_message(chat_id=user.id,
-                                     text='<--------Click to delete-------->',
+                                     text=f'Username: {data.username}\nUser ID: {data.user_id}',
                                      reply_markup=main_markup)
             else:
                 context.bot.send_message(chat_id=user.id, text='No Teachers available, to Add a teacher click the ADD ADMIN button')

@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 from functools import wraps
 
-from telegram import ReplyKeyboardMarkup
+from telegram import ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
 from sql import *
 import util
-import db
+import emoji
 import config
-sqls = db.DBHelper()
+
 
 
 
@@ -30,28 +30,28 @@ def start(update, context):
     chat_id = msg.chat.id
     user = update.message.from_user
     chat_type = update.message.chat.type
-    # admins = sqls.check_admin(user.id)
+
     admins=Users.check_admin(user_id=user.id)
     if admins==2:
-        admin_keyboard = [['POST', 'MANAGE GROUPS'],
-                          ['ADD ADMIN', 'REMOVE ADMINS'],
+        admin_keyboard = [['ENLIGHT', 'MANAGE GROUPS'],
+                          ['RECRUIT BELIEVERS', 'EXPEL BELIEVERS'],
                           ['HELP','PROFILE'],
                           ['CANCEL']]
 
         admin_markup = ReplyKeyboardMarkup(admin_keyboard, True,False)
         if chat_type == "private":
             context.bot.send_message(chat_id=chat_id,
-                         text="Hi {}, Please select an option:\nPOST - To select activity type.\n"
-                              "MANAGE GROUPS - View and Delete groups.\nADD ADMIN - Adds a teacher.\n"
-                              "REMOVE ADMINS - View and delete teachers.\n"
+                         text="Hi {}, Please select an option:\nENLIGHT - To select activity type.\n"
+                              "MANAGE GROUPS - View and Delete groups.\nRECRUIT BELIEVERS - Adds a teacher.\n"
+                              "EXPEL BELIEVERS - View and delete teachers.\n"
                               "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                              user.first_name), reply_markup=admin_markup)
     elif admins==1:
-        teacher_keyboard = [['POST', 'HELP'],['PROFILE','CANCEL']]
+        teacher_keyboard = [['ENLIGHT', 'HELP'],['PROFILE','CANCEL']]
         teacher_markup = ReplyKeyboardMarkup(teacher_keyboard, True, False)
         if chat_type == "private":
             context.bot.send_message(chat_id=chat_id,
-                         text="Hi {}, Please select an option:\nPOST - To select activity type.\n"
+                         text="Hi {}, Please select an option:\nENLIGHT - To select activity type.\n"
                               "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                              user.first_name), reply_markup=teacher_markup)
     else:
@@ -60,5 +60,25 @@ def start(update, context):
 
 
 @util.send_typing_action
-def user_rank(update, context):
-    pass
+def user_rank_join(update, context):
+    user = update.message.from_user
+    chat_type = update.message.chat.type
+    username= util.get_username(update,context)
+    if chat_type=="private":
+        key_main = [[InlineKeyboardButton(emoji.emojize("Continue :thumbsup:",use_aliases=True), callback_data="done")]]
+        main_markup = InlineKeyboardMarkup(key_main)
+        buttons = []
+        for k, v in config.LINKS.items():
+            buttons.append(InlineKeyboardButton(k, url=v,))
+        key_main = InlineKeyboardMarkup(util.build_menu(buttons, n_cols=3))
+        update.message.reply_text(emoji.emojize(config.JOIN_MSG.format(username),use_aliases=True),reply_markup=key_main)
+        update.message.reply_text(f"Hey {username} press the button below after posting a review to proceed",reply_markup=main_markup)
+
+
+
+@util.send_typing_action
+def user_career(update, context):
+    username = util.get_username(update, context)
+    update.message.reply_text(f"Hey {username} press the [link](https://telegra.ph/User-Ranks-08-15) to see all ranks and conditions to progress\n"
+                              f"Press /progress to view your actual rank and requirements/tasks for next rank",parse_mode="Markdown")
+

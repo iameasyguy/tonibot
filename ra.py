@@ -30,6 +30,7 @@ def activity_select(update, context):
     chat_id = msg.chat.id
     user = update.message.from_user
     chat_type = update.message.chat.type
+
     key_main = [[InlineKeyboardButton("Word Mixer", callback_data='apolo'),
                  InlineKeyboardButton("Listen & Write", callback_data="zamol")],
                 [InlineKeyboardButton("Listen & Record", callback_data='gaia'),
@@ -116,14 +117,16 @@ def main():
 
     dp.add_handler(apolo_convo)
     # dp.add_handler(seshat_convo)
-    dp.add_handler(MessageHandler(Filters.regex('^ADD ADMIN$'), admins.admin))
+    dp.add_handler(MessageHandler(Filters.regex('^RECRUIT BELIEVERS$'), admins.admin))
     dp.add_handler(CommandHandler('start', commands.start))
-    dp.add_handler(MessageHandler(Filters.regex('^POST$'), activity_select))
+    dp.add_handler(CommandHandler('join', commands.user_rank_join))
+    dp.add_handler(CommandHandler('career', commands.user_career))
     dp.add_handler(CommandHandler('gid', commands.get_id))
+    dp.add_handler(MessageHandler(Filters.regex('^ENLIGHT$'), activity_select))
     dp.add_handler(CallbackQueryHandler(cbhandler.jarvis))
     dp.add_handler(MessageHandler(Filters.regex('^CANCEL$'), cancel))
     dp.add_handler(MessageHandler(Filters.regex('^MANAGE GROUPS$'), groups.groups_view))
-    dp.add_handler(MessageHandler(Filters.regex('^REMOVE ADMINS$'), admins.manage_admin))
+    dp.add_handler(MessageHandler(Filters.regex('^EXPEL BELIEVERS$'), admins.manage_admin))
     dp.add_handler(MessageHandler(Filters.regex('^PROFILE$'), admins.profile))
     dp.add_handler(MessageHandler(Filters.regex('^HELP$'), commands.start))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, groups.add_group))
@@ -131,6 +134,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, groups.remove_from_group))
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
     dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
+
     # dp.add_handler(MessageHandler(Filters.text & Filters.reply, sherlock.criminal))
     dp.add_handler(CommandHandler('admin',admins.request_add))
     # log all errors

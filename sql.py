@@ -80,6 +80,7 @@ class Answers(Document):
     correct = IntField(required=True,default=0)
     incorrect = IntField(required=True,default=0)
     answertype = StringField(null=True)
+    group_id = IntField(null=True)
 
 
     @queryset_manager
@@ -382,6 +383,25 @@ class Sherlock(Document):
                 return queryset.filter(message_id=msg_id)[0].question_type
         except IndexError:
             return False
+
+
+
+class Africa(Document):
+    user_id = IntField(required=True)
+    question = StringField(null=True)
+    answer = StringField(null=True)
+    pickone =StringField(null=True)
+    picktwo = StringField(null=True)
+    pickthree = StringField(null=True)
+    pickfour = StringField(null=True)
+    group_id = IntField(null=True)
+    message_id = IntField(null=True)
+    question_type = StringField(null=True)
+
+
+
+
+
 
 class Games(Document):
     admin_id =IntField(required=True)

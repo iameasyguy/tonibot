@@ -25,3 +25,17 @@ RULES="🔫 The Police Station will not provide any further information.\n" \
       "🔫 If your assumption is correct, the criminal will reply to your message.\n" \
       "🔫 If you make two erroneous assumptions, you are out of the hunt.\n" \
       "🔫 The winner will be awarded 10 LC points."
+
+LINKS ={"Bahasa":"https://t.me/tlgrmcbot?start=lcspeakbahasa-review",
+        "Italian":"https://t.me/tlgrmcbot?start=lcspeakitalian-review",
+        "Portuguese":"https://t.me/tlgrmcbot?start=lcspeakportuguese-review",
+        "German":"https://t.me/tlgrmcbot?start=lcspeakgerman-review",
+        "Chinese":"https://t.me/tlgrmcbot?start=lcspeakchinese-review",
+        "Spanish":"https://t.me/tlgrmcbot?start=lcspeakspanish-review",
+        "French":"https://t.me/tlgrmcbot?start=lcspeakfrench-review",
+         "English":"https://t.me/tlgrmcbot?start=lcspeakenglish-review",
+      "Arabic":"https://t.me/tlgrmcbot?start=lcspeakarabic-review"}
+
+JOIN_MSG =":sunny:Hi {}! You  have just joined the Learning Creators credit points programme. This programme measures your learning progress.\n" \
+          "You are kindly asked to leave a review for any of our groups and then press 'CONTINUE'."
+
