@@ -5,6 +5,7 @@ from pyrogram import Client
 import config
 import ra
 import africa
+import texts
 from sql import *
 condition = True
 
@@ -36,7 +37,7 @@ def jarvis(update,context):
             Apolo.change_apolo_qstn_group_id(group_id=group_id, qid=last_id, user_id=user_id)
             apolo_qstn = Apolo.get_apolo_question(qid=last_id)
             payload = context.bot.send_message(chat_id=group_id,
-                                               text=f"🧠 *Please long-press on Ro’s phrase, click reply and write the correct sentence.*\n\n📕 _{apolo_qstn}_",
+                                               text=f"🧠 *Please long-press on Ra’s phrase, click reply and write the correct sentence.*\n\n📕 _{apolo_qstn}_",
                                                parse_mode=ParseMode.MARKDOWN)
             message_id = payload.message_id
             print(message_id)
@@ -66,11 +67,11 @@ def jarvis(update,context):
             swali, file_id = msg
             try:
                 payload = context.bot.send_photo(chat_id=group_id, photo=file_id,
-                                                 caption="*{}*\n\n🌴 _Please long-press on Ro’s sentence / word, click reply and write the missing / correct word(s)._".format(
+                                                 caption="*{}*\n\n🌴 _Please long-press on Ra’s sentence / word, click reply and write the missing / correct word(s)._".format(
                                                      swali), parse_mode="Markdown")
             except:
                 payload = context.bot.send_document(chat_id=group_id, document=file_id,
-                                                    caption="*{}*\n\n🌴 _Please long-press on Ro’s sentence / word, click reply and write the missing / correct word(s)._".format(
+                                                    caption="*{}*\n\n🌴 _Please long-press on Ra’s sentence / word, click reply and write the missing / correct word(s)._".format(
                                                         swali), parse_mode="Markdown")
 
             message_id = payload.message_id
@@ -135,7 +136,7 @@ def jarvis(update,context):
             # lang, qstn,file_id,g_id = sqls.get_zamol_question(tbl_id=tbl_id,user_id=user_id)
             lang, qstn, file_id, g_id = Zamol.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
             payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
-                                             caption="🗣Please listen to Ro’s recording, then long-press, click reply and write what you heard!")
+                                             caption="🗣Please listen to Ra’s recording, then long-press, click reply and write what you heard!")
             message_id = payload.message_id
             print(message_id)
             Zamol.change_zamol_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
@@ -194,7 +195,7 @@ def jarvis(update,context):
             # lang, qstn,file_id,g_id = sqls.get_gaia_question(tbl_id=tbl_id,user_id=user_id)
             lang, qstn, file_id, g_id = Gaia.get_gaia_question(tbl_id=tbl_id, user_id=user_id)
             payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
-                                             caption="🗣Please listen to Ro’s recording, then long-press, click reply and record what you heard!")
+                                             caption="🗣Please listen to Ra’s recording, then long-press, click reply and record what you heard!")
             message_id = payload.message_id
             print(message_id)
             # sqls.change_gaia_qstn_message_id(message_id=message_id,tbl_id=tbl_id,user_id=user_id)
@@ -278,9 +279,12 @@ def jarvis(update,context):
             msg = Sherlock.get_sherlock_question(tbl_id=tbl_id, user_id=user_id)
             swali, file_id = msg
             if file_id == "0":
-                config.CHANCE.clear()
-                payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, config.RULES),
-                                                   parse_mode=ParseMode.MARKDOWN)
+                key_main = [[InlineKeyboardButton("👣 Join",callback_data='join')]]
+                main_markup = InlineKeyboardMarkup(key_main)
+
+                Sherlockchance.drop_collection()
+                payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, texts.RULES),
+                                                   parse_mode=ParseMode.MARKDOWN,reply_markup=main_markup)
                 message_id = payload.message_id
                 print(message_id)
                 # sql.change_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
@@ -294,16 +298,18 @@ def jarvis(update,context):
                     message_id=update.callback_query.message.message_id)
                 return ConversationHandler.END
             else:
+                key_main = [[InlineKeyboardButton("👣 Join", callback_data='join')]]
+                main_markup = InlineKeyboardMarkup(key_main)
                 context.bot.send_photo(chat_id=g_id, photo=file_id)
-                payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, config.RULES),
-                                                   parse_mode=ParseMode.MARKDOWN)
+                payload = context.bot.send_message(chat_id=g_id, text="{}\n\n\n{}".format(swali, texts.RULES),
+                                                   parse_mode=ParseMode.MARKDOWN,reply_markup=main_markup)
                 message_id = payload.message_id
                 print(message_id)
                 # sql.change_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
                 Sherlock.change_sherlock_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
                 Games(admin=user_id, game_no=message_id, group_id=g_id).save()
                 # sql.add_game(admin=user_id, game_no=message_id,group_id=g_id)#
-                config.CHANCE.clear()
+                Sherlockchance.drop_collection()
                 context.bot.edit_message_text(
                     text="The Message was successfully posted in the group\nTo post another message click the POST key",
                     chat_id=update.callback_query.message.chat_id,
@@ -394,6 +400,10 @@ def jarvis(update,context):
                                           chat_id=update.callback_query.message.chat_id,
                                           message_id=update.callback_query.message.message_id,
                                           parse_mode=ParseMode.MARKDOWN)
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=emoji.emojize(
+                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                        use_aliases=True),show_alert=True)
                     # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
                     answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
                     
@@ -427,7 +437,9 @@ def jarvis(update,context):
                         use_aliases=True))
 
             else:
-                context.bot.send_message(chat_id, config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                
 
         elif text == "B" and condition == True:
             message_id = update.callback_query.message.message_id
@@ -445,6 +457,10 @@ def jarvis(update,context):
                         chat_id=update.callback_query.message.chat_id,
                         message_id=update.callback_query.message.message_id,
                         parse_mode=ParseMode.MARKDOWN)
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=emoji.emojize(
+                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                        use_aliases=True),show_alert=True)
                     # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
                     answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
                     
@@ -479,7 +495,8 @@ def jarvis(update,context):
                         use_aliases=True))
 
             else:
-                context.bot.send_message(chat_id, config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
 
         elif text == "C" and condition == True:
             message_id = update.callback_query.message.message_id
@@ -497,6 +514,10 @@ def jarvis(update,context):
                         chat_id=update.callback_query.message.chat_id,
                         message_id=update.callback_query.message.message_id,
                         parse_mode=ParseMode.MARKDOWN)
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=emoji.emojize(
+                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                        use_aliases=True),show_alert=True)
                     # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
                     answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
                     
@@ -531,7 +552,8 @@ def jarvis(update,context):
                         use_aliases=True))
 
             else:
-                context.bot.send_message(chat_id, config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
 
         elif text == "D" and condition == True:
             message_id = update.callback_query.message.message_id
@@ -549,6 +571,10 @@ def jarvis(update,context):
                         chat_id=update.callback_query.message.chat_id,
                         message_id=update.callback_query.message.message_id,
                         parse_mode=ParseMode.MARKDOWN)
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=emoji.emojize(
+                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                        use_aliases=True),show_alert=True)
                     # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
                     answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
                     
@@ -583,5 +609,97 @@ def jarvis(update,context):
                         use_aliases=True))
 
             else:
-                context.bot.send_message(chat_id, config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+
+        elif text.startswith('like'):
+            context.bot.answer_callback_query(update.callback_query.id,text="you liked this post",)
+        elif text.startswith('join'):
+            print(chat_id)
+            game_no =query.message.message_id
+            game_stat = Games.get_game_status(game_no=game_no)
+            t_joined = Games.get_game_joined(game_no=game_no)
+            check_player = Players.check_player(user_id=user.id, game_no=game_no)
+            game_avail = Games.get_game_no(game_no=game_no)
+            game_admin = Games.get_game_admin(game_no=game_no)
+            if game_avail != False:
+
+                # check game status is on or won
+                # game_stat
+                if game_stat == 0:
+                    print(game_stat)
+
+                    # check if the user has been wrong more than twice
+                    if Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)!=False:
+                        Sherlockchance(user_id=user_id, group_id=chat_id).save()
+                        print("user in chance")
+                        chances = Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)
+                        print(chances)
+                        if int(chances) >= 2:
+                            print("user chances >2")
+
+                            context.bot.answer_callback_query(update.callback_query.id,
+                                                              text=texts.NOCHANCE,
+                                                              show_alert=True)
+                    else:
+                        # # check if user already joined the game
+                        if check_player != True:
+                            print("player not in the game")
+                            # check if the number of users are enough to start the game
+                            if int(t_joined) < config.HUNTERS:
+                                print("those joined are less")
+                                # sql.add_player(game_no=game_no,user_id=user.id)
+                                Players(game_no=game_no, user_id=user.id).save()
+                                # count =sql.get_count(game_no)
+                                count = Players.get_count(game_no=game_no)
+                                # sql.update_joined(joined=count,game_no=game_no)
+                                Games.update_joined(joined=count, game_no=game_no)
+                                # c_joined = sql.get_game_joined(game_no=game_no)
+                                c_joined = Games.get_game_joined(game_no=game_no)
+                                # update.message.reply_text(texts.JOINED.format(user.first_name),
+                                #                           parse_mode=ParseMode.MARKDOWN)
+                                context.bot.answer_callback_query(update.callback_query.id,
+                                                                  text=texts.JOINED.format(user.first_name),show_alert=True )
+                                togo = config.HUNTERS - int(c_joined)
+                                print(togo)
+                                if togo == 0:
+                                    context.bot.send_message(chat_id, texts.HUNTON, parse_mode=ParseMode.MARKDOWN)
+
+                                    # notify admin
+                                    context.bot.send_message(chat_id=game_admin,
+                                                             text="Enough users have joined the game, start sending hints")
+                                else:
+                                    context.bot.send_message(chat_id, "{} user(s) to go".format(togo))
+                            elif t_joined >= config.HUNTERS and t_joined <= config.MAX:
+                                # sql.add_player(game_no=game_no, user_id=user.id)
+                                Players(game_no=game_no, user_id=user.id).save()
+                                count = Players.get_count(game_no=game_no)
+                                Games.update_joined(joined=count, game_no=game_no)
+                                c_joined = Games.get_game_joined(game_no=game_no)
+                                cogo = config.MAX - int(c_joined)
+                                context.bot.answer_callback_query(update.callback_query.id,
+                                                                  text=texts.JOINED.format(user.first_name),
+                                                                  show_alert=True)
+                                if cogo == 0:
+                                    # context.bot.send_message(chat_id, "Maximum number of hunters achieved! ")
+                                    context.bot.edit_message_text(text="Maximum number of hunters achieved! ",
+                                                                  chat_id=update.callback_query.message.chat_id,
+                                                                  message_id=update.callback_query.message.message_id,
+                                                                  parse_mode=ParseMode.MARKDOWN)
+                                else:
+                                    context.bot.send_message(chat_id,f"{cogo} user(s) to reach the maximum number of hunters allowed")
+
+
+                            elif t_joined >= config.MAX:
+                                context.bot.answer_callback_query(update.callback_query.id,
+                                                                  text=f"Hi {user.first_name}, enough hunters have joined this hunt! Wait for the next hunt!",show_alert=True )
+
+                        else:
+
+                            context.bot.answer_callback_query(update.callback_query.id,
+                                                              text=f"Hi {user.first_name}, you already joined this hunt.!",show_alert=True )
+
+                else:
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=f"Hi {user.first_name}, this hunt is over, please wait for the next one!",show_alert=True )
 

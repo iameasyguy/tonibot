@@ -82,7 +82,7 @@ def edit_clip(update,context):
     # lang, qstn, file_id, g_id = sqls.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
     lang, qstn, file_id, g_id =Zamol.get_zamol_question(tbl_id=tbl_id, user_id=user.id)
     payload = context.bot.send_voice(chat_id=g_id, voice=file_id,
-                                     caption="🗣Please listen to Ro’s recording, then long-press, click reply and record what you heard!")
+                                     caption="🗣Please listen to Ra’s recording, then long-press, click reply and write what you heard!")
     message_id = payload.message_id
     print(message_id)
     # sqls.change_zamol_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user.id)

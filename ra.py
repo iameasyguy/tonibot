@@ -11,6 +11,7 @@ import liker
 import apolo
 import admins
 import seshat
+import emoji
 import zamol
 import sherlock
 import cbhandler
@@ -32,11 +33,11 @@ def activity_select(update, context):
     user = update.message.from_user
     chat_type = update.message.chat.type
 
-    key_main = [[InlineKeyboardButton("Word Mixer", callback_data='apolo'),
-                 InlineKeyboardButton("Listen & Write", callback_data="zamol")],
-                [InlineKeyboardButton("Listen & Record", callback_data='gaia'),
-                 InlineKeyboardButton("View and write", callback_data="seshat")],
-                [InlineKeyboardButton("Crime Buster", callback_data='sherlock')]]
+    key_main = [[InlineKeyboardButton(emoji.emojize(":sunny: Apollo",use_aliases=True), callback_data='apolo'),
+                 InlineKeyboardButton(emoji.emojize(":sunny: Zalmoxis",use_aliases=True), callback_data="zamol")],
+                [InlineKeyboardButton(emoji.emojize(":sunny: Gaia",use_aliases=True), callback_data='gaia'),
+                 InlineKeyboardButton(emoji.emojize(":sunny: Seshat",use_aliases=True), callback_data="seshat")],
+                [InlineKeyboardButton(emoji.emojize(":police_car: Sherlock",use_aliases=True), callback_data='sherlock')]]
     main_markup = InlineKeyboardMarkup(key_main)
     #check user role
     role = Users.check_admin(user_id=user.id)
@@ -45,7 +46,7 @@ def activity_select(update, context):
     if chat_type=='private':
         if role >0:
 
-            context.bot.send_message(chat_id=chat_id, text=texts.ACTIVITY_SELECT.format(user.first_name),
+            context.bot.send_message(chat_id=chat_id, text=emoji.emojize(texts.ACTIVITY_SELECT.format(user.first_name),use_aliases=True),
                                      reply_markup=main_markup)
         else:
             context.bot.send_message(chat_id=chat_id, text=texts.NONE_ADMIN.format(user.first_name))
@@ -66,8 +67,8 @@ def cancel(update,context):
     chat_type = update.message.chat.type
     admins = Users.check_admin(user.id)
     if int(admins) == 2:
-        admin_keyboard = [['POST', 'MANAGE GROUPS'],
-                          ['ADD ADMIN', 'REMOVE ADMINS'],
+        admin_keyboard = [['ENLIGHT', 'MANAGE GROUPS'],
+                          ['RECRUIT BELIEVERS', 'EXPEL BELIEVERS'],
                           ['HELP', 'PROFILE'],
                           ['CANCEL']]
 
@@ -75,19 +76,19 @@ def cancel(update,context):
         if chat_type == "private":
             update.message.reply_text("Your cancelled our conversation!.")
             context.bot.send_message(chat_id=chat_id,
-                                     text="Hi {}, Please select an option:\nPOST - To select activity type.\n"
-                                          "MANAGE GROUPS - View and Delete groups.\nADD ADMIN - Adds a teacher.\n"
-                                          "REMOVE ADMINS - View and delete teachers.\n"
-                                          "HELP - Show help menu.\nPROFILE - View your user id & other details.".format(
+                                     text="Hi {}, Please select an option:\nENLIGHT - To select activity type.\n"
+                                          "MANAGE GROUPS - View and Delete groups.\nRECRUIT BELIEVERS - Adds a teacher.\n"
+                                          "EXPEL BELIEVERS - View and delete teachers.\n"
+                                          "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                                          user.first_name), reply_markup=admin_markup)
     elif int(admins) == 1:
-        teacher_keyboard = [['POST', 'HELP'], ['PROFILE', 'CANCEL']]
+        teacher_keyboard = [['ENLIGHT', 'HELP'],['PROFILE','CANCEL']]
         teacher_markup = ReplyKeyboardMarkup(teacher_keyboard, True, False)
         if chat_type == "private":
             update.message.reply_text("Your cancelled our conversation!.")
             context.bot.send_message(chat_id=chat_id,
-                                     text="Hi {}, Please select an option:\nPOST - To select activity type.\n"
-                                          "HELP - Show help menu.\nPROFILE - View your user id & other details.".format(
+                                     text="Hi {}, Please select an option:\nENLIGHT - To select activity type.\n"
+                                          "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                                          user.first_name), reply_markup=teacher_markup)
     else:
         update.message.reply_text("Please get yourself registered as a teacher by @UnuaLibro.")
@@ -126,7 +127,7 @@ def main():
     dp.add_handler(CommandHandler('menu',africa.game))
     dp.add_handler(CommandHandler('admin', admins.request_add))
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
-    dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
+    dp.add_handler(MessageHandler(Filters.reply & Filters.command, sherlock.travis))
     dp.add_handler(MessageHandler(Filters.regex('^ENLIGHT$'), activity_select))
     dp.add_handler(CallbackQueryHandler(cbhandler.jarvis))
     dp.add_handler(MessageHandler(Filters.regex('^CANCEL$'), cancel))

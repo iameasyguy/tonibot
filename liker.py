@@ -11,7 +11,7 @@ def message_counter(update,context):
     chat_type = update.message.chat.type
     username =util.get_username(update,context)
     if chat_type == "group" or chat_type == "supergroup":
-        print(Messages.check_messages(user_id=user.id,group_id=group_id))
+        # print(Messages.check_messages(user_id=user.id,group_id=group_id))
         if Messages.check_messages(user_id=user.id,group_id=group_id)==False:
             Messages(user_id=user.id,username=username,group_id=group_id).save()
 

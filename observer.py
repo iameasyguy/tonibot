@@ -3,6 +3,8 @@ from telegram import ParseMode
 import util
 from sql import *
 import config
+import emoji
+import texts
 speech = util.Speech()
 
 
@@ -33,7 +35,7 @@ def observer(update,context):
                 if Sherlockchance.get_user_chance(user_id=user.id,group_id=group_id)!="False":
                     chances = Sherlockchance.get_user_chance(user_id=user.id,group_id=group_id)
                     if int(chances) >= 2:
-                        update.message.reply_text(config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                        update.message.reply_text(texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
                     else:
                         answ = Answers.check_user_answer(user_id=user.id,group_id=group_id, answertype="sherlock")
                         
@@ -73,10 +75,10 @@ def observer(update,context):
             if answ == False:
                 Answers(user_id=user.id,username=user.username, correct=0, incorrect=0, answertype="sherlock",group_id=group_id).save()
             if game_stat == 0:
-                if Sherlockchance.get_user_chance(user_id=user.id,group_id=group_id)!="False":
+                if Sherlockchance.get_user_chance(user_id=user.id,group_id=group_id)!=False:
                     chances = Sherlockchance.get_user_chance(user_id=user.id,group_id=group_id)
                     if int(chances) >= 2:
-                        update.message.reply_text(config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                        update.message.reply_text(texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
 
                     elif int(chances) == 1:
 
@@ -203,6 +205,7 @@ def observer(update,context):
                         lang, quiz = Gaia.get_gaia_qstnsby_msgid(msg_id=message_id, group_id=group_id)
                         langue = util.language_select(language=lang)
                         text = speech.to_text(lang=langue)
+                        print(text)
                         if text == 401:
                             update.message.reply_text(
                                 "Hi {}, I did not understand this, please try again".format(user.first_name))
@@ -231,7 +234,7 @@ def observer(update,context):
                             update.message.reply_text("🐔Sorry, your answer is wrong. Please try again!")
                         util.clear_student(user_id=user.id)
                 except AttributeError:
-                    update.message.reply_text(f"Hi {user.first_name}, wrong message or in the wrong format")
+                    update.message.reply_text(emoji.emojize(f":see_no_evil:Hi {user.first_name}, Are you serious? You are replying to the wrong message or in the wrong format:exclamation:",use_aliases=True))
 
             else:
-                update.message.reply_text(f"Hi {user.first_name}, you are replying to the wrong message or in the wrong format")
+                update.message.reply_text(emoji.emojize(f":see_no_evil:Hi {user.first_name}, Are you serious? You are replying to the wrong message or in the wrong format:exclamation:",use_aliases=True))

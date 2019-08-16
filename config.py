@@ -14,17 +14,10 @@ RANK1=10
 CRIME =887959931
 NOCHANCE="⛔ *You already exhausted your chances. Wait for the next hunt!*"
 CONGRATS = "🥇 *Congratulations {}, you won this hunt* ❗"
-JOINED = "👣 *Hi {}, you have joined this hunt! Watch out for the hints!*"
+
 FOUND = "🔵 **Yes I am, bastard! You got me. I must go to jail now but I'll be back one day** ❗"
-HUNTON="👣👣👣 *The hunt is on* ‼️👣👣👣"
-RULES="🔫 The Police Station will not provide any further information.\n" \
-      "⚠️To join this manhunt, long-press on SherlockLCbot's sentence, click reply and type: '/join'.\n" \
-      "🔫 The game starts once a minimum of 20 hunters have been registered.\n" \
-      "🔫 The criminal will be posting hints in the group chat.\n" \
-      "🔫 When you are sure you have found the criminal, reply to their message with '@name you are the criminal!'\n" \
-      "🔫 If your assumption is correct, the criminal will reply to your message.\n" \
-      "🔫 If you make two erroneous assumptions, you are out of the hunt.\n" \
-      "🔫 The winner will be awarded 10 LC points."
+
+
 
 LINKS ={"Bahasa":"https://t.me/tlgrmcbot?start=lcspeakbahasa-review",
         "Italian":"https://t.me/tlgrmcbot?start=lcspeakitalian-review",
@@ -36,6 +29,5 @@ LINKS ={"Bahasa":"https://t.me/tlgrmcbot?start=lcspeakbahasa-review",
          "English":"https://t.me/tlgrmcbot?start=lcspeakenglish-review",
       "Arabic":"https://t.me/tlgrmcbot?start=lcspeakarabic-review"}
 
-JOIN_MSG =":sunny:Hi {}! You  have just joined the Learning Creators credit points programme. This programme measures your learning progress.\n" \
-          "You are kindly asked to leave a review for any of our groups and then press 'CONTINUE'."
+
 

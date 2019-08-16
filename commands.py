@@ -7,7 +7,7 @@ from sql import *
 import util
 import emoji
 import config
-
+import texts
 
 
 
@@ -71,7 +71,7 @@ def user_rank_join(update, context):
         for k, v in config.LINKS.items():
             buttons.append(InlineKeyboardButton(k, url=v,))
         key_main = InlineKeyboardMarkup(util.build_menu(buttons, n_cols=3))
-        update.message.reply_text(emoji.emojize(config.JOIN_MSG.format(username),use_aliases=True),reply_markup=key_main)
+        update.message.reply_text(emoji.emojize(texts.JOIN_MSG.format(username),use_aliases=True),reply_markup=key_main)
         update.message.reply_text(f"Hey {username} press the button below after posting a review to proceed",reply_markup=main_markup)
 
 
