@@ -1,5 +1,5 @@
-import config
+import africa
+from sql import *
 
-buttons = []
-for key,value in config.LINKS.items():
-    buttons.append(key,value)
+print(Users.check_admin(user_id=123))
+

@@ -1,0 +1,197 @@
+to make,صنع
+to get,حصل
+to use, إستعمل
+to say,قال
+to go,ذهب
+to take,أخذ
+to see,رأى
+to know,علم
+to find,وجد
+to think,فكر
+to work,عمل
+to come,جاء
+to want,أراد
+to need,إحتاج
+to give, أعطى
+to include, شمل
+to help,ساعد
+to provide,زود
+to look,نظر
+to start,بدأ
+to create,خلق
+to try,حاول
+to become,أصبح
+to keep,احتفظ
+to write,كتب
+to read,قرأ
+to call,نادى
+to feel, أحس
+to follow,تابع
+to tell,أخبر
+to learn,تعلم
+to show,  أظهر
+to ask, سأل
+to add,أضاف
+to put,وضع
+to offer,عرض
+to mean, عنى
+to allow,سمح
+to leave,ترك
+to like, أعجب
+to run,هرب
+to pay,دفع
+to bring,  أحضر
+to seem,بدا
+to build,بنى
+to live,عاش
+to let,سمح
+to set,  حدد
+to love, أحب
+to require,تطلب
+to receive, إستقبل
+to lead,قاد
+to develop,طور
+to change,  بدل
+to continue, إستمر
+to play,لعب
+to begin,بدأ
+to consider,إعتبر
+to hold,أمسك
+to support,دعم
+to move,تحرك
+to believe,إعتقد
+to base,أسس
+to happen,  وقع
+to understand,فهم
+to buy,إشترى
+to grow,نما
+to turn,  إستدار
+to meet,  قابل
+to increase,  زاد
+to share,شارك
+to spend,  قضى
+to send,أرسل
+to hear,سمع
+to talk,تحدث
+to serve,خدم
+to choose,إختار
+to involve,شمل
+to improve,  طور
+to lose,خسر
+to enjoy,إستمتع
+to expect,توقع
+to decide,قرر
+to sell,باع
+to focus,ركز
+to speak,تكلم
+to apply,طبق
+to post,نشر
+to appear,ظهر
+to remain,بقي
+to design,صمم
+to produce,أنتج
+to hope,  رجا
+to join,إنضم
+to accord,وافق
+to cover,غطى
+to stop,توقف
+to remember,تذكر
+to cause,سبب
+to reduce,قلص
+to manage,أدار
+to save,  حفظ
+to watch,  شاهد
+to check,  تحقق
+to ensure,ضمن
+to reach,  بلغ
+to pass,مر
+to open,فتح
+to visit,زار
+to report,أبلغ
+to drive,قاد
+to agree,وافق
+to publish,نشر
+to present,قدم
+to eat,أكل
+to end,أنهى
+to raise,رفع
+to stay,بقي
+to contain,إحتوى
+to win,إنتصر
+to please,رضي
+to describe,وصف
+to explain,شرح
+to identify,حدد
+to wait,إنتظر
+to break,كسر
+to discuss,  حاور
+to plan,خطط
+to return,رجع
+to suggest,إقترح
+to thank,شكر
+to seek,سعى
+to stand,وقف
+to sit,جلس
+to protect,حمى
+to deliver,سلم
+to relate,ربط
+to teach,لقن
+to fall,سقط
+to carry,حمل
+to enter,دخل
+to place,وضع
+to determine,حدد
+to complete,أكمل
+to walk,مشى
+to face,واجه
+to represent,مثل
+to remove,  أزال
+to note,دون
+to establish,إنتبه
+to release,أطلق
+to achieve,حقق
+to cut,قطع
+to encourage,شجع
+to exist,  عاش
+to prepare,إستعد
+to perform,أدى
+to pick,إختار
+to mention,ذكر
+to address,خاطب
+to connect,ربط
+to feature,أبرز
+to maintain,حافظ
+to operate,  شغل
+to promote,رقى
+to accept,قبل
+to recommend,أوصى
+to affect,أثر
+to fill,ملأ
+to compare,قارن
+to avoid,إجتنب
+to announce,أعلن
+to enable,مكن
+to kill,قتل
+to fail,فشل
+to miss,إفتقد
+to wish,تمنى
+to depend,  تعلق
+to sign,وقع
+to die,مات
+to occur,طرأ
+to draw,رسم
+to attend,حضر
+to realize,أدرك
+to engage,إرتبط
+to discover,إكتشف
+to experience,  إختبر
+to define,حدد
+to explore,إستكشف
+to prevent,منع
+to bear,تحمل
+to hit,ضرب
+to introduce,قدم
+to contact,إتصل
+to collect,جمع
+to recognize,تعرف
+to participate,شارك

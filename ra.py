@@ -14,6 +14,7 @@ import seshat
 import zamol
 import sherlock
 import cbhandler
+import africa
 from sql import *
 from telegram import (ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
@@ -122,6 +123,10 @@ def main():
     dp.add_handler(CommandHandler('join', commands.user_rank_join))
     dp.add_handler(CommandHandler('career', commands.user_career))
     dp.add_handler(CommandHandler('gid', commands.get_id))
+    dp.add_handler(CommandHandler('menu',africa.game))
+    dp.add_handler(CommandHandler('admin', admins.request_add))
+    dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
+    dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
     dp.add_handler(MessageHandler(Filters.regex('^ENLIGHT$'), activity_select))
     dp.add_handler(CallbackQueryHandler(cbhandler.jarvis))
     dp.add_handler(MessageHandler(Filters.regex('^CANCEL$'), cancel))
@@ -132,11 +137,10 @@ def main():
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, groups.add_group))
     dp.add_handler(MessageHandler(Filters.all,liker.message_counter))
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, groups.remove_from_group))
-    dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
-    dp.add_handler((MessageHandler(Filters.reply & Filters.command, sherlock.travis)))
+
 
     # dp.add_handler(MessageHandler(Filters.text & Filters.reply, sherlock.criminal))
-    dp.add_handler(CommandHandler('admin',admins.request_add))
+
     # log all errors
     dp.add_error_handler(util.error)
 

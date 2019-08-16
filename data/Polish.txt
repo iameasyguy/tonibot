@@ -1,0 +1,197 @@
+to make,robić
+to get,dostać
+to use,używać
+to say,powiedzieć
+to go,iść
+to take,brać
+to see,zobaczyć
+to know,wiedzieć
+to find,znaleźć
+to think,myśleć
+to work,pracować
+to come,przyjść
+to want,chcieć
+to need,potrzebować
+to give,dawać
+to include,zawrzeć
+to help,pomóc
+to provide,w celu zapewnienia
+to look,patrzeć
+to start,zacząć
+to create,tworzyć
+to try,próbować
+to become,zostać
+to keep,do zachowania
+to write,pisać
+to read,czytać
+to call,zadzwonić
+to feel,czuć
+to follow,podążać
+to tell,powiedzieć
+to learn,uczyć się
+to show,pokazywać
+to ask,zapytać
+to add,dodać
+to put,położyć
+to offer,zaoferować
+to mean,znaczyć
+to allow,zezwolić
+to leave,zostawiać
+to like,lubić
+to run,biegać
+to pay,płacić
+to bring,przynieść
+to seem,wydawać się
+to build,budować
+to live,żyć
+to let,pozwolić
+to set,ustawić
+to love,kochać
+to require,wymagać
+to receive,otrzymać
+to lead,prowadzić
+to develop,rozwijać
+to change,zmienić
+to continue,kontynuować
+to play,grać
+to begin,zacząć
+to consider,do rozważenia
+to hold,trzymać
+to support,wspierać
+to move,przenieść
+to believe,wierzyć
+to base,do bazy
+to happen,wydarzyć się
+to understand,rozumieć
+to buy,kupić
+to grow,rosnąć
+to turn,skręcić
+to meet,spotkać
+to increase,zwiększyć
+to share,dzielić się
+to spend,wydać
+to send,wysyłać
+to hear,słyszeć
+to talk,rozmawiać
+to serve,służyć
+to choose,wybierać
+to involve,zaangażować
+to improve,ulepszyć
+to lose,przegrać
+to enjoy,cieszyć się
+to expect,spodziewać się
+to decide,zdecydować
+to sell,na sprzedaż
+to focus,skupiać się
+to speak,mówić
+to apply,aplikować
+to post,wysłać
+to appear,pojawić się
+to remain,pozostać
+to design,projektować
+to produce,produkować
+to hope,mieć nadzieję
+to join,dołączyć
+to accord,do przyznania
+to cover,na pokrycie
+to stop,zatrzymać
+to remember,zapamiętać
+to cause,powodować
+to reduce,zredukować
+to manage,zarządzać
+to save,zapisać
+to watch,oglądać
+to check,sprawdzić
+to ensure,aby zapewnić
+to reach,osiągnąć
+to pass,zdać
+to open,otworzyć
+to visit,odwiedzać
+to report,Zgłosić
+to drive,prowadzić
+to agree,zgadzać się
+to publish,opublikować
+to present,do teraźniejszości
+to eat,jeść
+to end,do końca
+to raise,podnieść
+to stay,zostać
+to contain,zawierać
+to win,wygrać
+to please,podobać się
+to describe,opisać
+to explain,wytłumaczyć
+to identify,do identyfikacji
+to wait,czekać
+to break,złamać
+to discuss,dyskutować
+to plan,planować
+to return,wracać
+to suggest,sugerować
+to thank,podziękować
+to seek,szukać
+to stand,stać
+to sit,usiąść
+to protect,chronić
+to deliver,dostarczyć
+to relate,odnosić się
+to teach,uczyć
+to fall,spaść
+to carry,nosić
+to enter,wejść
+to place,do miejsca
+to determine,określić
+to complete,ukończyć
+to walk,iść
+to face,do twarzy
+to represent,reprezentować
+to remove,usuwać
+to note,zauważyć
+to establish,ustanowienie
+to release,uwolnić
+to achieve,osiągnąć
+to cut,uciąć
+to encourage,zachęcać
+to exist,istnieć
+to prepare,przygotowanie
+to perform,występować
+to pick,podnieść
+to mention,wspomnieć
+to address,adresować
+to connect,połączyć
+to feature,do funkcji
+to maintain,utrzymać
+to operate,operować
+to promote,awansować
+to accept,akceptować
+to recommend,polecać
+to affect,oddziaływać
+to fill,wypełnić
+to compare,porównywać
+to avoid,unikać
+to announce,ogłosić
+to enable,umożliwić
+to kill,zabić
+to fail,nie zdać
+to miss,przegapić
+to wish,życzyć
+to depend,zależeć
+to sign,podpisać
+to die,umrzeć
+to occur,wystąpić
+to draw,rysować
+to attend,uczęszczać
+to realize,zdać sobie sprawę
+to engage,zaręczać się
+to discover,odkrywać
+to experience,doświadczyć
+to define,zdefiniować
+to explore,odkrywać
+to prevent,aby zapobiec
+to bear,znosić
+to hit,uderzyć
+to introduce,przedstawić
+to contact,skontaktować się
+to collect,zbierać
+to recognize,rozpoznać
+to participate,uczestniczyć

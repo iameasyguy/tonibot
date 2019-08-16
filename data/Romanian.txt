@@ -1,0 +1,197 @@
+to make,a face
+to get,a obține
+to use,a folosi
+to say,a zice
+to go,a merge
+to take,a lua
+to see,a vedea
+to know,să știe
+to find,a găsi
+to think,a gandi
+to work,a munci
+to come,a veni
+to want,a vrea
+to need,a avea nevoie
+to give,pentru a da
+to include,a include
+to help,a ajuta
+to provide,a furniza
+to look,A se uita
+to start,a începe
+to create,a crea
+to try,a incerca
+to become,a deveni
+to keep,a păstra
+to write,a scrie
+to read,a citi
+to call,a apela
+to feel,să se simtă
+to follow,a urma
+to tell,a spune
+to learn,a invata
+to show,a arăta
+to ask,a întreba
+to add,a adauga
+to put,a pune
+to offer,a oferi
+to mean,a insemna
+to allow,a permite
+to leave,a pleca
+to like,a place
+to run,a alerga
+to pay,a plăti
+to bring,a aduce
+to seem,a părea
+to build,a construi
+to live,a trai
+to let,a lasa
+to set,a seta
+to love,a iubi
+to require,a cere
+to receive,a primi
+to lead,a conduce
+to develop,a dezvolta
+to change,a schimba
+to continue,a continua
+to play,pentru a juca
+to begin,a incepe
+to consider,a considera
+to hold,a tine
+to support,a sustine
+to move,a muta
+to believe,a crede
+to base,la bază
+to happen,a se intampla
+to understand,a întelege
+to buy,a cumpara
+to grow,a creste
+to turn,a intoarce
+to meet,a întâlni
+to increase,a creste
+to share,pentru a partaja
+to spend,a cheltui
+to send,a trimite
+to hear,a auzi
+to talk,a vorbi
+to serve,a servi
+to choose,a alege
+to involve,a implica
+to improve,a îmbunătăți
+to lose,a pierde
+to enjoy,să se bucure
+to expect,a se astepta
+to decide,a decide
+to sell,a vinde
+to focus,a se concentra
+to speak,a vorbi
+to apply,a aplica
+to post,pentru a posta
+to appear,a aparea
+to remain,a rămâne
+to design,a proiecta
+to produce,a produce
+to hope,a spera
+to join,a se alatura
+to accord,să acorde
+to cover,a acoperi
+to stop,a opri
+to remember,a ține minte
+to cause,a cauza
+to reduce,a reduce
+to manage,de a gestiona
+to save,a salva
+to watch,a se uita
+to check,a verifica
+to ensure,a garanta
+to reach,a ajunge
+to pass,a trece
+to open,a deschide
+to visit,a vizita
+to report,a raporta
+to drive,a conduce
+to agree,a fi de acord
+to publish,a publica
+to present,a prezenta
+to eat,a mânca
+to end,a se termina
+to raise,a creste
+to stay,a sta
+to contain,a conține
+to win,A castiga
+to please,a multumi
+to describe,a descrie
+to explain,a explica
+to identify,pentru a identifica
+to wait,a astepta
+to break,a sparge
+to discuss,sa discute
+to plan,a plănui
+to return,a se intoarce
+to suggest,a sugera
+to thank,să-i mulțumesc
+to seek,a cauta
+to stand,a sta
+to sit,a sta
+to protect,pentru a proteja
+to deliver,a livra
+to relate,să se refere
+to teach,a invata
+to fall,a cădea
+to carry,a căra
+to enter,a intra
+to place,A plasa
+to determine,a determina
+to complete,a termina
+to walk,a merge
+to face,a înfrunta
+to represent,a reprezenta
+to remove,a sterge
+to note,a nota
+to establish,a stabili
+to release,pentru a elibera
+to achieve,pentru a realiza
+to cut,a tăia
+to encourage,a încuraja
+to exist,A exista
+to prepare,a prepara
+to perform,a efectua
+to pick,a ridica
+to mention,a menționa
+to address,la adresa
+to connect,a conecta
+to feature,caracteristicii
+to maintain,a mentine
+to operate,să funcționeze
+to promote,a promova
+to accept,a accepta
+to recommend,a recomanda
+to affect,a afecta
+to fill,a umple
+to compare,pentru a compara
+to avoid,a evita
+to announce,a anunta
+to enable,pentru a permite
+to kill,pentru a ucide
+to fail,a esua
+to miss,a duce dorul
+to wish,a dori
+to depend,a depinde
+to sign,a semna
+to die,a muri
+to occur,a avea loc
+to draw,a desena
+to attend,a încerca
+to realize,a realiza
+to engage,a se angaja
+to discover,a descoperi
+to experience,pentru a experimenta
+to define,a defini
+to explore,a explora
+to prevent,a preveni
+to bear,a suporta
+to hit,pentru a lovi
+to introduce,a introduce
+to contact,a contacta
+to collect,a colecta
+to recognize,a recunoaște
+to participate,să participe

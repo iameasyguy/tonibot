@@ -1,0 +1,986 @@
+and,und
+for,für
+you,du
+to say,sagen
+but,aber
+his,sein
+not,nicht
+she,sie
+to can,können
+who,wer
+to get,bekommen
+her,ihr
+all,alles
+one,eins
+out,aus
+to see,sehen
+him,ihn
+now,jetzt
+how,wie
+its,sein
+our,unser
+two,zwei
+way,Weg
+new,neu
+English,Englisch
+day,Tag
+to use,benutzen
+man,Mann
+any,irgendein
+may,Mai
+to try,versuchen
+to ask,fragen
+too,auch
+own,eigen
+to put,legen
+old,alt
+why,warum
+to let,lassen
+big,groß
+few,wenige
+to run,laufen
+off,weg von
+a lot,viele
+eye,Auge
+job,Job
+far,weit
+yes,ja
+to sit,sitzen
+yet,noch
+end,Ende
+bad,schlecht
+to pay,bezahlen
+law,Gesetz
+car,Auto
+to set,einstellen
+kid,Kind
+long ago,lange her
+to add,hinzufügen
+art,Kunst
+war,Krieg
+low,niedrig
+to win,gewinnen
+guy,Kerl
+air,Luft
+boy,Junge
+age,Alter
+to buy,kaufen
+to die,sterben
+to cut,schneiden
+six,sechs
+son,Sohn
+arm,Arm
+tax,Steuer
+to hit,schlagen
+to eat,essen
+oil,Öl
+red,rot
+top,Oberfläche
+bed,Bett
+hot,heiß
+to lie,lügen
+dog,Hund
+cup,Tasse
+box,Kiste
+to lay,legen
+sex,Geschlecht
+to act,handeln
+ten,zehn
+gun,Gewehr
+leg,Bein
+to fly,fliegen
+bit,bisschen
+sea,Meer
+bar,Stab
+bag,Tasche
+gas,Gas
+Mrs,Frau
+nor,und auch nicht
+key,Schlüssel
+sky,Himmel
+fan,Ventilator
+ice,Eis
+sun,Sonne
+ear,Ohr
+to fit,passen
+to cry,weinen
+egg,Ei
+bus,Bus
+tie,Krawatte
+map,Karte
+to nod,nicken
+to dry,trocknen
+fat,Fett
+lip,Lippe
+mom,Mama
+aid,Hilfe
+to mix,mischen
+cat,Katze
+due,fällig
+dad,Papa
+fee,Gebühr
+row,Reihe
+to fix,festmachen
+fun,Spaß
+tip,Spitze
+aim,Absicht
+hat,Hut
+gay,homosexuell
+lab,Labor
+gap,Abstand
+sad,traurig
+tea,Tee
+pot,Topf
+cap,Kappe
+toy,Spielzeug
+dig,Stoß
+wet,nass
+pan,Pfanne
+to pop,platzen
+mad,wütend
+via,via
+hip,Hüfte
+bet,Wette
+odd,seltsam
+raw,roh
+joy,Freude
+tap,Wasserhahn
+to rub,reiben
+net,Netz
+ill,krank
+to owe,schulden
+ski,Ski
+to rid,befreien
+cow,Kuh
+etc,usw.
+to sue,verklagen
+jet,Düsenjet
+God,Gott
+nut,Nuss
+to ban,verbieten
+pet,Haustier
+sin,Sünde
+pie,Pastete
+lap,Schoß
+toe,Zeh
+log,Aufzeichnungen
+to beg,flehen
+pig,Schwein
+van,Transporter
+bay,Bucht
+rat,Ratte
+hay,Heu
+to rip,zerreißen
+pen,Stift
+mud,Schlamm
+pad,Polster
+bat,Fledermaus
+sum,Summe
+pit,Grube
+hug,Umarmung
+gym,Fitnessstudio
+kit,Ausrüstung
+pro,Profi
+to bid,bieten
+jaw,Kiefer
+to bow,sich verbeugen
+bug,Wanze
+cab,Taxi
+bee,Biene
+jar,Krug
+gut,Darm
+pin,Nadel
+dam,Deich
+shy,schüchtern
+oak,Eiche
+to tag,markieren
+dot,Tupfen
+dip,Eintauchen
+pat,Klaps
+rib,Rippe
+rod,Stange
+ash,Asche
+rim,Rand
+lid,Deckel
+fur,Fell
+ego,Ego
+spy,Spion
+cue,Stichwort
+fog,Nebel
+to have,haben
+that,das
+with,mit
+this,dies
+they,sie
+from,aus
+what,was
+to make,machen
+to know,wissen
+will,Wille
+time,Zeit
+year,Jahr
+when,wann
+them,ihnen
+some,manche
+to take,nehmen
+into,in … hinein
+just,gerade
+your,dein
+to come,kommen
+than,als
+to like,mögen
+then,dann
+more,mehr
+to want,wollen
+to look,schauen
+also,außerdem
+to find,finden
+here,hier
+to give,geben
+many,viele
+well,gesund
+only,nur
+to tell,erzählen
+very,sehr
+even,sogar
+back,zurück
+good,gut
+life,Leben
+to work,arbeiten
+down,herunter
+to call,rufen
+over,über
+last,letzter
+to need,brauchen
+to feel,fühlen
+high,hoher
+most,die meisten
+much,viel
+mean,gemein
+to keep,behalten
+same,derselbe
+to seem,scheinen
+to help,helfen
+to talk,reden
+to turn,drehen
+hand,Hand
+to show,zeigen
+part,Teil
+such,solcher
+case,Fall
+week,Woche
+each,jeder
+to hear,hören
+to play,spielen
+to move,bewegen
+to live,leben
+to hold,halten
+next,nächster
+to must,müssen
+home,Zuhause
+room,Zimmer
+area,Bereich
+fact,Tatsache
+book,Buch
+word,Wort
+side,Seite
+kind,nett
+four,vier
+head,Kopf
+long,lang
+both,beide
+away,weg
+hour,Stunde
+game,Spiel
+line,Linie
+ever,je
+to lose,verlieren
+to meet,treffen
+city,Stadt
+name,Name
+five,fünf
+once,einmal
+real,echt
+team,Mannschaft
+best,bester
+idea,Idee
+body,Körper
+to lead,führen
+to stop,anhalten
+face,Gesicht
+to read,lesen
+door,Tür
+sure,sicher
+to grow,wachsen
+to open,öffnen
+to walk,gehen
+girl,Mädchen
+food,Essen
+foot,Fuß
+to be able,können
+to love,lieben
+to wait,warten
+to send,schicken
+to stay,bleiben
+to fall,fallen
+to plan,planen
+to kill,töten
+to care,sich kümmern
+late,spät
+hard,schwer
+else,sonst
+pass,Pass
+to sell,verkaufen
+role,Rolle
+to rate,bewerten
+drug,Medikament
+wife,Ehefrau
+mind,Verstand
+to pull,ziehen
+free,frei
+less,weniger
+hope,Hoffnung
+view,Aussicht
+town,Kleinstadt
+road,Straße
+true,wahr
+full,voll
+to join,verbinden
+to pick,auswählen
+to wear,anhaben
+form,Form
+site,Stelle
+base,Basis
+star,Stern
+half,halb
+easy,leicht
+cost,Kosten
+data,Daten
+land,Land
+wall,Wand
+news,Nachrichten
+test,Test
+step,Schritt
+baby,Baby
+to type,tippen
+to draw,zeichnen
+film,Film
+tree,Baum
+hair,Haar
+soon,bald
+term,Begriff
+rule,Regel
+risk,Risiko
+fire,Feuer
+bank,Bank
+west,Westen
+to seek,suchen
+to rest,sich ausruhen
+deal,Handel
+past,Vergangenheit
+goal,Tor
+to fill,füllen
+drop,Tropfen
+upon,auf
+to push,drücken
+note,Notiz
+fine,in Ordnung
+near,nah
+page,Blatt
+poor,arm
+race,Rennen
+dead,tot
+to rise,steigen
+east,Osten
+to save,retten
+thus,folglich
+size,Größe
+fund,Fonds
+to sign,unterschreiben
+list,Liste
+to leave,verlassen
+loss,Verlust
+bill,Rechnung
+to fail,scheitern
+to miss,verpassen
+to sort,sortieren
+blue,blau
+song,Lied
+dark,dunkel
+to hang,aufhängen
+rock,Fels
+cold,kalt
+main,Haupt-
+card,Postkarte
+seat,Sitz
+cell,Zelle
+nice,angenehm
+firm,fest
+huge,riesig
+ball,Ball
+onto,auf … hinauf
+pain,Schmerz
+wide,weit
+fish,Fisch
+trip,Reise
+unit,Einheit
+deep,tief
+edge,Rand
+fear,Furcht
+heat,Hitze
+to sing,singen
+whom,wem
+skin,Haut
+item,Gegenstand
+yard,Innenhof
+to beat,besiegen
+to tend,neigen
+task,Aufgabe
+shot,Schuss
+wish,Wunsch
+safe,sicher
+rich,reich
+vote,Stimme
+none,keiner
+to be born,geboren werden
+wind,Wind
+fast,schnell
+bird,Vogel
+to hurt,verletzen
+nine,neun
+camp,Lager
+date,Datum
+hole,Loch
+ship,Schiff
+park,Park
+spot,Fleck
+lack,Mangel
+boat,Boot
+wood,Holz
+to roll,rollen
+to gain,erlangen
+to hide,verstecken
+gold,Gold
+club,Verein
+farm,Bauernhof
+band,Band
+to ride,reiten
+text,Text
+tool,Werkzeug
+wild,wild
+to earn,verdienen
+tiny,winzig
+to feed,füttern
+path,Pfad
+shop,Laden
+folk,Leute
+to lift,heben
+to jump,springen
+warm,warm
+soft,weich
+gift,Geschenk
+wave,Welle
+to deny,leugnen
+to suit,passen
+to blow,blasen
+to cook,kochen
+to burn,brennen
+shoe,Schuh
+bone,Knochen
+wine,Wein
+cool,kühl
+hell,Hölle
+tour,Tour
+to grab,schnappen
+to be fair,gerecht sein
+pair,Paar
+knee,Knie
+tape,Tonband
+to hire,anstellen
+lady,Dame
+neck,Nacken
+to lean,lehnen
+tall,hoch
+hate,Hass
+male,männlich
+army,Heer
+to shout,rufen
+lots,viel
+rain,Regen
+fuel,Treibstoff
+leaf,Blatt
+pool,Pool
+salt,Salz
+soul,Seele
+bear,Bär
+thin,dünn
+poll,Umfrage
+code,Code
+jury,Preisgericht
+desk,Schreibtisch
+ring,Ring
+to mark,beschriften
+loan,Darlehen
+crew,Besatzung
+meal,Mahlzeit
+cash,Bargeld
+link,Verbindung
+root,Wurzel
+nose,Nase
+file,Datei
+sick,krank
+duty,Pflicht
+slow,langsam
+zone,Zone
+to wake up,aufwachen
+to warn,warnen
+snow,Schnee
+to slip,ausrutschen
+meat,Fleisch
+soil,Boden
+golf,Golf
+user,Nutzer
+to kick,treten
+to use,benutzen
+bowl,Schüssel
+host,Gastgeber
+hall,Korridor
+to rely,sich verlassen
+debt,Schuld
+rare,selten
+tank,Behälter
+bond,Bindung
+wing,Flügel
+to pour,gießen
+to stir,umrühren
+beer,Bier
+tear,Träne
+hero,Held
+seed,Samen
+busy,beschäftigt
+copy,Kopie
+to cite,zitieren
+gray,grau
+dish,Gericht
+core,Kern
+rush,Eile
+vast,gewaltig
+to flow,fließen
+mass,Masse
+bomb,Bombe
+tone,Klang
+gate,Tor
+hill,Hügel
+milk,Milch
+to cast,werfen
+plus,plus
+weak,schwach
+to wrap,einpacken
+to drag,zerren
+roof,Dach
+diet,Diät
+to wash,waschen
+to post,schicken
+chip,Splitter
+self,selbst
+bike,Rad
+lake,See
+bend,Kurve
+Arab,Araber
+sand,Sand
+to lock,abschließen
+to pose,aufwerfen
+sale,Verkauf
+mine,meins
+tale,Geschichte
+joke,Witz
+coat,Mantel
+to urge,drängen
+dust,Staub
+glad,froh
+to pack,packen
+iron,Eisen
+gene,Gen
+to kiss,küssen
+boss,Chef
+king,König
+mood,Stimmung
+boot,Stiefel
+bean,Bohne
+peak,Gipfen
+to vary,variieren
+wire,Draht
+holy,heilig
+twin,Zwilling
+luck,Glück
+toss,Wurf
+to bury,vergraben
+to pray,beten
+ally,Verbündeter
+pure,rein
+to peer,spähen
+belt,Gürtel
+flag,Flagge
+corn,Getreide
+moon,Mond
+crop,Ernte
+pink,pink
+poem,Gedicht
+to bind,fesseln
+mail,Post
+tube,Röhre
+to quit,kündigen
+jail,Gefängnis
+pace,Tempo
+cake,Kuchen
+flat,flach
+wage,Lohn
+snap,Knacks
+gear,Gang
+gang,Bande
+teen,Teenager
+to yell,schreien
+to spin,drehen
+bell,Glocke
+rank,Rang
+pants,Unterhose
+to wipe,wischen
+port,Hafen
+dirt,Schmutz
+rice,Reis
+deck,Deck
+pole,Stange
+mode,Modus
+to bake,backen
+to sink,untergehen
+to swim,schwimmen
+tired,müde
+to fade,verblassen
+mask,Maske
+to load,laden
+deer,Hirsch
+fate,Schicksal
+oven,Ofen
+poet,Dichter
+mere,nichts als
+pale,blass
+to flee,fliehen
+lawn,Rasen
+plot,Handlung
+pipe,Pfeife
+math,Mathe
+tail,Schwanz
+palm,Palme
+soup,Suppe
+pile,Stapel
+aide,Berater
+mall,Einkaufszentrum
+heel,Ferse
+tent,Zelt
+myth,Mythos
+menu,Speisekarte
+loud,laut
+to bite,beißen
+pine,Pinie
+chef,Koch
+to boom,boomen
+to cope,zurechtkommen
+ease,Leichtigkeit
+wise,weise
+acid,Säure
+odd,merkwürdig
+lungs,Lunge
+ugly,hässlich
+rope,Seil
+to gaze,starren
+clue,Hinweis
+dear,lieb
+coal,Kohle
+sigh,Seufzer
+to dare,wagen
+rose,Rose
+rail,Schiene
+mess,Unordnung
+norm,Norm
+stem,Stamm
+rape,Vergewaltigung
+hunt,Jagd
+echo,Echo
+pill,Tablette
+bare,nackt
+rent,Miete
+pump,Pumpe
+evil,böse
+to slam,niedermachen
+to melt,schmelzen
+to fold,falten
+beef,Rindfleisch
+duck,Ente
+dose,Dosis
+trap,Falle
+lens,Linse
+to lend,leihen
+nail,Nagel
+cave,Höhle
+herb,Kraut
+to suck,saugen
+leap,Sprung
+pond,Teich
+to dump,abladen
+limbs,Gliedmaßen
+tune,Melodie
+to harm,schaden
+horn,Horn
+grip,Griff
+beam,Strahl
+fork,Gabel
+disk,Scheibe
+hook,Haken
+exit,Ausgang
+mild,mild
+doll,Puppe
+noon,Mittag
+amid,inmitten
+hers,ihre
+oral,mündlich
+fist,Faust
+bath,Bad
+bold,mutig
+hint,Spur
+to peel,schälen
+to flip,umdrehen
+bias,Vorurteil
+lamp,Lampe
+chin,Kinn
+to chop,klein schneiden
+silk,Seide
+rage,Wut
+dawn,Morgendämmerung
+tide,Gezeiten
+seal,Siegel
+to scan,absuchen
+to fool,täuschen
+rear,hinterer Teil
+cart,Wagen
+mate,Kumpel
+to slap,einen Klaps geben
+ours,unserer
+barn,Scheune
+to tuck,stecken
+drum,Trommel
+to sail,segeln
+nest,Nest
+lane,Gasse
+cage,Käfig
+rack,Regal
+wolf,Wolf
+grin,Grinsen
+aunt,Tante
+calm,ruhig
+to haul,schleppen
+to ruin,zerstören
+bush,Busch
+clip,Ausschnitt
+bull,Stier
+exam,Prüfung
+loop,Schleife
+to edit,redigieren
+to boil,sieden
+pork,Schweinefleisch
+sock,Socke
+lion,Löwe
+cord,Schnur
+soap,Seife
+cute,süß
+to shed,ablegen
+icon,Idol
+to heal,heilen
+coin,Münze
+to damn,verfluchen
+mill,Mühle
+hike,Wanderung
+sack,Beutel
+tray,Tablett
+coup,Staatsstreich
+to skip,überspringen
+sole,einzig
+weed,Unkraut
+to deem,erachten
+cure,Heilmittel
+fame,Ruhm
+atop,oben auf
+toll,Zoll
+to chew,kauen
+butt,Po
+dumb,stumm
+bulk,Masse
+goat,Ziege
+neat,ordentlich
+poke,Stoß
+to soar,aufsteigen
+clay,Lehm
+fare,Fahrpreis
+sofa,Sofa
+to soak,einweichen
+slot,Schlitz
+riot,Krawall
+tile,Fliese
+till,bis
+plea,Bitte
+bulb,Glühbirne
+to bolt,rasen
+dock,Dock
+to trim,kürzen
+to spit,spucken
+would,würde
+about,über
+there,dort
+to think,denken
+which,welcher
+could,könnte
+other,anderer
+these,diese
+first,zuerst
+thing,Ding
+those,jene
+woman,Frau
+child,Kind
+after,nach
+world,Welt
+still,immer noch
+three,drei
+state,Zustand
+never,nie
+while,während
+great,großartig
+group,Gruppe
+to begin,anfangen
+where,wo
+every,jeder
+start,Anfang
+might,könnte
+place,Ort
+again,wieder
+right,richtig
+small,klein
+night,Nacht
+point,Punkt
+today,heute
+to bring,bringen
+large,beträchtlich
+under,unter
+water,Wasser
+to write,schreiben
+money,Geld
+story,Erzählung
+young,jung
+month,Monat
+to study,studieren
+issue,Thema
+black,schwarz
+house,Haus
+since,seit
+not until,nicht bevor
+power,Macht
+often,oft
+among,zwischen
+to stand,stehen
+later,später
+white,weiß
+least,am wenigsten
+to learn,lernen
+to watch,schauen
+to speak,sprechen
+level,Niveau
+to allow,erlauben
+to spend,ausgeben
+party,Feier
+early,früh
+force,Kraft
+to offer,anbieten
+maybe,vielleicht
+music,Musik
+human,menschlich
+to serve,dienen
+sense,Sinn
+to build,bauen
+death,Tod
+to reach,erreichen
+local,örtlich
+class,Klasse
+to raise,heben
+field,Feld
+major,bedeutend
+along,entlang
+heart,Herz
+light,Licht
+voice,Stimme
+whole,ganz
+price,Preis
+to carry,tragen
+to drive,fahren
+to break,brechen
+to thank,danken
+value,Wert
+model,Modell
+to agree,zustimmen
+paper,Papier
+space,Raum
+event,Ereignis
+whose,wessen
+table,Tisch
+court,Hof
+to teach,unterrichten
+image,Bild
+phone,Telefon
+to cover,bedecken
+quite,ziemlich
+clear,klar
+piece,Stück
+north,Norden
+third,dritter
+to catch,fangen
+cause,Ursache
+plant,Pflanze
+short,kurz
+south,Süden
+floor,Fußboden
+to close,schließen
+wrong,falsch
+sport,Sport
+board,Brett
+fight,Kampf
+to throw,werfen
+order,Befehl
+to focus,sich konzentrieren
+blood,Blut
+color,Farbe
+store,Kaufhaus
+sound,Ton
+to enter,betreten
+to share,teilen
+to shoot,schießen
+seven,sieben
+scene,Szene
+stock,Vorrat
+eight,acht
+happy,glücklich
+to occure,sich ereignen
+media,Medien
+ready,fertig
+to argue,streiten
+staff,Personal
+trade,Handel
+glass,Glas
+skill,Fähigkeit
+crime,Verbrechen
+stage,Etappe
+truth,Wahrheit
+to check,überprüfen
+to laugh,lachen
+to guess,raten
+to prove,beweisen
+claim,Behauptung
+to enjoy,genießen
+legal,legal
+final,letzter

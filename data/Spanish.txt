@@ -1,0 +1,197 @@
+to make,para hacer
+to get,Llegar
+to use,usar
+to say,decir
+to go,ir
+to take,tomar
+to see,para ver
+to know,saber
+to find,encontrar
+to think,pensar
+to work,trabajar
+to come,venir
+to want,querer
+to need,necesitar
+to give,dar
+to include,para incluir
+to help,ayudar
+to provide,Para proveer
+to look,mirar
+to start,para comenzar
+to create,crear
+to try,intentar
+to become,convertirse
+to keep,mantener
+to write,escribir
+to read,leer
+to call,llamar
+to feel,Sentir
+to follow,seguir
+to tell,decir
+to learn,aprender
+to show,mostrar
+to ask,preguntar
+to add,añadir
+to put,poner
+to offer,ofrecer
+to mean,significar
+to allow,permitir
+to leave,dejar
+to like,gustar
+to run,correr
+to pay,pagar
+to bring,traer
+to seem,al parecer
+to build,para construir
+to live,vivir
+to let,dejar
+to set,para establecer
+to love,amar
+to require,requerir
+to receive,para recibir
+to lead,para llevar
+to develop,desarrollar
+to change,cambiar
+to continue,continuar
+to play,jugar
+to begin,empezar
+to consider,considerar
+to hold,sostener
+to support,apoyar
+to move,para mover
+to believe,creer
+to base,a la base
+to happen,a suceder
+to understand,comprender
+to buy,comprar
+to grow,crecer
+to turn,a su vez
+to meet,conocer
+to increase,para aumentar
+to share,para compartir
+to spend,gastar
+to send,mandar
+to hear,escuchar
+to talk,hablar
+to serve,servir
+to choose,elegir
+to involve,involucrar
+to improve,mejorar
+to lose,perder
+to enjoy,disfrutar
+to expect,esperar
+to decide,para decidir
+to sell,vender
+to focus,centrarse
+to speak,hablar
+to apply,Aplicar
+to post,publicar
+to appear,a aparecer
+to remain,permanecer
+to design,para diseñar
+to produce,para producir
+to hope,a la esperanza
+to join,unir
+to accord,acordar
+to cover,cubrir
+to stop,para detener
+to remember,recordar
+to cause,causar
+to reduce,para reducir
+to manage,administrar
+to save,ahorrar
+to watch,ver
+to check,verificar
+to ensure,para asegurar
+to reach,alcanzar
+to pass,pasar
+to open,abrir
+to visit,visitar
+to report,para reportar
+to drive,conducir
+to agree,llegar a un acuerdo
+to publish,publicar
+to present,presentar
+to eat,comer
+to end,para terminar
+to raise,para elevar
+to stay,quedarse
+to contain,contener
+to win,ganar
+to please,para complacer
+to describe,para describir
+to explain,para explicar
+to identify,identificar
+to wait,esperar
+to break,romper
+to discuss,para discutir
+to plan,planificar
+to return,regresar
+to suggest,sugerir
+to thank,Agradecer
+to seek,buscar
+to stand,reposar
+to sit,sentarse
+to protect,proteger
+to deliver,para entregar
+to relate,relacionar
+to teach,enseñar
+to fall,caer
+to carry,llevar
+to enter,entrar
+to place,poner
+to determine,para determinar
+to complete,completar
+to walk,andar
+to face,enfrentar
+to represent,representar
+to remove,para eliminar
+to note,notar
+to establish,establecer
+to release,liberar
+to achieve,conseguir
+to cut,cortar
+to encourage,para fomentar
+to exist,existir
+to prepare,preparar
+to perform,actuar
+to pick,para recoger
+to mention,mencionar
+to address,dirigirse
+to connect,para conectar
+to feature,a función
+to maintain,mantener
+to operate,para operar
+to promote,promover
+to accept,aceptar
+to recommend,recomendar
+to affect,afectar
+to fill,llenar
+to compare,comparar
+to avoid,para evitar
+to announce,para anunciar
+to enable,para permitir
+to kill,matar
+to fail,a fallar
+to miss,perderse
+to wish,desear
+to depend,depender
+to sign,para firmar
+to die,morir
+to occur,que se produzca
+to draw,dibujar
+to attend,para asistir
+to realize,darse cuenta
+to engage,comprometerse
+to discover,para descubrir
+to experience,experimentar
+to define,definir
+to explore,para explorar
+to prevent,para prevenir
+to bear,soportar
+to hit,golpear
+to introduce,presentar
+to contact,contactar
+to collect,para recoger
+to recognize,reconocer
+to participate,para participar

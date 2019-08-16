@@ -79,6 +79,6 @@ def user_rank_join(update, context):
 @util.send_typing_action
 def user_career(update, context):
     username = util.get_username(update, context)
-    update.message.reply_text(f"Hey {username} press the [link](https://telegra.ph/User-Ranks-08-15) to see all ranks and conditions to progress\n"
+    update.message.reply_text(f"Hey {username} press the [link](https://telegra.ph/Learning-creators-progression-ranks-08-15) to see all ranks and conditions to progress\n"
                               f"Press /progress to view your actual rank and requirements/tasks for next rank",parse_mode="Markdown")
 

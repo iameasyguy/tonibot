@@ -20,6 +20,8 @@ class Users(Document):
             return 1
         elif checkadmin.filter(user_id=user_id,role=2):
             return 2
+        else:
+            return False
 
     @queryset_manager
     def set_role(self,set_role,user_id,role):
@@ -84,28 +86,28 @@ class Answers(Document):
 
 
     @queryset_manager
-    def check_user_answer(self,queryset , user_id,answertype):
+    def check_user_answer(self,queryset , user_id,group_id,answertype):
         try:
             if queryset.filter(user_id=user_id,answertype=answertype)[0]:
-                return queryset.filter(user_id=user_id,answertype=answertype)[0].user_id
+                return queryset.filter(user_id=user_id,group_id=group_id,answertype=answertype)[0].user_id
         except:
             return False
 
     @queryset_manager
-    def get_correct_incorrect(self,queryset ,user_id,answertype):
-        incorrect =queryset.filter(user_id=user_id,answertype=answertype)[0].incorrect
-        correct = queryset.filter(user_id=user_id, answertype=answertype)[0].correct
+    def get_correct_incorrect(self,queryset ,user_id,answertype,group_id):
+        incorrect =queryset.filter(user_id=user_id,answertype=answertype,group_id=group_id)[0].incorrect
+        correct = queryset.filter(user_id=user_id, answertype=answertype,group_id=group_id)[0].correct
         return correct,incorrect
 
     @queryset_manager
-    def update_correct(self,queryset,correct,answertype,user_id):
+    def update_correct(self,queryset,correct,answertype,user_id,group_id):
 
-        return queryset.filter(user_id=user_id)[0].update(answertype=answertype,correct=correct)
+        return queryset.filter(user_id=user_id,answertype=answertype,group_id=group_id)[0].update(correct=correct)
 
     @queryset_manager
-    def update_incorrect(self, queryset, incorrect, answertype, user_id):
+    def update_incorrect(self, queryset, incorrect, answertype, user_id,group_id):
 
-        return queryset.filter(user_id=user_id)[0].update(answertype=answertype, incorrect=incorrect)
+        return queryset.filter(user_id=user_id,answertype=answertype,group_id=group_id)[0].update(incorrect=incorrect)
 
     @queryset_manager
     def points(self,queryset,answertype):
@@ -384,10 +386,25 @@ class Sherlock(Document):
         except IndexError:
             return False
 
-
-
-class Africa(Document):
+class Sherlockchance(Document):
     user_id = IntField(required=True)
+    chances = IntField(default=0)
+    group_id = IntField(required=True)
+
+    @queryset_manager
+    def get_user_chance(self, queryset, user_id, group_id):
+        try:
+            if queryset.filter(user_id=user_id,group_id=group_id)[0].chances is not None:
+                return queryset.filter(user_id=user_id,group_id=group_id)[0].chances
+        except IndexError:
+            return False
+
+    @queryset_manager
+    def update_user_chance(self,queryset,user_id,chances):
+        return queryset.filter(user_id=user_id)[0].update(chances=chances)
+
+
+class Afrique(Document):
     question = StringField(null=True)
     answer = StringField(null=True)
     pickone =StringField(null=True)
@@ -397,6 +414,29 @@ class Africa(Document):
     group_id = IntField(null=True)
     message_id = IntField(null=True)
     question_type = StringField(null=True)
+
+    @queryset_manager
+    def get_allQuestion(self, queryset, msg_id,group_id):
+        query = queryset.filter(message_id=msg_id,group_id=group_id).order_by('-id').first()
+        # return query
+        return query.question, query.answer, query.message_id, query.pickone, query.picktwo, query.pickthree, query.pickfour, query.group_id
+
+class Africhance(Document):
+    user_id = IntField(required=True)
+    chances = IntField(default=0)
+    group_id = IntField(required=True)
+
+    @queryset_manager
+    def get_user_chance(self, queryset, user_id, group_id):
+        try:
+            if queryset.filter(user_id=user_id,group_id=group_id)[0].chances is not None:
+                return queryset.filter(user_id=user_id,group_id=group_id)[0].chances
+        except IndexError:
+            return False
+
+    @queryset_manager
+    def update_user_chance(self, queryset, user_id, chances):
+        return queryset.filter(user_id=user_id)[0].update(chances=chances)
 
 
 
