@@ -626,31 +626,32 @@ def jarvis(update,context):
             rank = text.split('+')[2]
             username =text.split('+')[3]
 
-            try:
-                if Ranking.check_ranking_status(user_id=user.id):
-                    if Likers.check_liker(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id):
-                        context.bot.answer_callback_query(update.callback_query.id,
-                                                          text="You already liked this achievement")
-                    else:
-                        Likers(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id).save()
-                        likes = Likes.get_likes_count(user_id=user_id, group_id=chat_id, rank=rank)
-                        likes += 1
-                        Likes.update_likes(user_id=user_id, likes=likes, group_id=chat_id, rank=rank)
-                        key_main = [[InlineKeyboardButton(emoji.emojize(f'like :heart: {likes}', use_aliases=True),
-                                                          callback_data=f'like+{user_id}+{rank}+{username}')]]
-                        main_markup = InlineKeyboardMarkup(key_main)
-                        context.bot.edit_message_text(text=texts.ADVANCE.format(username, rank),
-                                                      chat_id=update.callback_query.message.chat_id,
-                                                      message_id=update.callback_query.message.message_id,
-                                                      reply_markup=main_markup)
-
-                else:
+            if Ranking.check_ranking_status(user_id=user.id):
+                if Likers.check_liker(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id):
                     context.bot.answer_callback_query(update.callback_query.id,
-                                                      text="Please register to be able to like achievements! ")
+                                                      text="You already liked this achievement")
+                else:
+                    Likers(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id).save()
+                    likes = Likes.get_likes_count(user_id=user_id, group_id=chat_id, rank=rank)
+                    likes += 1
+                    Likes.update_likes(user_id=user_id, likes=likes, group_id=chat_id, rank=rank)
+                    key_main = [[InlineKeyboardButton(emoji.emojize(f'like :heart: {likes}', use_aliases=True),
+                                                      callback_data=f'like+{user_id}+{rank}+{username}')]]
+                    main_markup = InlineKeyboardMarkup(key_main)
+                    context.bot.edit_message_text(text=texts.ADVANCE.format(username, rank),
+                                                  chat_id=update.callback_query.message.chat_id,
+                                                  message_id=update.callback_query.message.message_id,
+                                                  reply_markup=main_markup)
 
-            except IndexError:
+            else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text="You already liked this achievement")
+                                                  text="Please register to be able to like achievements! ")
+
+            # try:
+            #
+            # except IndexError:
+            #     context.bot.answer_callback_query(update.callback_query.id,
+            #                                       text="You already liked this achievement")
 
 
 

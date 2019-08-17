@@ -20,5 +20,5 @@ JOIN_MSG =":sunny:Hi {}! You  have just joined the Learning Creators credit poin
 
 JOINED = "👣 Hi {}, you have joined this hunt! Watch out for the hints!"
 HUNTON="👣👣👣 *The hunt is on* ‼️👣👣👣"
-ADVANCE = "🎖{} just advanced to {}!"
+ADVANCE = "🎖{} just advanced to {}"
 ACHIEVEMENT = "🎖{} here is your {} badge! You may use it as avatar!Congratulations! In order to reach the next rank you must: {}"

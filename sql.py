@@ -602,6 +602,14 @@ class Likes(Document):
     def get_likes_count(self, queryset, user_id, group_id,rank):
         return queryset.filter(user_id=user_id, group_id=group_id,rank=rank)[0].likes
 
+    @queryset_manager
+    def get_notify_status(self, queryset, user_id, group_id, rank):
+        return queryset.filter(user_id=user_id, group_id=group_id, rank=rank)[0].notify
+
+    @queryset_manager
+    def update_notify(self, queryset, user_id, notify, group_id, rank):
+        return queryset.filter(user_id=user_id, group_id=group_id, rank=rank)[0].update(notify=notify)
+
 
 
 class Likers(Document):
