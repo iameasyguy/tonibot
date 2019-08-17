@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="added career link and commands">
-      <change afterPath="$PROJECT_DIR$/africa.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Arabic.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/English.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/French.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/German.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Italian.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Polish.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Portuguese.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Romanian.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Spanish.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mwt.py" afterDir="false" />
+    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="updates sherlock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cbhandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/cbhandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k.py" beforeDir="false" afterPath="$PROJECT_DIR$/k.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/observer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ra.py" beforeDir="false" afterPath="$PROJECT_DIR$/ra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liker.py" beforeDir="false" afterPath="$PROJECT_DIR$/liker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/texts.py" beforeDir="false" afterPath="$PROJECT_DIR$/texts.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,10 +50,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/liker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cbhandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1204">
-              <caret line="350" column="105" selection-start-line="350" selection-start-column="105" selection-end-line="350" selection-end-column="105" />
+            <state relative-caret-position="1541">
+              <caret line="627" selection-start-line="627" selection-end-line="627" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -72,13 +83,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/observer.py">
+        <entry file="file://$PROJECT_DIR$/sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="191" column="16" selection-start-line="191" selection-start-column="16" selection-end-line="191" selection-end-column="16" />
+            <state relative-caret-position="608">
+              <caret line="605" selection-start-line="605" selection-end-line="605" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/k.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="81" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="81" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/texts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -86,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="130" column="24" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="24" />
+            <state relative-caret-position="313">
+              <caret line="129" column="84" lean-forward="true" selection-start-line="129" selection-start-column="84" selection-end-line="129" selection-end-column="84" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -96,38 +125,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/texts.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql.py">
+        <entry file="file://$PROJECT_DIR$/commands.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/k.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            <state relative-caret-position="620">
+              <caret line="82" column="103" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="103" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/init.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#46#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,20 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_sherlock_question</find>
-      <find>Players(game_no=game_no, user_id=user.id)</find>
-      <find>get_game_joined</find>
-      <find>get_count</find>
-      <find>Sherloc</find>
-      <find>check_user_answer</find>
-      <find>get_gaia_question_type</find>
-      <find>Sher</find>
-      <find>Sherlock(</find>
-      <find>Sherl</find>
-      <find>Answer</find>
-      <find>Ans</find>
-      <find>Answer(</find>
-      <find>Answers(</find>
       <find>sql</find>
       <find>answe</find>
       <find>sqls</find>
@@ -174,7 +163,21 @@
       <find>Ra's</find>
       <find>print(answ)</find>
       <find>game_no</find>
+      <find>Ro’s</find>
+      <find>Ra’s</find>
       <find>print</find>
+      <find>like</find>
+      <find>RULES</find>
+      <find>context.bot.send_message(chat_id, config.NOCHANCE, parse_mode=ParseMode.MARKDOWN)</find>
+      <find>context.bot.send_message(chat_id, texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)</find>
+      <find>sherl</find>
+      <find>config.CHANCE.clear()</find>
+      <find>Join</find>
+      <find>chan</find>
+      <find>chance</find>
+      <find>NOCHANCE</find>
+      <find>africh</find>
+      <find>done</find>
     </findStrings>
     <replaceStrings>
       <replace>ra.</replace>
@@ -198,31 +201,33 @@
         <option value="$PROJECT_DIR$/seshat.py" />
         <option value="$PROJECT_DIR$/apolo.py" />
         <option value="$PROJECT_DIR$/gaia.py" />
-        <option value="$PROJECT_DIR$/zamol.py" />
         <option value="$PROJECT_DIR$/crime.py" />
         <option value="$PROJECT_DIR$/groups.py" />
         <option value="$PROJECT_DIR$/util.py" />
         <option value="$PROJECT_DIR$/sherlock.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/admins.py" />
-        <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/data/English.txt" />
         <option value="$PROJECT_DIR$/data/Spanish.txt" />
         <option value="$PROJECT_DIR$/africa.py" />
-        <option value="$PROJECT_DIR$/sql.py" />
-        <option value="$PROJECT_DIR$/k.py" />
-        <option value="$PROJECT_DIR$/cbhandler.py" />
+        <option value="$PROJECT_DIR$/zamol.py" />
         <option value="$PROJECT_DIR$/ra.py" />
         <option value="$PROJECT_DIR$/observer.py" />
+        <option value="$PROJECT_DIR$/commands.py" />
+        <option value="$PROJECT_DIR$/texts.py" />
+        <option value="$PROJECT_DIR$/cbhandler.py" />
+        <option value="$PROJECT_DIR$/k.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/liker.py" />
+        <option value="$PROJECT_DIR$/sql.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1592" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -331,7 +336,8 @@
       <workItem from="1565674518204" duration="21884000" />
       <workItem from="1565762643452" duration="1566000" />
       <workItem from="1565848724168" duration="19416000" />
-      <workItem from="1565934948010" duration="23447000" />
+      <workItem from="1565934948010" duration="38930000" />
+      <workItem from="1566059863679" duration="21475000" />
     </task>
     <task id="LOCAL-00001" summary="Added seshat">
       <created>1565253247374</created>
@@ -431,13 +437,27 @@
       <option name="project" value="LOCAL" />
       <updated>1565878918276</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added africa bot">
+      <created>1565964945285</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565964945286</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updates sherlock">
+      <created>1565987072733</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1565987072733</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176128000" />
+    <option name="totallyTimeSpent" value="213086000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -447,22 +467,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" visible="true" weight="0.15204236" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" visible="true" weight="0.10714286" />
       <window_info id="Structure" order="1" sideWeight="0.2631579" side_tool="true" weight="0.14977308" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26393443" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17462039" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.13442624" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.26681128" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030257" side_tool="true" weight="0.32569557" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.4977307" weight="0.3289689" />
@@ -475,19 +495,19 @@
       <window_info anchor="right" id="Json Parser" order="5" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" visible="true" weight="0.15204236" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" weight="0.10714286" />
       <window_info id="Structure" order="1" sideWeight="0.2631579" side_tool="true" weight="0.14977308" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26393443" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17462039" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32786885" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.5327869" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.26681128" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030257" side_tool="true" weight="0.32569557" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.4977307" weight="0.3289689" />
@@ -517,7 +537,9 @@
     <MESSAGE value="removed the criminal handler and merged it with the observer handler" />
     <MESSAGE value="added the observer function on a separate file" />
     <MESSAGE value="added career link and commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="added career link and commands" />
+    <MESSAGE value="Added africa bot" />
+    <MESSAGE value="updates sherlock" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates sherlock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -544,14 +566,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cbhandler.py</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cbhandler.py</url>
+          <line>623</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1565964267206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1566082069169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9989c3c-7202-4240-970e-f39427a82d85/console.sql" />
@@ -656,42 +683,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gaia.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#46#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/seshat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding>
             <element signature="e#46#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sherlock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="181" selection-start-line="181" selection-end-line="271" selection-end-column="144" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zamol.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433">
-          <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-          <folding>
-            <element signature="e#46#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -723,28 +720,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Arabic.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mwt.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/liker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="80" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/English.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -760,32 +740,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="81" column="124" selection-start-line="81" selection-start-column="124" selection-end-line="81" selection-end-column="124" />
-          <folding>
-            <element signature="e#46#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="27" column="64" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="27" selection-end-column="64" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/africa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1660">
-          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-          <folding>
-            <element signature="e#46#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -800,9 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/texts.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/init.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -813,50 +770,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql.py">
+    <entry file="file://$PROJECT_DIR$/zamol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/k.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        <state relative-caret-position="373">
+          <caret line="84" column="118" selection-start-line="84" selection-start-column="118" selection-end-line="84" selection-end-column="118" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#46#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cbhandler.py">
+    <entry file="file://$PROJECT_DIR$/gaia.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1204">
-          <caret line="350" column="105" selection-start-line="350" selection-start-column="105" selection-end-line="350" selection-end-column="105" />
+        <state relative-caret-position="33">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#46#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/africa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+          <folding>
+            <element signature="e#46#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sherlock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="173" column="127" selection-start-line="115" selection-start-column="11" selection-end-line="173" selection-end-column="127" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#5034#8910#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="82" column="103" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="103" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ra.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="130" column="24" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="24" />
+        <state relative-caret-position="313">
+          <caret line="129" column="84" lean-forward="true" selection-start-line="129" selection-start-column="84" selection-end-line="129" selection-end-column="84" />
           <folding>
             <element signature="e#46#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/texts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/observer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="191" column="16" selection-start-line="191" selection-start-column="16" selection-end-line="191" selection-end-column="16" />
+        <state relative-caret-position="-1404">
+          <caret line="77" column="91" selection-start-line="77" selection-start-column="91" selection-end-line="77" selection-end-column="91" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cbhandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="627" selection-start-line="627" selection-end-line="627" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/k.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="81" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/liker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="605" selection-start-line="605" selection-end-line="605" />
         </state>
       </provider>
     </entry>

@@ -65,7 +65,7 @@ def user_rank_join(update, context):
     chat_type = update.message.chat.type
     username= util.get_username(update,context)
     if chat_type=="private":
-        key_main = [[InlineKeyboardButton(emoji.emojize("Continue :thumbsup:",use_aliases=True), callback_data="done")]]
+        key_main = [[InlineKeyboardButton(emoji.emojize("Continue :thumbsup:",use_aliases=True), callback_data=f"done+{user.id}")]]
         main_markup = InlineKeyboardMarkup(key_main)
         buttons = []
         for k, v in config.LINKS.items():
@@ -80,5 +80,5 @@ def user_rank_join(update, context):
 def user_career(update, context):
     username = util.get_username(update, context)
     update.message.reply_text(f"Hey {username} press the [link](https://telegra.ph/Learning-creators-progression-ranks-08-15) to see all ranks and conditions to progress\n"
-                              f"Press /progress to view your actual rank and requirements/tasks for next rank",parse_mode="Markdown")
+                              f"Press /progress to view your actual rank and requirements for next rank",parse_mode="Markdown")
 

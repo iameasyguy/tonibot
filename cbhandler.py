@@ -364,10 +364,19 @@ def jarvis(update,context):
             context.bot.send_message(chat_id=user_id, text=f"Hi, your request was declined!")
 
         elif text.startswith('done'):
-            context.bot.edit_message_text(
-                text=f"Thanks {user.first_name},Open this [link](https://telegra.ph/Learning-creators-progression-ranks-08-15) to see all ranks and conditions to progress or send /career",
-                chat_id=update.callback_query.message.chat_id,
-                message_id=update.callback_query.message.message_id, parse_mode="Markdown")
+            user_id = text.split('+')[1]
+            if Ranking.check_ranking_status(user_id=user_id):
+                context.bot.edit_message_text(
+                    text=f"Hi {user.first_name},You already joined Press /progress to view your actual rank and requirements for next rank",
+                    chat_id=update.callback_query.message.chat_id,
+                    message_id=update.callback_query.message.message_id, parse_mode="Markdown")
+            else:
+                Ranking(user_id=user_id,status=1).save()
+                context.bot.edit_message_text(
+                    text=f"Thanks {user.first_name},Open this [link](https://telegra.ph/Learning-creators-progression-ranks-08-15) to see all ranks and conditions to progress or send /career",
+                    chat_id=update.callback_query.message.chat_id,
+                    message_id=update.callback_query.message.message_id, parse_mode="Markdown")
+
     else:
         global condition
         print(text)
@@ -613,7 +622,41 @@ def jarvis(update,context):
                                                   text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
 
         elif text.startswith('like'):
-            context.bot.answer_callback_query(update.callback_query.id,text="you liked this post",)
+            user_id = text.split('+')[1]
+            rank = text.split('+')[2]
+            username =text.split('+')[3]
+
+            try:
+                if Ranking.check_ranking_status(user_id=user.id):
+                    if Likers.check_liker(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id):
+                        context.bot.answer_callback_query(update.callback_query.id,
+                                                          text="You already liked this achievement")
+                    else:
+                        Likers(user_id=user.id, group_id=chat_id, rank=rank, liked=user_id).save()
+                        likes = Likes.get_likes_count(user_id=user_id, group_id=chat_id, rank=rank)
+                        likes += 1
+                        Likes.update_likes(user_id=user_id, likes=likes, group_id=chat_id, rank=rank)
+                        key_main = [[InlineKeyboardButton(emoji.emojize(f'like :heart: {likes}', use_aliases=True),
+                                                          callback_data=f'like+{user_id}+{rank}+{username}')]]
+                        main_markup = InlineKeyboardMarkup(key_main)
+                        context.bot.edit_message_text(text=texts.ADVANCE.format(username, rank),
+                                                      chat_id=update.callback_query.message.chat_id,
+                                                      message_id=update.callback_query.message.message_id,
+                                                      reply_markup=main_markup)
+
+                else:
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text="Please register to be able to like achievements! ")
+
+            except IndexError:
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text="You already liked this achievement")
+
+
+
+
+
+
         elif text.startswith('join'):
             print(chat_id)
             game_no =query.message.message_id

@@ -110,8 +110,70 @@ class Answers(Document):
         return queryset.filter(user_id=user_id,answertype=answertype,group_id=group_id)[0].update(incorrect=incorrect)
 
     @queryset_manager
-    def points(self,queryset,answertype):
-        return queryset.filter(answertype=answertype)
+    def get_all_points_by_group(self,queryset,user_id,group_id):
+        try:
+            total = queryset.filter(user_id=user_id, group_id=group_id).sum('correct')
+            return total
+        except IndexError:
+            return 0
+
+
+    @queryset_manager
+    def get_all_apolo_by_group(self, queryset, user_id, group_id):
+        try:
+            apolo = queryset.filter(user_id=user_id, group_id=group_id, answertype='apolo')[0].correct
+            return apolo
+        except IndexError:
+            return 0
+
+
+
+    @queryset_manager
+    def get_all_africa_by_group(self, queryset, user_id, group_id):
+        try:
+            africa = queryset.filter(user_id=user_id, group_id=group_id, answertype='africa')[0].correct
+            return africa
+        except IndexError:
+            return 0
+
+
+    @queryset_manager
+    def get_all_seshat_by_group(self, queryset, user_id, group_id):
+        try:
+            seshat = queryset.filter(user_id=user_id, group_id=group_id, answertype='seshat')[0].correct
+            return seshat
+        except IndexError:
+            return 0
+
+
+    @queryset_manager
+    def get_all_gaia_by_group(self, queryset, user_id, group_id):
+        try:
+            gaia = queryset.filter(user_id=user_id, group_id=group_id, answertype='gaia')[0].correct
+            return gaia
+        except IndexError:
+            return 0
+
+
+    @queryset_manager
+    def get_all_sherlock_by_group(self, queryset, user_id, group_id):
+        try:
+            sherlock = queryset.filter(user_id=user_id, group_id=group_id, answertype='sherlock')[0].correct
+            return sherlock
+        except IndexError:
+            return 0
+
+
+    @queryset_manager
+    def get_all_zamol_by_group(self, queryset, user_id, group_id):
+        try:
+            zamol = queryset.filter(user_id=user_id, group_id=group_id, answertype='zamol')[0].correct
+            return zamol
+        except IndexError:
+            return 0
+
+
+
 
 
 
@@ -519,9 +581,42 @@ class Players(Document):
 class Likes(Document):
     user_id =IntField(required=True)
     username =StringField(required=True)
-    message =StringField(required=True)
+    rank = StringField(required=True)
+    group_id =IntField(required=True)
     likes = IntField(default=0)
+    notify = IntField(default=0)
 
+    @queryset_manager
+    def check_likes(self, queryset, user_id, group_id,rank):
+        try:
+            if queryset.filter(user_id=user_id, group_id=group_id,rank=rank)[0].likes is not None:
+                return True
+        except IndexError:
+            return False
+
+    @queryset_manager
+    def update_likes(self, queryset, user_id, likes, group_id,rank):
+        return queryset.filter(user_id=user_id, group_id=group_id,rank=rank)[0].update(likes=likes)
+
+    @queryset_manager
+    def get_likes_count(self, queryset, user_id, group_id,rank):
+        return queryset.filter(user_id=user_id, group_id=group_id,rank=rank)[0].likes
+
+
+
+class Likers(Document):
+    user_id =IntField(required=True)
+    liked = IntField(required=True)
+    rank = StringField(required=True)
+    group_id = IntField(required=True)
+
+    @queryset_manager
+    def check_liker(self, queryset, user_id, group_id, rank,liked):
+        try:
+            if queryset.filter(user_id=user_id, group_id=group_id, rank=rank,liked=liked)[0] is not None:
+                return True
+        except IndexError:
+            return False
 
 class Messages(Document):
     user_id = IntField(required=True)
@@ -542,6 +637,18 @@ class Messages(Document):
     def check_messages(self, queryset, user_id,group_id):
         try:
             if queryset.filter(user_id=user_id,group_id=group_id)[0].user_id is not None:
+                return True
+        except IndexError:
+            return False
+
+class Ranking(Document):
+    user_id = IntField(required=True)
+    status = IntField(default=0)
+
+    @queryset_manager
+    def check_ranking_status(self, queryset, user_id):
+        try:
+            if queryset.filter(user_id=user_id)[0].status is not None:
                 return True
         except IndexError:
             return False
