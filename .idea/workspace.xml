@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="finished the bot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sherlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/sherlock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,13 +43,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/liker.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/commands.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="127" column="59" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="59" />
+            <state relative-caret-position="277">
+              <caret line="49" column="55" lean-forward="true" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
               <folding>
-                <element signature="e#0#63#0" expanded="true" />
+                <element signature="e#46#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,7 +137,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sherlock.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -198,12 +197,12 @@
       <find>Current position {position}</find>
       <find>get_messages_count</find>
       <find>username</find>
-      <find>user.username</find>
       <find>util.get_username(update,context)</find>
       <find>Games(</find>
       <find>Games</find>
       <find>join</find>
       <find>bot_username</find>
+      <find>user.username</find>
     </findStrings>
     <replaceStrings>
       <replace>ra.</replace>
@@ -237,7 +236,6 @@
         <option value="$PROJECT_DIR$/texts.py" />
         <option value="$PROJECT_DIR$/liker.py" />
         <option value="$PROJECT_DIR$/ra.py" />
-        <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/sql.py" />
         <option value="$PROJECT_DIR$/k.py" />
         <option value="$PROJECT_DIR$/util.py" />
@@ -250,6 +248,7 @@
         <option value="$PROJECT_DIR$/init.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/sherlock.py" />
+        <option value="$PROJECT_DIR$/commands.py" />
       </list>
     </option>
   </component>
@@ -368,7 +367,7 @@
       <workItem from="1565848724168" duration="19416000" />
       <workItem from="1565934948010" duration="38930000" />
       <workItem from="1566059863679" duration="30203000" />
-      <workItem from="1566125396118" duration="13822000" />
+      <workItem from="1566125396118" duration="14288000" />
     </task>
     <task id="LOCAL-00001" summary="Added seshat">
       <created>1565253247374</created>
@@ -510,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566139522948</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="finished the bot">
+      <created>1566140559981</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1566140559981</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235636000" />
+    <option name="totallyTimeSpent" value="236102000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -830,16 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="65" column="47" lean-forward="true" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="47" />
-          <folding>
-            <element signature="e#46#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gaia.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -954,6 +950,16 @@
           <caret line="95" column="53" lean-forward="true" selection-end-line="181" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="49" column="55" lean-forward="true" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
           </folding>
         </state>
       </provider>

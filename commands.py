@@ -55,7 +55,7 @@ def start(update, context):
                               "HELP - Show this menu.\nPROFILE - View your user id & other details.".format(
                              user.first_name), reply_markup=teacher_markup)
     else:
-        update.message.reply_text("Please get yourself registered as a teacher by @UnuaLibro.")
+        update.message.reply_text(f"Hi {util.get_username(update,context)},\n Welcome to {context.bot.username},please send /join to join our community")
 
 
 
