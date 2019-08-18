@@ -1,12 +1,8 @@
 from sql import *
 import config
 from mongoengine import errors
-# sql = db.DBHelper()
+
 admins = config.ADMINS
-# # setup db
-# sql.setup()
-# print('Database initiated and created')
-#
 
 # add initial admins
 try:

@@ -79,7 +79,7 @@ def game(update,context):
                          InlineKeyboardButton("STOP GAME", callback_data='stopgame')]
                 , [InlineKeyboardButton("PAUSE GAME", callback_data='pausegame'),InlineKeyboardButton(emoji.emojize(":trophy:SCORE BOARD",use_aliases=True), callback_data='stats')]]
             main_markup = InlineKeyboardMarkup(key_main)
-            context.bot.send_message(chat_id, "Hi Admin {},\nSELECT A TRIVIA GAME OPTION:".format(user.username), reply_markup=main_markup)
+            context.bot.send_message(chat_id, "Hi Admin {},\nSELECT A TRIVIA GAME OPTION:".format(util.get_username(update,context)), reply_markup=main_markup)
     else:
         pass
 

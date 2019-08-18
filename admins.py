@@ -60,7 +60,7 @@ def profile(update,context):
     user = update.message.from_user
     chat_type = update.message.chat.type
     if chat_type =="private":
-        update.message.reply_text("First Name: {}\nUsername: {}\nUser ID: {}".format(user.first_name,user.username,user.id))
+        update.message.reply_text("First Name: {}\nUsername: {}\nUser ID: {}".format(user.first_name,util.get_username(update,context),user.id))
 
 
 @util.send_typing_action
@@ -69,8 +69,8 @@ def request_add(update,context):
     chat_type = update.message.chat.type
     if chat_type == "private":
         update.message.reply_text(f"Hi {user.first_name} you request was sent to the admin for approval")
-        key_main = [[InlineKeyboardButton("Approve", callback_data=f'approve+{user.id}+{user.username}')],
+        key_main = [[InlineKeyboardButton("Approve", callback_data=f'approve+{user.id}+{util.get_username(update,context)}')],
                     [InlineKeyboardButton("Decline", callback_data=f'deny+{user.id}')]]
         main_markup = InlineKeyboardMarkup(key_main)
-        context.bot.send_message(chat_id=865996339,text=f"The following user has requested to be a teacher\n*Name:* _{user.first_name}_\n*Username:* _{user.username}_",reply_markup=main_markup,parse_mode="Markdown")
+        context.bot.send_message(chat_id=865996339,text=f"The following user has requested to be a teacher\n*Name:* _{user.first_name}_\n*Username:* _{util.get_username(update,context)}_",reply_markup=main_markup,parse_mode="Markdown")
 

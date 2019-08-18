@@ -310,7 +310,7 @@ def jarvis(update,context):
                 print(message_id)
                 # sql.change_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
                 Sherlock.change_sherlock_qstn_message_id(message_id=message_id, tbl_id=tbl_id, user_id=user_id)
-                Games(admin=user_id, game_no=message_id, group_id=g_id).save()
+                Games(admin_id=user_id, game_no=message_id, group_id=g_id).save()
                 # sql.add_game(admin=user_id, game_no=message_id,group_id=g_id)#
                 Sherlockchance.drop_collection()
                 context.bot.edit_message_text(
@@ -402,55 +402,60 @@ def jarvis(update,context):
             question, answer, message_id, pickone, picktwo, pickthree, pickfour, group_id = Afrique.get_allQuestion(msg_id=message_id,
                 group_id=chat_id)
 
-            if Africhance.get_user_chance(user_id=user_id,group_id=chat_id)==False:
-                Africhance(user_id=user_id,group_id=group_id).save()
-                
-                if pickone == answer:
-                    context.bot.edit_message_text(emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),
-                                          chat_id=update.callback_query.message.chat_id,
-                                          message_id=update.callback_query.message.message_id,
-                                          parse_mode=ParseMode.MARKDOWN)
-                    context.bot.answer_callback_query(update.callback_query.id,
-                                                      text=emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),show_alert=True)
-                    # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-                    # points = sql.get_points(tlgrm_id=user.id)
-                    correct += 1
-                    Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
-                    africa.trivia_game(update,context)
-                    Africhance.drop_collection()
+            if Ranking.check_ranking_status(user_id=user.id):
+
+                if Africhance.get_user_chance(user_id=user_id,group_id=chat_id)==False:
+                    Africhance(user_id=user_id,group_id=group_id).save()
+
+                    if pickone == answer:
+                        context.bot.edit_message_text(emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),
+                                              chat_id=update.callback_query.message.chat_id,
+                                              message_id=update.callback_query.message.message_id,
+                                              parse_mode=ParseMode.MARKDOWN)
+                        context.bot.answer_callback_query(update.callback_query.id,
+                                                          text=emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),show_alert=True)
+                        # sql.add_tlgrm_user(tlgrm_id=user_id, username=util.get_username(update,context))
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+                        # points = sql.get_points(tlgrm_id=user.id)
+                        correct += 1
+                        Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
+                        africa.trivia_game(update,context)
+                        Africhance.drop_collection()
+                    else:
+                        # user failed
+                        # CHANCE[user.id] = 1
+                        Africhance.update_user_chance(user_id=user_id,chances=1)
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+
+                        incorrect += 1
+
+                        Answers.update_incorrect(incorrect=incorrect,answertype='africa',user_id=user_id,group_id=group_id)
+                        context.bot.send_message(chat_id, emoji.emojize(
+                            f":turtle: Sorry {util.get_username(update,context)}, but your answer is wrong. Better next time",
+                            use_aliases=True))
+
                 else:
-                    # user failed
-                    # CHANCE[user.id] = 1
-                    Africhance.update_user_chance(user_id=user_id,chances=1)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-
-                    incorrect += 1
-
-                    Answers.update_incorrect(incorrect=incorrect,answertype='africa',user_id=user_id,group_id=group_id)
-                    context.bot.send_message(chat_id, emoji.emojize(
-                        f":turtle: Sorry {user.username}, but your answer is wrong. Better next time",
-                        use_aliases=True))
-
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
             else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                                                  text=f"Hi {user.first_name}, please open @{context.bot.username} send /join to register for the points program",show_alert=True, parse_mode=ParseMode.MARKDOWN)
                 
 
         elif text == "B" and condition == True:
@@ -459,56 +464,62 @@ def jarvis(update,context):
             question, answer, message_id, pickone, picktwo, pickthree, pickfour, group_id = Afrique.get_allQuestion(
                 msg_id=message_id,
                 group_id=chat_id)
-            if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
-                Africhance(user_id=user_id, group_id=group_id).save()
-               
-                if picktwo == answer:
-                    context.bot.edit_message_text(emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),
-                        chat_id=update.callback_query.message.chat_id,
-                        message_id=update.callback_query.message.message_id,
-                        parse_mode=ParseMode.MARKDOWN)
-                    context.bot.answer_callback_query(update.callback_query.id,
-                                                      text=emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),show_alert=True)
-                    # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-                    # points = sql.get_points(tlgrm_id=user.id)
-                    correct += 1
-                    Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
-                    africa.trivia_game(update, context)
-                    Africhance.drop_collection()
+            if Ranking.check_ranking_status(user_id=user.id):
+                if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
+                    Africhance(user_id=user_id, group_id=group_id).save()
+
+                    if picktwo == answer:
+                        context.bot.edit_message_text(emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),
+                            chat_id=update.callback_query.message.chat_id,
+                            message_id=update.callback_query.message.message_id,
+                            parse_mode=ParseMode.MARKDOWN)
+                        context.bot.answer_callback_query(update.callback_query.id,
+                                                          text=emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),show_alert=True)
+                        # sql.add_tlgrm_user(tlgrm_id=user_id, username=util.get_username(update,context))
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+                        # points = sql.get_points(tlgrm_id=user.id)
+                        correct += 1
+                        Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
+                        africa.trivia_game(update, context)
+                        Africhance.drop_collection()
+                    else:
+                        # user failed
+                        # CHANCE[user.id] = 1
+                        Africhance.update_user_chance(user_id=user_id, chances=1)
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+
+                        incorrect += 1
+
+                        Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
+                                                 group_id=group_id)
+                        context.bot.send_message(chat_id, emoji.emojize(
+                            f":turtle: Sorry {util.get_username(update,context)}, but your answer is wrong. Better next time",
+                            use_aliases=True))
+
                 else:
-                    # user failed
-                    # CHANCE[user.id] = 1
-                    Africhance.update_user_chance(user_id=user_id, chances=1)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-
-                    incorrect += 1
-
-                    Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
-                                             group_id=group_id)
-                    context.bot.send_message(chat_id, emoji.emojize(
-                        f":turtle: Sorry {user.username}, but your answer is wrong. Better next time",
-                        use_aliases=True))
-
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
             else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                                                  text=f"Hi {user.first_name}, please open @{context.bot.username} send /join to register for the points program",
+                                                  show_alert=True, parse_mode=ParseMode.MARKDOWN)
+
 
         elif text == "C" and condition == True:
             message_id = update.callback_query.message.message_id
@@ -516,56 +527,62 @@ def jarvis(update,context):
             question, answer, message_id, pickone, picktwo, pickthree, pickfour, group_id = Afrique.get_allQuestion(
                 msg_id=message_id,
                 group_id=chat_id)
-            if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
-                Africhance(user_id=user_id, group_id=group_id).save()
-                
-                if pickthree == answer:
-                    context.bot.edit_message_text(emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),
-                        chat_id=update.callback_query.message.chat_id,
-                        message_id=update.callback_query.message.message_id,
-                        parse_mode=ParseMode.MARKDOWN)
-                    context.bot.answer_callback_query(update.callback_query.id,
-                                                      text=emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),show_alert=True)
-                    # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-                    # points = sql.get_points(tlgrm_id=user.id)
-                    correct += 1
-                    Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
-                    africa.trivia_game(update, context)
-                    Africhance.drop_collection()
+            if Ranking.check_ranking_status(user_id=user.id):
+                if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
+                    Africhance(user_id=user_id, group_id=group_id).save()
+
+                    if pickthree == answer:
+                        context.bot.edit_message_text(emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),
+                            chat_id=update.callback_query.message.chat_id,
+                            message_id=update.callback_query.message.message_id,
+                            parse_mode=ParseMode.MARKDOWN)
+                        context.bot.answer_callback_query(update.callback_query.id,
+                                                          text=emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),show_alert=True)
+                        # sql.add_tlgrm_user(tlgrm_id=user_id, username=util.get_username(update,context))
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+                        # points = sql.get_points(tlgrm_id=user.id)
+                        correct += 1
+                        Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
+                        africa.trivia_game(update, context)
+                        Africhance.drop_collection()
+                    else:
+                        # user failed
+                        # CHANCE[user.id] = 1
+                        Africhance.update_user_chance(user_id=user_id, chances=1)
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+
+                        incorrect += 1
+
+                        Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
+                                                 group_id=group_id)
+                        context.bot.send_message(chat_id, emoji.emojize(
+                            f":turtle: Sorry {util.get_username(update,context)}, but your answer is wrong. Better next time",
+                            use_aliases=True))
+
                 else:
-                    # user failed
-                    # CHANCE[user.id] = 1
-                    Africhance.update_user_chance(user_id=user_id, chances=1)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-
-                    incorrect += 1
-
-                    Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
-                                             group_id=group_id)
-                    context.bot.send_message(chat_id, emoji.emojize(
-                        f":turtle: Sorry {user.username}, but your answer is wrong. Better next time",
-                        use_aliases=True))
-
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
             else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                                                  text=f"Hi {user.first_name}, please open @{context.bot.username} send /join to register for the points program",
+                                                  show_alert=True, parse_mode=ParseMode.MARKDOWN)
+
 
         elif text == "D" and condition == True:
             message_id = update.callback_query.message.message_id
@@ -573,56 +590,61 @@ def jarvis(update,context):
             question, answer, message_id, pickone, picktwo, pickthree, pickfour, group_id = Afrique.get_allQuestion(
                 msg_id=message_id,
                 group_id=chat_id)
-            if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
-                Africhance(user_id=user_id, group_id=group_id).save()
-                
-                if pickfour == answer:
-                    context.bot.edit_message_text(emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),
-                        chat_id=update.callback_query.message.chat_id,
-                        message_id=update.callback_query.message.message_id,
-                        parse_mode=ParseMode.MARKDOWN)
-                    context.bot.answer_callback_query(update.callback_query.id,
-                                                      text=emoji.emojize(
-                        f":trophy: Congratulations {user.username}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
-                        use_aliases=True),show_alert=True)
-                    # sql.add_tlgrm_user(tlgrm_id=user_id, username=user.username)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-                    # points = sql.get_points(tlgrm_id=user.id)
-                    correct += 1
-                    Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
-                    africa.trivia_game(update, context)
-                    Africhance.drop_collection()
+            if Ranking.check_ranking_status(user_id=user.id):
+                if Africhance.get_user_chance(user_id=user_id, group_id=chat_id) ==False:
+                    Africhance(user_id=user_id, group_id=group_id).save()
+
+                    if pickfour == answer:
+                        context.bot.edit_message_text(emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),
+                            chat_id=update.callback_query.message.chat_id,
+                            message_id=update.callback_query.message.message_id,
+                            parse_mode=ParseMode.MARKDOWN)
+                        context.bot.answer_callback_query(update.callback_query.id,
+                                                          text=emoji.emojize(
+                            f":trophy: Congratulations {util.get_username(update,context)}, your answer is correct!!! You got 1 point.\nThe correct answer was {answer}",
+                            use_aliases=True),show_alert=True)
+                        # sql.add_tlgrm_user(tlgrm_id=user_id, username=util.get_username(update,context))
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+                        # points = sql.get_points(tlgrm_id=user.id)
+                        correct += 1
+                        Answers.update_correct(correct=correct, answertype="africa", user_id=user.id, group_id=group_id)
+                        africa.trivia_game(update, context)
+                        Africhance.drop_collection()
+                    else:
+                        # user failed
+                        # CHANCE[user.id] = 1
+                        Africhance.update_user_chance(user_id=user_id, chances=1)
+                        answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
+
+                        if answ == False:
+                            Answers(user_id=user.id, username=util.get_username(update,context), correct=0, incorrect=0, answertype="africa",
+                                    group_id=group_id).save()
+                        correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
+                                                                           group_id=group_id)
+
+                        incorrect += 1
+
+                        Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
+                                                 group_id=group_id)
+                        context.bot.send_message(chat_id, emoji.emojize(
+                            f":turtle: Sorry {util.get_username(update,context)}, but your answer is wrong. Better next time",
+                            use_aliases=True))
+
                 else:
-                    # user failed
-                    # CHANCE[user.id] = 1
-                    Africhance.update_user_chance(user_id=user_id, chances=1)
-                    answ = Answers.check_user_answer(user_id=user.id, group_id=group_id, answertype="africa")
-                    
-                    if answ == False:
-                        Answers(user_id=user.id, username=user.username, correct=0, incorrect=0, answertype="africa",
-                                group_id=group_id).save()
-                    correct, incorrect = Answers.get_correct_incorrect(user_id=user.id, answertype="africa",
-                                                                       group_id=group_id)
-
-                    incorrect += 1
-
-                    Answers.update_incorrect(incorrect=incorrect, answertype='africa', user_id=user_id,
-                                             group_id=group_id)
-                    context.bot.send_message(chat_id, emoji.emojize(
-                        f":turtle: Sorry {user.username}, but your answer is wrong. Better next time",
-                        use_aliases=True))
-
+                    context.bot.answer_callback_query(update.callback_query.id,
+                                                      text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
             else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text=texts.NOCHANCE, parse_mode=ParseMode.MARKDOWN)
+                                                  text=f"Hi {user.first_name}, please open @{context.bot.username} send /join to register for the points program",
+                                                  show_alert=True, parse_mode=ParseMode.MARKDOWN)
 
         elif text.startswith('like'):
             user_id = text.split('+')[1]
@@ -648,19 +670,13 @@ def jarvis(update,context):
 
             else:
                 context.bot.answer_callback_query(update.callback_query.id,
-                                                  text="Please register to be able to like achievements! ")
+                                                  text="Please register to be able to like achievements!",show_alert=True)
 
         elif text.startswith('stats'):
             score ="\n".join(util.top_scoreboard(group_id=chat_id))
             context.bot.edit_message_text(text=emoji.emojize(f":smiley: *TOP 10 SCOREBOARD* :trophy:\n\n{score}", use_aliases=True),
                                           chat_id=update.callback_query.message.chat_id,
                                           message_id=update.callback_query.message.message_id,parse_mode="Markdown")
-
-
-
-
-
-
         elif text.startswith('join'):
             print(chat_id)
             game_no =query.message.message_id
@@ -669,84 +685,89 @@ def jarvis(update,context):
             check_player = Players.check_player(user_id=user.id, game_no=game_no)
             game_avail = Games.get_game_no(game_no=game_no)
             game_admin = Games.get_game_admin(game_no=game_no)
-            if game_avail != False:
+            if Ranking.check_ranking_status(user_id=user.id):
+                if game_avail != False:
 
                 # check game status is on or won
                 # game_stat
-                if game_stat == 0:
-                    print(game_stat)
+                    if game_stat == 0:
+                        print(game_stat)
 
                     # check if the user has been wrong more than twice
-                    if Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)!=False:
-                        Sherlockchance(user_id=user_id, group_id=chat_id).save()
-                        print("user in chance")
-                        chances = Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)
-                        print(chances)
-                        if int(chances) >= 2:
-                            print("user chances >2")
+                        if Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)!=False:
+                            Sherlockchance(user_id=user_id, group_id=chat_id).save()
+                            print("user in chance")
+                            chances = Sherlockchance.get_user_chance(user_id=user.id,group_id=chat_id)
+                            print(chances)
+                            if int(chances) >= 2:
+                                print("user chances >2")
 
-                            context.bot.answer_callback_query(update.callback_query.id,
-                                                              text=texts.NOCHANCE,
-                                                              show_alert=True)
-                    else:
-                        # # check if user already joined the game
-                        if check_player != True:
-                            print("player not in the game")
-                            # check if the number of users are enough to start the game
-                            if int(t_joined) < config.HUNTERS:
-                                print("those joined are less")
-                                # sql.add_player(game_no=game_no,user_id=user.id)
-                                Players(game_no=game_no, user_id=user.id).save()
-                                # count =sql.get_count(game_no)
-                                count = Players.get_count(game_no=game_no)
-                                # sql.update_joined(joined=count,game_no=game_no)
-                                Games.update_joined(joined=count, game_no=game_no)
-                                # c_joined = sql.get_game_joined(game_no=game_no)
-                                c_joined = Games.get_game_joined(game_no=game_no)
-                                # update.message.reply_text(texts.JOINED.format(user.first_name),
-                                #                           parse_mode=ParseMode.MARKDOWN)
                                 context.bot.answer_callback_query(update.callback_query.id,
-                                                                  text=texts.JOINED.format(user.first_name),show_alert=True )
-                                togo = config.HUNTERS - int(c_joined)
-                                print(togo)
-                                if togo == 0:
-                                    context.bot.send_message(chat_id, texts.HUNTON, parse_mode=ParseMode.MARKDOWN)
-
-                                    # notify admin
-                                    context.bot.send_message(chat_id=game_admin,
-                                                             text="Enough users have joined the game, start sending hints")
-                                else:
-                                    context.bot.send_message(chat_id, "{} user(s) to go".format(togo))
-                            elif t_joined >= config.HUNTERS and t_joined <= config.MAX:
-                                # sql.add_player(game_no=game_no, user_id=user.id)
-                                Players(game_no=game_no, user_id=user.id).save()
-                                count = Players.get_count(game_no=game_no)
-                                Games.update_joined(joined=count, game_no=game_no)
-                                c_joined = Games.get_game_joined(game_no=game_no)
-                                cogo = config.MAX - int(c_joined)
-                                context.bot.answer_callback_query(update.callback_query.id,
-                                                                  text=texts.JOINED.format(user.first_name),
+                                                                  text=texts.NOCHANCE,
                                                                   show_alert=True)
-                                if cogo == 0:
+                        else:
+                        # # check if user already joined the game
+                            if check_player != True:
+                                print("player not in the game")
+                                # check if the number of users are enough to start the game
+                                if int(t_joined) < config.HUNTERS:
+                                    print("those joined are less")
+                                    # sql.add_player(game_no=game_no,user_id=user.id)
+                                    Players(game_no=game_no, user_id=user.id).save()
+                                    # count =sql.get_count(game_no)
+                                    count = Players.get_count(game_no=game_no)
+                                    # sql.update_joined(joined=count,game_no=game_no)
+                                    Games.update_joined(joined=count, game_no=game_no)
+                                    # c_joined = sql.get_game_joined(game_no=game_no)
+                                    c_joined = Games.get_game_joined(game_no=game_no)
+                                    # update.message.reply_text(texts.JOINED.format(user.first_name),
+                                    #                           parse_mode=ParseMode.MARKDOWN)
+                                    context.bot.answer_callback_query(update.callback_query.id,
+                                                                      text=texts.JOINED.format(user.first_name),show_alert=True )
+                                    togo = config.HUNTERS - int(c_joined)
+                                    print(togo)
+                                    if togo == 0:
+                                        context.bot.send_message(chat_id, texts.HUNTON, parse_mode=ParseMode.MARKDOWN)
+
+                                        # notify admin
+                                        context.bot.send_message(chat_id=game_admin,
+                                                                 text="Enough users have joined the game, start sending hints")
+                                    else:
+                                        context.bot.send_message(chat_id, "{} user(s) to go".format(togo))
+                                elif t_joined >= config.HUNTERS and t_joined <= config.MAX:
+                                    # sql.add_player(game_no=game_no, user_id=user.id)
+                                    Players(game_no=game_no, user_id=user.id).save()
+                                    count = Players.get_count(game_no=game_no)
+                                    Games.update_joined(joined=count, game_no=game_no)
+                                    c_joined = Games.get_game_joined(game_no=game_no)
+                                    cogo = config.MAX - int(c_joined)
+                                    context.bot.answer_callback_query(update.callback_query.id,
+                                                                      text=texts.JOINED.format(user.first_name),
+                                                                      show_alert=True)
+                                    if cogo == 0:
                                     # context.bot.send_message(chat_id, "Maximum number of hunters achieved! ")
-                                    context.bot.edit_message_text(text="Maximum number of hunters achieved! ",
+                                        context.bot.edit_message_text(text="Maximum number of hunters achieved! ",
                                                                   chat_id=update.callback_query.message.chat_id,
                                                                   message_id=update.callback_query.message.message_id,
                                                                   parse_mode=ParseMode.MARKDOWN)
-                                else:
-                                    context.bot.send_message(chat_id,f"{cogo} user(s) to reach the maximum number of hunters allowed")
+                                    else:
+                                        context.bot.send_message(chat_id,f"{cogo} user(s) to reach the maximum number of hunters allowed")
 
 
-                            elif t_joined >= config.MAX:
-                                context.bot.answer_callback_query(update.callback_query.id,
+                                elif t_joined >= config.MAX:
+                                    context.bot.answer_callback_query(update.callback_query.id,
                                                                   text=f"Hi {user.first_name}, enough hunters have joined this hunt! Wait for the next hunt!",show_alert=True )
 
-                        else:
+                            else:
 
-                            context.bot.answer_callback_query(update.callback_query.id,
+                                context.bot.answer_callback_query(update.callback_query.id,
                                                               text=f"Hi {user.first_name}, you already joined this hunt.!",show_alert=True )
 
                 else:
                     context.bot.answer_callback_query(update.callback_query.id,
                                                       text=f"Hi {user.first_name}, this hunt is over, please wait for the next one!",show_alert=True )
 
+            else:
+                context.bot.answer_callback_query(update.callback_query.id,
+                                                  text=f"Hi {user.first_name}, please open @{context.bot.username} send /join to register for the points program",
+                                                  show_alert=True, parse_mode=ParseMode.MARKDOWN)

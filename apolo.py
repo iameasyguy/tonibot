@@ -24,7 +24,7 @@ def save_apolo_question(update,context):
     if chat_type == "private":
         if validate!=True:
             if len(add_det)>0:
-                Apolo(question=qstn, answer=answer, username=user.username,user_id=user.id).save()
+                Apolo(question=qstn, answer=answer, username=util.get_username(update,context),user_id=user.id).save()
 
                 update.message.reply_text('Please select the group you want to post the Apollo trivia')
                 for data in add_det:

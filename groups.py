@@ -42,7 +42,7 @@ def add_group(update,context):
                                                      update.message.chat.title))
                 else:
                     context.bot.leave_chat(chat_id=group_id)
-                    context.bot.send_message(chat_id=214196949, text=f"@{user.username} tried to add me to {group_title} but I left ASAP.")
+                    context.bot.send_message(chat_id=214196949, text=f"@{util.get_username(update,context)} tried to add me to {group_title} but I left ASAP.")
 
 
 
@@ -58,7 +58,7 @@ def remove_from_group(update,context):
     if chat_type != "private":
         # print(update)
         group_id = update.message.chat.id
-        user_name = user.username
+        user_name = util.get_username(update,context)
         bot_username = update.message.left_chat_member.username
 
         if bot_username == config.BOT_USERNAME:

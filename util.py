@@ -174,11 +174,21 @@ class Speech():
 
 
 def get_username(update,context):
-    user = update.message.from_user
-    if user.username ==None:
-        return user.first_name
-    else:
-        return user.username
+
+    try:
+        user = update.message.from_user
+        if user.username == None:
+            return user.first_name
+        else:
+            return user.username
+    except AttributeError:
+        query = update.callback_query
+        usern = query.from_user
+        if usern.username == None:
+            return usern.first_name
+        else:
+            return usern.username
+
 
 def get_user_position(user_id,username,group_id):
     try:
