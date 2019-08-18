@@ -1,7 +1,7 @@
 from pyrogram import Client
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.ext import ConversationHandler
-
+import texts
 import util
 import ra
 import config
@@ -141,11 +141,11 @@ def travis(update,context):
                                 Games.update_joined(joined=count,game_no=game_no)
                                 # c_joined = sql.get_game_joined(game_no=game_no)
                                 c_joined =Games.get_game_joined(game_no=game_no)
-                                update.message.reply_text(config.JOINED.format(user.first_name),parse_mode=ParseMode.MARKDOWN)
+                                update.message.reply_text(texts.JOINED.format(user.first_name),parse_mode=ParseMode.MARKDOWN)
                                 togo = config.HUNTERS - int(c_joined)
                                 print(togo)
                                 if togo==0:
-                                    context.bot.send_message(chat_id,config.HUNTON,parse_mode=ParseMode.MARKDOWN)
+                                    context.bot.send_message(chat_id,texts.HUNTON,parse_mode=ParseMode.MARKDOWN)
                                         #notify admin
                                     context.bot.send_message(chat_id=game_admin,text="Enough users have joined the game, start sending hints")
                                 else:
@@ -157,7 +157,7 @@ def travis(update,context):
                                 Games.update_joined(joined=count,game_no=game_no)
                                 c_joined =Games.get_game_joined(game_no=game_no)
                                 cogo = config.MAX - int(c_joined)
-                                update.message.reply_text(config.JOINED.format(user.first_name))
+                                update.message.reply_text(texts.JOINED.format(user.first_name))
                                 if cogo==0:
                                     context.bot.send_message(chat_id, "Maximum number of hunters achieved! ")
                                 else:
