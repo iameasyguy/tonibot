@@ -119,6 +119,7 @@ def main():
 
     dp.add_handler(apolo_convo)
     # dp.add_handler(seshat_convo)
+
     dp.add_handler(MessageHandler(Filters.regex('^RECRUIT BELIEVERS$'), admins.admin))
     dp.add_handler(CommandHandler('start', commands.start))
     dp.add_handler(CommandHandler('join', commands.user_rank_join))
@@ -126,6 +127,7 @@ def main():
     dp.add_handler(CommandHandler('gid', commands.get_id))
     dp.add_handler(CommandHandler('menu',africa.game))
     dp.add_handler(CommandHandler('admin', admins.request_add))
+    dp.add_handler(CommandHandler('progress',commands.progress))
     dp.add_handler(MessageHandler(Filters.reply & (Filters.text | Filters.voice), observer.observer))
     dp.add_handler(MessageHandler(Filters.reply & Filters.command, sherlock.travis))
     dp.add_handler(MessageHandler(Filters.regex('^ENLIGHT$'), activity_select))

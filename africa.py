@@ -77,7 +77,7 @@ def game(update,context):
         if user.id in get_admin_ids(context,chat_id):
             key_main = [[InlineKeyboardButton("START GAME", callback_data='startgame'),
                          InlineKeyboardButton("STOP GAME", callback_data='stopgame')]
-                , [InlineKeyboardButton("PAUSE GAME", callback_data='pausegame')]]
+                , [InlineKeyboardButton("PAUSE GAME", callback_data='pausegame'),InlineKeyboardButton(emoji.emojize(":trophy:SCORE BOARD",use_aliases=True), callback_data='stats')]]
             main_markup = InlineKeyboardMarkup(key_main)
             context.bot.send_message(chat_id, "Hi Admin {},\nSELECT A TRIVIA GAME OPTION:".format(user.username), reply_markup=main_markup)
     else:

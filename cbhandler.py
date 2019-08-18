@@ -1,3 +1,5 @@
+import operator
+
 import emoji
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.ext import ConversationHandler
@@ -5,6 +7,7 @@ from pyrogram import Client
 import config
 import ra
 import africa
+import util
 import texts
 from sql import *
 condition = True
@@ -376,7 +379,7 @@ def jarvis(update,context):
                     text=f"Thanks {user.first_name},Open this [link](https://telegra.ph/Learning-creators-progression-ranks-08-15) to see all ranks and conditions to progress or send /career",
                     chat_id=update.callback_query.message.chat_id,
                     message_id=update.callback_query.message.message_id, parse_mode="Markdown")
-
+    # group
     else:
         global condition
         print(text)
@@ -647,11 +650,11 @@ def jarvis(update,context):
                 context.bot.answer_callback_query(update.callback_query.id,
                                                   text="Please register to be able to like achievements! ")
 
-            # try:
-            #
-            # except IndexError:
-            #     context.bot.answer_callback_query(update.callback_query.id,
-            #                                       text="You already liked this achievement")
+        elif text.startswith('stats'):
+            score ="\n".join(util.top_scoreboard(group_id=chat_id))
+            context.bot.edit_message_text(text=emoji.emojize(f":smiley: *TOP 10 SCOREBOARD* :trophy:\n\n{score}", use_aliases=True),
+                                          chat_id=update.callback_query.message.chat_id,
+                                          message_id=update.callback_query.message.message_id,parse_mode="Markdown")
 
 
 

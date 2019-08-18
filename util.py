@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import logging
+import operator
 import  random
 from functools import wraps
 from telegram import ChatAction
@@ -178,3 +179,30 @@ def get_username(update,context):
         return user.first_name
     else:
         return user.username
+
+def get_user_position(user_id,username,group_id):
+    try:
+        data = []
+        for userid in Answers.objects.distinct('user_id'):
+            data.append(Answers.get_all_users_points(user_id=userid, group_id=group_id))
+        scoreboard = dict((x, y) for x, y in data)
+        scoreboard_x = sorted(scoreboard.items(), key=operator.itemgetter(1), reverse=True)
+        points = Answers.get_all_points_by_group(user_id=user_id, group_id=group_id)
+        position = scoreboard_x.index((username, points))
+        position += 1
+        return position
+    except :
+        return "Not on scoreboard!"
+
+def top_scoreboard(group_id):
+    data = []
+    for user_id in Answers.objects.distinct('user_id'):
+        data.append(Answers.get_all_users_points(user_id=user_id, group_id=group_id))
+    scoreboard = dict((x, y) for x, y in data)
+    scoreboard_x = sorted(scoreboard.items(), key=operator.itemgetter(1), reverse=True)[:10]
+    position = 0
+    score = []
+    for each in scoreboard_x:
+        position += 1
+        score.append(f"*{position}*.  *@{each[0]}* earned *{each[1]}* points")
+    return score

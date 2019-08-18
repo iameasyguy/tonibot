@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="updates sherlock">
+    <list default="true" id="7bcdd087-6262-4aca-a8d5-3eadaa46773e" name="Default" comment="added notifications on points">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/africa.py" beforeDir="false" afterPath="$PROJECT_DIR$/africa.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cbhandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/cbhandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k.py" beforeDir="false" afterPath="$PROJECT_DIR$/k.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liker.py" beforeDir="false" afterPath="$PROJECT_DIR$/liker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ra.py" beforeDir="false" afterPath="$PROJECT_DIR$/ra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/texts.py" beforeDir="false" afterPath="$PROJECT_DIR$/texts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/liker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="1973">
+              <caret line="122" column="67" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="67" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -62,10 +65,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.py">
+        <entry file="file://$PROJECT_DIR$/commands.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            <state relative-caret-position="-782">
+              <caret line="117" column="55" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="55" />
+              <folding>
+                <element signature="e#46#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/africa.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="79" column="154" selection-start-line="79" selection-start-column="154" selection-end-line="79" selection-end-column="154" />
+              <folding>
+                <element signature="e#46#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="573">
+              <caret line="206" column="40" selection-start-line="206" selection-start-column="40" selection-end-line="206" selection-end-column="40" />
+              <folding>
+                <element signature="e#46#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,20 +103,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cbhandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1541">
-              <caret line="627" selection-start-line="627" selection-end-line="627" />
+            <state relative-caret-position="214">
+              <caret line="654" column="91" selection-start-line="654" selection-start-column="91" selection-end-line="654" selection-end-column="91" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="605" selection-start-line="605" selection-end-line="605" />
+            <state relative-caret-position="327">
+              <caret line="650" column="20" selection-start-line="650" selection-start-column="20" selection-end-line="650" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -94,20 +124,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="81" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="81" />
+            <state relative-caret-position="548">
+              <caret line="42" column="47" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="47" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/texts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -115,22 +136,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="129" column="84" lean-forward="true" selection-start-line="129" selection-start-column="84" selection-end-line="129" selection-end-column="84" />
+            <state relative-caret-position="318">
+              <caret line="129" column="62" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commands.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="82" column="103" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="103" />
-              <folding>
-                <element signature="e#46#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,9 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sql</find>
-      <find>answe</find>
-      <find>sqls</find>
       <find>check_as</find>
       <find>check_user_an</find>
       <find>get_correct_incorrect</find>
@@ -178,10 +184,15 @@
       <find>NOCHANCE</find>
       <find>africh</find>
       <find>done</find>
+      <find>↓Africa ~ vocabulary</find>
+      <find>Current position {position}</find>
+      <find>get_messages_count</find>
     </findStrings>
     <replaceStrings>
       <replace>ra.</replace>
       <replace>sqls</replace>
+      <replace>↓Vocabulary ~ Africa</replace>
+      <replace>Current position: {position}</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -203,23 +214,23 @@
         <option value="$PROJECT_DIR$/gaia.py" />
         <option value="$PROJECT_DIR$/crime.py" />
         <option value="$PROJECT_DIR$/groups.py" />
-        <option value="$PROJECT_DIR$/util.py" />
         <option value="$PROJECT_DIR$/sherlock.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/admins.py" />
         <option value="$PROJECT_DIR$/data/English.txt" />
         <option value="$PROJECT_DIR$/data/Spanish.txt" />
-        <option value="$PROJECT_DIR$/africa.py" />
         <option value="$PROJECT_DIR$/zamol.py" />
-        <option value="$PROJECT_DIR$/ra.py" />
         <option value="$PROJECT_DIR$/observer.py" />
-        <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/texts.py" />
-        <option value="$PROJECT_DIR$/cbhandler.py" />
-        <option value="$PROJECT_DIR$/k.py" />
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/liker.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/ra.py" />
+        <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/sql.py" />
+        <option value="$PROJECT_DIR$/africa.py" />
+        <option value="$PROJECT_DIR$/k.py" />
+        <option value="$PROJECT_DIR$/cbhandler.py" />
+        <option value="$PROJECT_DIR$/util.py" />
       </list>
     </option>
   </component>
@@ -237,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,6 +259,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,7 +270,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/config.py&#10;C:/Users/HERMES/PycharmProjects/tonibot/k.py" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Afritrivia" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -337,7 +348,8 @@
       <workItem from="1565762643452" duration="1566000" />
       <workItem from="1565848724168" duration="19416000" />
       <workItem from="1565934948010" duration="38930000" />
-      <workItem from="1566059863679" duration="21475000" />
+      <workItem from="1566059863679" duration="30203000" />
+      <workItem from="1566125396118" duration="8212000" />
     </task>
     <task id="LOCAL-00001" summary="Added seshat">
       <created>1565253247374</created>
@@ -451,11 +463,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565987072733</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added like button functionalities">
+      <created>1566082362443</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1566082362443</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added notifications on points">
+      <created>1566084680828</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1566084680828</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213086000" />
+    <option name="totallyTimeSpent" value="230026000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -470,7 +496,7 @@
     <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" visible="true" weight="0.10714286" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7368421" visible="true" weight="0.108208954" />
       <window_info id="Structure" order="1" sideWeight="0.2631579" side_tool="true" weight="0.14977308" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -539,7 +565,9 @@
     <MESSAGE value="added career link and commands" />
     <MESSAGE value="Added africa bot" />
     <MESSAGE value="updates sherlock" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates sherlock" />
+    <MESSAGE value="added like button functionalities" />
+    <MESSAGE value="added notifications on points" />
+    <option name="LAST_COMMIT_MESSAGE" value="added notifications on points" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -566,19 +594,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cbhandler.py</url>
-          <line>18</line>
+          <line>21</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cbhandler.py</url>
-          <line>623</line>
+          <line>626</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1566082069169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tonibot$ra.coverage" NAME="ra Coverage Results" MODIFIED="1566134880677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9989c3c-7202-4240-970e-f39427a82d85/console.sql" />
@@ -683,40 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/seshat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-          <folding>
-            <element signature="e#46#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/groups.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-753">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <element signature="e#46#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-          <folding>
-            <element signature="e#46#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,16 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/africa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-          <folding>
-            <element signature="e#46#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sherlock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2300">
@@ -808,33 +796,6 @@
             <element signature="e#0#27#0" expanded="true" />
             <element signature="e#5034#8910#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="82" column="103" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="103" />
-          <folding>
-            <element signature="e#46#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="129" column="84" lean-forward="true" selection-start-line="129" selection-start-column="84" selection-end-line="129" selection-end-column="84" />
-          <folding>
-            <element signature="e#46#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/texts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -848,47 +809,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cbhandler.py">
+    <entry file="file://$PROJECT_DIR$/seshat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="627" selection-start-line="627" selection-end-line="627" />
+        <state relative-caret-position="300">
+          <caret line="21" column="64" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="64" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#46#109#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/k.py">
+    <entry file="file://$PROJECT_DIR$/groups.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="81" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="81" />
+        <state relative-caret-position="320">
+          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="47" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#46#109#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        <state relative-caret-position="600">
+          <caret line="30" column="89" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="117" column="55" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="55" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="129" column="62" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/africa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="79" column="154" selection-start-line="79" selection-start-column="154" selection-end-line="79" selection-end-column="154" />
+          <folding>
+            <element signature="e#46#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/liker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="1973">
+          <caret line="122" column="67" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="67" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/k.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="605" selection-start-line="605" selection-end-line="605" />
+        <state relative-caret-position="327">
+          <caret line="650" column="20" selection-start-line="650" selection-start-column="20" selection-end-line="650" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cbhandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="654" column="91" selection-start-line="654" selection-start-column="91" selection-end-line="654" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="206" column="40" selection-start-line="206" selection-start-column="40" selection-end-line="206" selection-end-column="40" />
+          <folding>
+            <element signature="e#46#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

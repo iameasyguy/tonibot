@@ -119,6 +119,11 @@ class Answers(Document):
 
 
     @queryset_manager
+    def get_all_users_points(self,queryset,group_id,user_id):
+        return queryset.filter(user_id=user_id,group_id=group_id,)[0].username,queryset.filter(user_id=user_id,group_id=group_id,).sum('correct')
+
+
+    @queryset_manager
     def get_all_apolo_by_group(self, queryset, user_id, group_id):
         try:
             apolo = queryset.filter(user_id=user_id, group_id=group_id, answertype='apolo')[0].correct
@@ -639,7 +644,12 @@ class Messages(Document):
 
     @queryset_manager
     def get_messages_count(self,queryset,user_id,group_id):
-        return queryset.filter(user_id=user_id,group_id=group_id)[0].messages
+        try:
+            if queryset.filter(user_id=user_id,group_id=group_id)[0].messages is not None:
+                return queryset.filter(user_id=user_id,group_id=group_id)[0].messages
+        except IndexError:
+            return 0
+
 
     @queryset_manager
     def check_messages(self, queryset, user_id,group_id):

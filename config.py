@@ -28,6 +28,11 @@ LINKS ={"Bahasa":"https://t.me/tlgrmcbot?start=lcspeakbahasa-review",
 
 RANKS ={1:"🎖FOLLOWER❗️",2:"🎖APPRENTICE❗️",3:"🎖INSTRUCTOR❗️",4:"🎖MASTER❗️",5:"🎖TITAN❗️"}
 
-ACHIEVE = {"follower":{"messages":25,"points":20},"apprentice":{"messages":28,"points":22},
+ACHIEVE = {"follower":{"messages":25,"points":20},"apprentice":{"messages":28,"points":23},
            "instructor":{"messages":1000,"points":250},"master":{"messages":4000,"points":6000},
            "titan":{"messages":1000,"points":12000}}
+LOGOS ={"follower":"AgADBAADirExG3V2yFILYvBjJD_pEFF2qBsABAEAAwIAA3cAA9JCAQABFgQ",
+        "apprentice":"AgADBAADi7ExG3V2yFIDfZzGykJT06hBqBsABAEAAwIAA3cAA3hBAQABFgQ",
+        "instructor":"AgADBAADjLExG3V2yFIDf0SaHA_29RpIqBsABAEAAwIAA3cAA49CAQABFgQ",
+        "master":"AgADBAADjbExG3V2yFL_6gwcth3WpV46sRoABAEAAwIAA3cAAws6BAABFgQ",
+        "titan":"AgADBAADjrExG3V2yFLZY9zyxaFnGkdJqBsABAEAAwIAA3cAA8NFAQABFgQ"}
