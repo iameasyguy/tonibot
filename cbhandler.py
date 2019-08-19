@@ -352,12 +352,21 @@ def jarvis(update,context):
                 context.bot.send_message(chat_id=user_id, text=f"Hi {user_name} you are already an admin")
 
             else:
-                Users(user_id=int(user_id), username=user_name, role=1).save()
-                context.bot.edit_message_text(
-                    text=f"{user_name} was added as an admin!",
-                    chat_id=update.callback_query.message.chat_id,
-                    message_id=update.callback_query.message.message_id, )
-                context.bot.send_message(chat_id=user_id, text=f"Hi,{user_name} your request was approved!")
+                if Users.check_user(user_id=user_id):
+                    Users.set_role(user_id=user_id,role=1)
+                    context.bot.edit_message_text(
+                        text=f"{user_name} was added as an admin!",
+                        chat_id=update.callback_query.message.chat_id,
+                        message_id=update.callback_query.message.message_id, )
+                    context.bot.send_message(chat_id=user_id, text=f"Hi,{user_name} your request was approved!")
+                else:
+                    Users(user_id=int(user_id), username=user_name, role=1).save()
+                    context.bot.edit_message_text(
+                        text=f"{user_name} was added as an admin!",
+                        chat_id=update.callback_query.message.chat_id,
+                        message_id=update.callback_query.message.message_id, )
+                    context.bot.send_message(chat_id=user_id, text=f"Hi,{user_name} your request was approved!")
+
         elif text.startswith('deny'):
             user_id = text.split('+')[1]
             context.bot.edit_message_text(

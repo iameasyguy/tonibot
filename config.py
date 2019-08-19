@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 TOKEN= "446208686:AAEAXxYBPVVrsC9B3cUJkSdwRalCEwOYEIs"
 BOT_USERNAME = "easyguy_bot"
@@ -8,9 +8,8 @@ ADMINS ={"Iameasyguy":"214196949","UnuaLibro":"865996339"}
 LANGUAGES = ["English", "Arabic", "Spanish", "German", "Portuguese", "Italian", "Romanian", "French","Polish"]
 LIST ={}
 CHANCE ={}
-HUNTERS=2
-MAX = 3
-RANK1=3
+HUNTERS=5
+MAX = 40
 CRIME =887959931
 NOCHANCE="⛔ *You already exhausted your chances. Wait for the next hunt!*"
 CONGRATS = "🥇 *Congratulations {}, you won this hunt* ❗"
@@ -31,6 +30,7 @@ RANKS ={1:"🎖FOLLOWER❗️",2:"🎖APPRENTICE❗️",3:"🎖INSTRUCTOR❗️"
 ACHIEVE = {"follower":{"messages":50,"points":20},"apprentice":{"messages":300,"points":30},
            "instructor":{"messages":1000,"points":250},"master":{"messages":4000,"points":6000},
            "titan":{"messages":1000,"points":12000}}
+
 LOGOS ={"follower":"AgADBAADirExG3V2yFILYvBjJD_pEFF2qBsABAEAAwIAA3cAA9JCAQABFgQ",
         "apprentice":"AgADBAADi7ExG3V2yFIDfZzGykJT06hBqBsABAEAAwIAA3cAA3hBAQABFgQ",
         "instructor":"AgADBAADjLExG3V2yFIDf0SaHA_29RpIqBsABAEAAwIAA3cAA49CAQABFgQ",
